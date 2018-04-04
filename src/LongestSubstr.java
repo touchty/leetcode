@@ -21,7 +21,7 @@ public class LongestSubstr {
     public int lengthOfLongestSubstringSet(String s){
         if (s.length() == 0) return 0;
         int ans = 0, i = 0, j = 0;
-        Set<Character> set = new HashSet<>();
+        Set<Character> set = new HashSet<Character>();
 
         while (i < s.length() && j < s.length()){
             if (!set.contains(s.charAt(j))){

@@ -10,7 +10,7 @@ public class WordBreakII {
             return map.get(s);*/
 
         int len = s.length();
-        List<String> ret = new ArrayList<>();
+        List<String> ret = new ArrayList<String>();
         if(wordDict.contains(s))
             ret.add(s);
         for(int i=1;i<len;i++){
