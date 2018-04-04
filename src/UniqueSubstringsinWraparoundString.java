@@ -8,6 +8,7 @@ public class UniqueSubstringsinWraparoundString {
         int maxLengthCur = 0;
 
         for (int i = 0; i < p.length(); i++) {
+            // ab || za
             if (i > 0 && (p.charAt(i) - p.charAt(i - 1) == 1 || (p.charAt(i - 1) - p.charAt(i) == 25))) {
                 maxLengthCur++;
             }
@@ -26,13 +27,4 @@ public class UniqueSubstringsinWraparoundString {
         }
         return sum;
     }
-
-    /*@Test
-    public void uniqueSubStrTest(){
-        UniqueSubstringsinWraparoundString uss = new UniqueSubstringsinWraparoundString();
-        String p = "abcdbcd";
-        int result = uss.findSubstringInWraproundString(p);
-        Assert.assertTrue(result == 4);
-    }*/
 }
-
