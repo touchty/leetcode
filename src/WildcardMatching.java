@@ -1,3 +1,6 @@
+import org.junit.Assert;
+import org.junit.Test;
+
 public class WildcardMatching {
     public boolean isMatch(String s, String p) {
         boolean[][] match=new boolean[s.length()+1][p.length()+1];
@@ -43,10 +46,24 @@ public class WildcardMatching {
                     dp[i][j] = dp[i-1][j-1] && (s.charAt(i-1)==p.charAt(j-1) || p.charAt(j-1)=='?');
                 } else {
                     dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                    // dp[i-1][j] : “*” counts for multi case
+                    // dp[i][j - 1] : "*" count for empty
                 }
             }
         }
         return dp[m][n];
+    }
+
+    public static void main(String[] args) {
+        WildcardMatching wm = new WildcardMatching();
+        String s = "aaa", p = "aa";
+        boolean isMatch = wm.isMatch_2d_method(s,p);
+        org.junit.Assert.assertTrue(!isMatch);
+
+        s = "aa";
+        p = "*";
+        isMatch = wm.isMatch_2d_method(s, p);
+        Assert.assertTrue(isMatch);
     }
 }
 
