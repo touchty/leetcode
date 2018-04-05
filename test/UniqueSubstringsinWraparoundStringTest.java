@@ -30,6 +30,8 @@ public void testFindSubstringInWraproundString() throws Exception {
     UniqueSubstringsinWraparoundString us = new UniqueSubstringsinWraparoundString();
     String p = "azzaazzaa";  // a z za
     int sum = us.findSubstringInWraproundString(p);
+    int sumRe = us.findSubstringInWraproundStringRe(p);
     Assert.assertTrue(sum == 3);
+    Assert.assertTrue(sumRe == 3);
 }
 } 
