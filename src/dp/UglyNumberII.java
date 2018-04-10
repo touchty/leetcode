@@ -8,10 +8,10 @@ public class UglyNumberII {
         //  definition ugly[0] = 1
         ugly[0] = 1;
 
-        //  L_2: 1x2 2x2 3x2 4x2 5 6 8 9 10 12
-        //  L_3: 1x3 2x3 3x3 4x3 5 6 8 9 10 12
-        //  L_5: 1x5 2x5 3x5 4x5 5 6 8 9 10 12
-        //
+        //  L_2: 1x2 2x2 3x2 4x2 5 6 8 9 10 12 (factor2)
+        //  L_3: 1x3 2x3 3x3 4x3 5 6 8 9 10 12 (factor3)
+        //  L_5: 1x5 2x5 3x5 4x5 5 6 8 9 10 12 (factor5)
+        //       1   2   3   4   5 6 .............is the ugly sequence
         int index2 = 0, index3 = 0, index5 = 0;
 
         //  update factor(i) to the next higher number
