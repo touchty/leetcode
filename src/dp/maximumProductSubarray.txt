@@ -1,0 +1,13 @@
+very nice . I guess a bit of more explanation would help people understand:
+this is very similar to the " max cumulative sum subarray" problem.
+here you keep 2 values: the max cumulative product UP TO current
+element starting from SOMEWHERE in the past, and the minimum cumuliative
+ product UP TO current element . it would be easier to see the DP
+ structure if we store these 2 values for each index, like maxProduct[i],
+ minProduct[i] .
+at each new element, u could either add the new element to the existing
+product, or start fresh the product from current index (wipe out previous results),
+hence the 2 Math.max() lines.
+if we see a negative number, the “candidate” for max should instead become the
+previous min product, because a bigger number multiplied by negative becomes
+smaller, hence the swap()
