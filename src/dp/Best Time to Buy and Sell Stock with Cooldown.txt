@@ -1,0 +1,12 @@
+This is a great thinking process.
+Actually, I was also initially confused by the buy[i] and sell[i] definitions as many posted here.
+Actually, I think it is clear to just look at the simplified equations without rest state (which does not impact profit anyway)
+buy[i] = max(sell[i-2]-price, buy[i-1])
+sell[i] = max(buy[i-1]+price, sell[i-1])
+Now the definitions are clear.
+buy[i] is the max profit up to day i with buy as last action;
+sell[i] is the max profit up to day i with sell as last action.
+Note that rest is not considered as an action, and the last action could happen in any day up to day i. Therefore, it is natural to say for buy[i], if the last buy didn’t happen on day i, max profit is simply buy[i-1]; otherwise, a sell must happen at least 2 days ago (and no actions in between), so sell[i-2]-price.
+And if we generalize the problem to have k cool down days:
+buy[i] = max(sell[i-k-1]-price, buy[i-1])
+sell[i] = max(buy[i-1]+price, sell[i-1])
