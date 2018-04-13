@@ -18,21 +18,21 @@ public class CoinChange {
 
     public int coinChangeRewrite(int[] coins, int amount){
         int[] dp = new int[amount + 1];
+
         Arrays.sort(coins);
 
         Arrays.fill(dp, amount + 1);
+
+        dp[0] = 0;
 
         for (int i = 0; i < coins.length; i++) {
             for (int j = 0; j <= amount; j++) {
                 //  amount j may be split into coins
                 if (coins[i] <= j)
-                    dp[j] = Math.min(dp[j], dp[j - coins[i]]);
+                    dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
             }
         }
-        if (dp[amount] == amount)
-            return dp[amount];
-        else
-            return -1;
+        return dp[amount] > amount ? -1 : dp[amount];
     }
 
     public int coinChangeR1(int[] coins, int amount) {
