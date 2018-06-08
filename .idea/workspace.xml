@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="604f5458-49ac-440d-aeeb-849684bdcece" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Minesweeper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/deepFirst/Minesweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Minesweeper.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,20 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Minesweeper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
+      <file leaf-file-name="Minesweeper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/deepFirst/Minesweeper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="24" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="55" column="6" lean-forward="true" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+            <state relative-caret-position="460">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -148,8 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/JunitTest.java" />
-        <option value="$PROJECT_DIR$/src/bst/CountofSmallerNumbersAfterSelf.java" />
         <option value="$PROJECT_DIR$/test/bst/FallingSquaresTest.java" />
         <option value="$PROJECT_DIR$/src/bst/FallingSquares.java" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -199,6 +189,8 @@
         <option value="$PROJECT_DIR$/src/deepFirst/PopulatingNextRightPointersInEachNodeII.java" />
         <option value="$PROJECT_DIR$/src/deepFirst/PacificAtlanticWaterFlow.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Minesweeper.java" />
+        <option value="$PROJECT_DIR$/src/deepFirst/Minesweeper.java" />
       </list>
     </option>
   </component>
@@ -266,6 +258,17 @@
               <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
               <item name="leetcode" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="leetcode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="deepFirst" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -286,18 +289,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="deepFirst" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="deepFirst" />
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\touchty\IdeaProjects\leetcode\libs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="broadfirstsearch" />
       <recent name="deepFirst" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\touchty\IdeaProjects\leetcode\libs" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="deepFirst" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -523,7 +527,7 @@
       <workItem from="1528201503498" duration="2868000" />
       <workItem from="1528282561795" duration="447000" />
       <workItem from="1528385051668" duration="171000" />
-      <workItem from="1528443811144" duration="1588000" />
+      <workItem from="1528443811144" duration="4171000" />
     </task>
     <task id="LOCAL-00001" summary="Commit from win7 idea">
       <created>1523518082700</created>
@@ -792,7 +796,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150346000" />
+    <option name="totallyTimeSpent" value="152929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-9" width="1864" height="1098" extended-state="6" />
@@ -1209,6 +1213,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="55" column="6" lean-forward="true" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1227,17 +1238,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Minesweeper.java">
+    <entry file="file://$PROJECT_DIR$/src/deepFirst/Minesweeper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="55" column="6" lean-forward="true" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        <state relative-caret-position="460">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
         </state>
       </provider>
     </entry>
