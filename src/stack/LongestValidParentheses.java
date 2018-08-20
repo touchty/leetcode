@@ -35,6 +35,7 @@ public class LongestValidParentheses {
 
     /**
      * non stack
+     *
      * @param s
      */
     public static int longestValidParenthesesOpt(String s) {
@@ -45,13 +46,12 @@ public class LongestValidParentheses {
             else if (s.charAt(i) == ')' && s.charAt(i - 1) == '(') {
                 if (i > 1) longest[i] = longest[i - 2] + 2;
                 else longest[i] = 2;
-            }
-            else {
+            } else {
                 // ( ... ) i and i - longest[i-1] - 1 must match
-                if (i >= longest[i - 1] + 1 && s.charAt(i - longest[i-1] - 1) == '('){
-                    longest[i] = longest[i-1] + 2;
+                if (i >= longest[i - 1] + 1 && s.charAt(i - longest[i - 1] - 1) == '(') {
+                    longest[i] = longest[i - 1] + 2;
                     if (i >= longest[i - 1] + 2)
-                        longest[i] += longest[i - longest[i-1] - 2];
+                        longest[i] += longest[i - longest[i - 1] - 2];
                 }
             }
             max = Math.max(max, longest[i]);
@@ -60,7 +60,7 @@ public class LongestValidParentheses {
     }
 
     public static void main(String[] args) {
-        String str  = ")()())";
+        String str = ")()())";
         int result = LongestValidParentheses.longestValidParentheses(str);
         System.out.println(result);
 
