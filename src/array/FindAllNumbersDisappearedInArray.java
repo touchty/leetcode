@@ -17,6 +17,8 @@ public class FindAllNumbersDisappearedInArray {
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] > 0) {
                 ret.add(i+1);
+            }else{
+                nums[i] = -1 * nums[i];
             }
         }
         return ret;
