@@ -1,5 +1,8 @@
 package array;
 
+/**
+ * https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80146/Real-iterator-in-Python-Java-C++
+ */
 public class ValidPalindrome {
     public boolean isPalindromeOpt(String s) {
         String actual = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
