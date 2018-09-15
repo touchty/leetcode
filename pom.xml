@@ -44,6 +44,12 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>edu.princeton.cs</groupId>
+            <artifactId>algs4</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/libs/algs4.jar</systemPath>
+        </dependency>
 
     </dependencies>
 </project>
