@@ -4,7 +4,7 @@ import java.util.*;
 
 public class NumberOfAtoms {
     public static String countOfAtoms(String formula) {
-        Stack<Map<String,Integer>> stack= new Stack<>();
+        Deque<Map<String,Integer>> stack= new LinkedList<>();
         Map<String,Integer> map= new HashMap<>();
         int i=0,n=formula.length();
         while(i<n){
