@@ -1,6 +1,5 @@
 package array;
 
-import javafx.beans.binding.StringBinding;
 import linkedList.PalindromeLinkedList;
 
 import java.util.ArrayList;

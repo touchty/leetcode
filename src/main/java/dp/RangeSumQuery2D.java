@@ -1,7 +1,5 @@
 package dp;
 
-import javafx.scene.transform.MatrixType;
-
 public class RangeSumQuery2D {
     private int[][] dp;
 

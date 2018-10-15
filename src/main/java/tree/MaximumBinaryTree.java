@@ -1,7 +1,5 @@
 package tree;
 
-import sun.reflect.generics.tree.Tree;
-
 /**
  * Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
  *
