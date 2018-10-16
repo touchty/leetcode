@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 import edu.princeton.cs.algs4.Complex;
 import edu.princeton.cs.algs4.FFT;
@@ -17,5 +18,10 @@ public class Hello {
 
         for (Complex c : fft)
             System.out.println(c);
+        aMethod();
+    }
+    public static void aMethod(){
+        var name = "Java 10";
+        System.out.println(name);
     }
 }
