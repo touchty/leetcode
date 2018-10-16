@@ -18,10 +18,10 @@ public class Hello {
 
         for (Complex c : fft)
             System.out.println(c);
-        aMethod();
+        /*aMethod();*/
     }
-    public static void aMethod(){
+    /*public static void aMethod(){
         var name = "Java 10";
         System.out.println(name);
-    }
+    }*/
 }
