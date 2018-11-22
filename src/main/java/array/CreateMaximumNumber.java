@@ -55,8 +55,25 @@ public class CreateMaximumNumber {
             else if (digits1[i] < digits2[j])
                 res[pos++] = digits2[j++];
             else { // figure out which array's next digit is greater!
-                for(int p = i, q = j; p < digits1.length && q < digits2.length; p++, q++) {
-                    if (digits1[p] > digits2[q])
+                boolean assigned = false;
+                for(int p = i+1, q = j+1; p < digits1.length && q < digits2.length; p++, q++) {
+                    if (digits1[p] > digits2[q]) {
+                        res[pos++] = digits1[i++];
+                        assigned = true;
+                        break;
+                    }
+                    else if (digits1[p] < digits2[q]) {
+                        res[pos++] = digits2[j++];
+                        assigned = true;
+                        break;
+                    }
+                    else {
+                        p++;
+                        q++;
+                    }
+                }
+                if (!assigned) {
+                    res[pos++] = digits1[i++]; // or res[pos++] = digits2[j++], no difference
                 }
 
             }
@@ -91,5 +108,8 @@ public class CreateMaximumNumber {
         nums2 = new int[]{6, 0, 4};
         k = 5;
         System.out.println(createMaximumNumber.maxNumber(nums1, nums2, k));
+
+        /*int maxCombining = createMaximumNumber.maxCombining(new int[]{6, 7}, new int[]{6, 0, 4});
+        System.out.println(maxCombining);*/
     }
 }
