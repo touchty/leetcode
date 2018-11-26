@@ -8,7 +8,7 @@ package unionFind;
  *
  * Example 1:
  * Input: row = [0, 2, 1, 3]
- * Output: 1
+ * Output: 1b
  * Explanation: We only need to swap the second (row[1]) and third (row[2]) person.
  * Example 2:
  * Input: row = [3, 2, 0, 1]
