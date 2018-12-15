@@ -47,8 +47,9 @@
         <dependency>
             <groupId>edu.princeton.cs</groupId>
             <artifactId>algs4</artifactId>
+            <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/libs/algs4.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/libs/algs4.jar</systemPath>
         </dependency>
 
     </dependencies>

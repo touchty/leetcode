@@ -1,3 +1,5 @@
+package algorithms;
+
 class AddDigits{
     public int addDigits(int num) {
         while (num >= 10) {

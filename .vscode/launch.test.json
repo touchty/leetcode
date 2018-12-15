@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "leetcode",
+                "projectName": "leetcode",
+                "workingDirectory": "/home/shark/Documents/leetcode",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "leetcode",
+                "projectName": "leetcode",
+                "workingDirectory": "/home/shark/Documents/leetcode",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
