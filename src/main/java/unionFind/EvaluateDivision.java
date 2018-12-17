@@ -55,7 +55,10 @@ public class EvaluateDivision {
         String p1 = find(parent, ratio, s1);
         String p2 = find(parent, ratio, s2);
         parent.put(p1, p2);
-        ratio.put(p1, val * ratio.get(s2) / ratio.get(s1));
+        //ratio p1 vs p2
+        // s1 / s2 = val
+        // (1 / ratio.get(s1)) ---- p1
+        ratio.put(p1, val * ratio.get(s2) * (1 / ratio.get(s1)));
     }
 
     private String find(Map<String, String> parent, Map<String, Double> ratio, String s) {
@@ -77,10 +80,11 @@ public class EvaluateDivision {
         /
        d 24.0
      */
+
     public static void main(String[] args) {
-        String[][] equations = {{"a", "b"}, {"b", "c"}, {"d", "a"}};
-        double[] values = {2.0, 3.0, 4.0};
-        String[][] queries = {{"a", "c"}};
+        String[][] equations = {{"a", "b"}, {"b", "c"}, {"d", "a"}, {"f", "e"}, {"e", "d"}};
+        double[] values = {2.0, 3.0, 4.0, 7, 2};
+        String[][] queries = {{"f", "c"}};
         double[] ratios = new EvaluateDivision().calcEquation(equations, values, queries);
         for (double ratio : ratios) {
             System.out.println(ratio);
