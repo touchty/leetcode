@@ -66,6 +66,8 @@ public class PalindromePairs {
                 root.next[j] = new TrieNode();
             }
 
+            // 1. each word has a suffix represented by the current TrieNode; 2. the rest of
+            // the word forms a palindrome.
             if (isPalindrome(word, 0, i)) {
                 root.list.add(index);
             }
@@ -103,12 +105,13 @@ public class PalindromePairs {
 
     public static void main(String[] args) {
         String[] words = {"abb", "bba"};
-        List<List<Integer>> pairs = new PalindromePairs().palindromePairs(words);
-        for (List<Integer> pair : pairs) {
-            //System.out.println(pair);
-        }
+        List<List<Integer>> pairs;
+        //pairs = new PalindromePairs().palindromePairs(words);
+//        for (List<Integer> pair : pairs) {
+//            //System.out.println(pair);
+//        }
 
-        words = new String[]{"abcd","dcba","lls","s","sssll"};
+        words = new String[]{"abc", "defcba"};
         pairs = new PalindromePairs().palindromePairs(words);
         Collections.sort(pairs, Comparator.comparingInt(a -> a.get(0)));
         for (List<Integer> pair : pairs) {
