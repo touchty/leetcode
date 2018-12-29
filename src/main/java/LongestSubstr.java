@@ -52,6 +52,5 @@ public class LongestSubstr {
         LongestSubstr l = new LongestSubstr();
         int max = l.lengthOfLongestSubstringAscii("pwwkew");
         System.out.println(max);
-        assert false;
     }
 }
