@@ -28,6 +28,8 @@ public class AdditiveNumber {
     public boolean isAdditiveNumber(String num) {
         int n = num.length();
         for (int i = 1; i <= n / 2; ++i)
+            // i -- length of x1
+            // j -- length of x2
             for (int j = 1; Math.max(j, i) <= n - i - j; ++j)
                 if (isValid(i, j, num)) return true;
         return false;
