@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ReverseNodesInKGroup",
+            "request": "launch",
+            "mainClass": "linkedList.ReverseNodesInKGroup",
+            "projectName": "leetcode"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - SmallestRange",
             "request": "launch",
             "cwd": "${workspaceFolder}",
