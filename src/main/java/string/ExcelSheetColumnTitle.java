@@ -50,6 +50,27 @@ public class ExcelSheetColumnTitle {
     public static String convertToTitleOpt(int n) {
         return n == 0 ? "" : convertToTitle(--n / 26) + (char)('A' + (n % 26));
     }
+
+    /*
+    这道题目的本质是求一个整数的26进制数，但是和普通的26进制所不同之处在于它是1-based的而不是0-based的。因此，
+    我们需要首先执行--n，将最低位变成0-based，然后进行转换，在转换之后，又需要执行（remain + 65）将最低位转换为1-based的。
+    在最低位处理完成之后，再用（n/26）计算次低位，直到处理完成所有的位数。
+
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string ret;
+        int remain = 0;
+    	do {
+    		remain = (--n) % 26;
+    		ret.push_back(remain + 65);
+    		n /= 26;
+    	} while(n > 0);
+    	reverse(ret.begin(), ret.end());
+    	return ret;
+    }
+     */
+
     public static void main(String[] args) {
         int n = 28;
         String res = ExcelSheetColumnTitle.convertToTitleOpt(n);
