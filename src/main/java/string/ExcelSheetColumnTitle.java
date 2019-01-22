@@ -46,9 +46,13 @@ public class ExcelSheetColumnTitle {
         }
         return res;
     }
+
+    public static String convertToTitleOpt(int n) {
+        return n == 0 ? "" : convertToTitle(--n / 26) + (char)('A' + (n % 26));
+    }
     public static void main(String[] args) {
         int n = 28;
-        String res = ExcelSheetColumnTitle.convertToTitle(n);
+        String res = ExcelSheetColumnTitle.convertToTitleOpt(n);
         System.out.println(res);
     }
 }
