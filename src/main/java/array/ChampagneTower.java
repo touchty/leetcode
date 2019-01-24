@@ -33,14 +33,14 @@ public class ChampagneTower {
                 res[i+1] += res[i];
             }
             /*
-            res[row] = Math.max(0.0, (res[row]-1)/2);
-            res[row+1] += res[row];
+            res[0] = Math.max(0.0, (res[0]-1)/2);
+            res[1] += res[0];
 
-            res[row - 1] = Math.max(0.0, (res[row - 1]-1)/2);
-            res[row] += res[row - 1];
+            res[1] = Math.max(0.0, (res[row]-1)/2);
+            res[2] += res[1];
 
-            res[row - 2] = Math.max(0.0, (res[row - 2]-1)/2);
-            res[row - 1] += res[row - 2];
+            res[0] = Math.max(0.0, (res[0]-1)/2);
+            res[1] += res[0];
              */
 
         return Math.min(res[query_glass], 1.0);
