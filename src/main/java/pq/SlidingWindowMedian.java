@@ -37,7 +37,9 @@ Window position                Median
 Therefore, return the median sliding window as [1,-1,-1,3,5,6].
  */
 public class SlidingWindowMedian {
+    // large number
     PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+    // small number
     PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(
             Comparator.reverseOrder()
     );
@@ -61,17 +63,10 @@ public class SlidingWindowMedian {
     }
 
     private void add(int num) {
-        if (num < getMedian()) {
-            maxHeap.add(num);
-        }
-        else {
-            minHeap.add(num);
-        }
+        minHeap.add(num);
+        maxHeap.add(minHeap.poll());
         if (maxHeap.size() > minHeap.size()) {
             minHeap.add(maxHeap.poll());
-        }
-        if (minHeap.size() - maxHeap.size() > 1) {
-            maxHeap.add(minHeap.poll());
         }
     }
 
@@ -99,5 +94,13 @@ public class SlidingWindowMedian {
         else {
             return (double)minHeap.peek();
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1,2,3,4,5,6};
+        SlidingWindowMedian slidingWindowMedian = new SlidingWindowMedian();
+        double[] res = slidingWindowMedian.medianSlidingWindow(nums, 4);
+        for (double m : res)
+            System.out.println(m);
     }
 }
