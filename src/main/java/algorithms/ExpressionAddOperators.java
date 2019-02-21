@@ -112,6 +112,19 @@ public class ExpressionAddOperators {
         }
 
         // result and tail are for evaluating +-*/ on the fly.
+
+        /**
+         *
+         * @param results List storing all possible string
+         * @param nums initial number sequence
+         * @param n length of the nums
+         * @param i start point of next number
+         * @param target target number
+         * @param chars possible res after inserting
+         * @param j position of the possible string after inserting
+         * @param result existing calculating result
+         * @param tail previous number
+         */
         void helper(List<String> results, char[] nums, int n, int i, long target,
                     char[] chars, int j, long result, long tail) {
             if (i == n) {
@@ -119,6 +132,7 @@ public class ExpressionAddOperators {
                     results.add(String.valueOf(chars, 0, j));
                 }
             } else {
+                // after inserting : "result + tail (chars[op]) value"
                 long value = 0;
                 for (int op = j++, k = i; k < n; ++k) { // save the position for operator.
                     value = value * 10 + nums[k] - '0';
@@ -138,6 +152,10 @@ public class ExpressionAddOperators {
     }
 
     public static void main(String[] args) {
-
+        String num = "123";
+        int target = 6;
+        ExpressionAddOperators operators = new ExpressionAddOperators();
+        List<String> list = operators.addOperators(num, target);
+        System.out.println(list);
     }
 }
