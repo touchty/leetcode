@@ -51,7 +51,7 @@ Integers    Mask      Modified Integer
  8 = 01000 & 10000 =  00000
 --------------------------------------
 DesiredResult = Result | (1 << 4) = 10000
-DesiredResult ^ 00000 = 10000 <- which is available in array. stop!
+DesiredResult ^ 00000 = 10000 <- which is available in array. stop! (DesiredResult = 00000 ^ 10000)
 Result = DesiredResult = 10000
 
 For position 3,
@@ -151,9 +151,32 @@ public class MaximumXOROfTwoNumbersInAnArray {
         }
         return max;
     }
+
+    /*
+    Suppose A <= C <= B
+
+Then either A XOR C or C XOR B are smaller than A XOR B
+
+Proof:
+
+Let
+
+A=169, B=187, C=185
+
+A= 160 = 1010 1001
+B= 187 = 1011 1011
+C= 185 = 1011 1001
+
+Let i be the leftmost (biggest) index such that A[i] differs from B[i]. There are 2 cases now:
+1) C[i] = A[i] = 0,
+then (A XOR C)[i] = 0 and (A XOR B)[i] = 1
+This implies (A XOR C) < (A XOR B)
+2) C[i] = B[i] = 1,
+then (B XOR C)[i] = 0 and (A XOR B)[i] = 1
+This implies (B XOR C) < (A XOR B)
+     */
     // Function to find minimum XOR pair
-    static int minXOR(int arr[], int n)
-    {
+    static int minXOR(int arr[], int n) {
         // Sort given array
         Arrays.parallelSort(arr);
 
@@ -171,30 +194,28 @@ public class MaximumXOROfTwoNumbersInAnArray {
 
     // Utility function to check number of elements
     // having set msb as of pattern
-    static int checkBit(int pattern, int arr[], int n)
-    {
+    static int checkBit(int pattern, int arr[], int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
             if ((pattern & arr[i]) == pattern)
                 count++;
         return count;
     }
+
     // Function for finding maximum and value pair
-    static int maxAND (int arr[], int n)
-    {
+    static int maxAND(int arr[], int n) {
         int res = 0, count;
 
         // iterate over total of 30bits
         // from msb to lsb
-        for (int bit = 31; bit >= 0; bit--)
-        {
+        for (int bit = 31; bit >= 0; bit--) {
             // find the count of element
             // having set msb
             count = checkBit(res | (1 << bit), arr, n);
 
             // if count >= 2 set particular
             // bit in result
-            if ( count >= 2 )
+            if (count >= 2)
                 res |= (1 << bit);
         }
 
