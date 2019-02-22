@@ -33,6 +33,10 @@ Input: nums = [1,2,2], n = 5
 Output: 0
  */
 
+import org.junit.Assert;
+
+import javax.sound.midi.Patch;
+
 /*
 Solution:
 Explanation
@@ -53,14 +57,25 @@ public class PatchingArray {
     public int minPatches(int[] nums, int n) {
         long miss = 1;
         int i = 0, added = 0;
-        while(miss <= n){
+        while (miss <= n) {
+            // existing range [0,miss)
             if (i < nums.length && nums[i] <= miss) {
+                // new range: [0,miss + nums[i++])
                 miss += nums[i++];
-            }else {
+            } else {
                 miss += miss;
                 added++;
             }
         }
         return added;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 4, 13, 43};
+        int n = 100;
+        PatchingArray patchingArray = new PatchingArray();
+        int res = patchingArray.minPatches(nums, n);
+        int expected = 2;
+        Assert.assertEquals(expected, res);
     }
 }
