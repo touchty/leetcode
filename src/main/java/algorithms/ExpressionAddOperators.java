@@ -67,7 +67,7 @@ public class ExpressionAddOperators {
     }
 
 
-    class SolutionOpt {
+    static class SolutionOpt {
         // check out [227. Basic Calculator II] first before this one
         //   for how to evaluate +-*/ using just the result and the tail variables.
         // this problem needs to evaluate the expression during backtracking.
@@ -90,16 +90,17 @@ public class ExpressionAddOperators {
         // --------------------------------
         // !!! tricky cases: empty num; leading 0 of a number; overflow.
         //
-        public List<String> addOperators(String num, int target) { // handles empty num.
+        public static List<String> addOperators(String num, int target) { // handles empty num.
             List<String> result = new ArrayList<>();
             char[] nums = num.toCharArray();
             int n = nums.length;
-            char[] chars = new char[n + n]; // at most n-1 operators to insert.
+            char[] chars = new char[n + n]; // at most n-1 operators to insert. (n may be zero. so cannot be n + n - 1)
             // try every possible number starting from 0.
             // since no operator is allowed for this number,
             //   or only a virtual + is allowed,
             // code it separately here.
             long value = 0; // avoid overflow.
+            // j : length of string after inserting operators
             for (int j = 0, i = 0; i < n; ++i) {
                 value = value * 10 + nums[i] - '0';
                 chars[j++] = nums[i];
@@ -121,11 +122,11 @@ public class ExpressionAddOperators {
          * @param i start point of next number
          * @param target target number
          * @param chars possible res after inserting
-         * @param j position of the possible string after inserting
+         * @param j position of the possible string after inserting one of three operators
          * @param result existing calculating result
          * @param tail previous number
          */
-        void helper(List<String> results, char[] nums, int n, int i, long target,
+        static void helper(List<String> results, char[] nums, int n, int i, long target,
                     char[] chars, int j, long result, long tail) {
             if (i == n) {
                 if (result + tail == target) {
@@ -152,10 +153,11 @@ public class ExpressionAddOperators {
     }
 
     public static void main(String[] args) {
-        String num = "123";
-        int target = 6;
+        String num = "";
+        int target = 5;
         ExpressionAddOperators operators = new ExpressionAddOperators();
-        List<String> list = operators.addOperators(num, target);
-        System.out.println(list);
+        //List<String> list = operators.addOperators(num, target);
+        List<String> res = SolutionOpt.addOperators(num, target);
+        System.out.println(res);
     }
 }
