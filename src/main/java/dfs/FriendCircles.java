@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 public class FriendCircles {
     private void dfs(int[][] M, int i) {

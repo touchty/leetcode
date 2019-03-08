@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 public class ConstructBinaryTreefromPreorderandInorderTraversal {
     private int in = 0;

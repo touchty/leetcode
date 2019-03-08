@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 /*
 733. Flood Fill

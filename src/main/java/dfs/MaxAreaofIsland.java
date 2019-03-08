@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 /*
 * The idea is to count the area of each island using dfs. During the dfs, we set the value of each point
