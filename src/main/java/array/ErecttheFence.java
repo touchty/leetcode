@@ -21,6 +21,9 @@ Example 1:
 
 Input: [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
 Output: [[1,1],[2,0],[4,2],[3,3],[2,4]]
+
+Solution:
+Graham scan
  */
 public class ErecttheFence {
     static class Point {
@@ -86,34 +89,24 @@ public class ErecttheFence {
         return (y2 * x1 - y1 * x2);
     }
 
-    public static void main(String[] args) {
-        int[][] points = {{1, 1}, {2, 2}, {2, 0}, {2, 4}, {3, 3}, {4, 2}};
-        Point[] points1 = new Point[points.length];
-        for (int i = 0; i < points.length; i++) {
-            int[] point = points[i];
-            Point p = new Point(point[0], point[1]);
-            points1[i] = p;
-        }
-        ErecttheFence fence = new ErecttheFence();
-        List<Point> res = fence.outerTrees(points1);
-        for (Point p : res) {
-            System.out.println("x:" + p.x + " y:" + p.y);
-        }
+    int ccw(Point a, Point b, Point c) {
+        return a.x * b.y - a.y * b.x + b.x * c.y - b.y * c.x + c.x * a.y - c.y * a.x;
     }
 
+
     //https://leetcode.com/problems/erect-the-fence/discuss/103302/Java-Graham-scan-with-adapted-sorting-to-deal-with-collinear-points
-    public class Solution {
+    public static class Solution {
 
         public List<Point> outerTrees(Point[] points) {
             if (points.length <= 1)
                 return Arrays.asList(points);
             sortByPolar(points, bottomLeft(points));
             Stack<Point> stack = new Stack<>();
-            stack.push(points[0]);
-            stack.push(points[1]);
+            stack.push(points[0]); // previous point
+            stack.push(points[1]); // current point
             for (int i = 2; i < points.length; i++) {
                 Point top = stack.pop();
-                while (ccw(stack.peek(), top, points[i]) < 0)
+                while (ccw(stack.peek(), top, points[i]) < 0) // throw off top
                     top = stack.pop();
                 stack.push(top);
                 stack.push(points[i]);
@@ -121,7 +114,7 @@ public class ErecttheFence {
             return new ArrayList<>(stack);
         }
 
-        private  Point bottomLeft(Point[] points) {
+        private Point bottomLeft(Point[] points) {
             Point bottomLeft = points[0];
             for (Point p : points)
                 if (p.y < bottomLeft.y || p.y == bottomLeft.y && p.x < bottomLeft.x)
@@ -130,9 +123,11 @@ public class ErecttheFence {
         }
 
         /**
+         * vector: a->b and a->c
+         *
          * @return positive if counter-clockwise, negative if clockwise, 0 if collinear
          */
-        private int ccw(Point a, Point b, Point c) {
+        int ccw(Point a, Point b, Point c) {
             return a.x * b.y - a.y * b.x + b.x * c.y - b.y * c.x + c.x * a.y - c.y * a.x;
         }
 
@@ -160,6 +155,35 @@ public class ErecttheFence {
                 points[l] = points[h];
                 points[h] = tmp;
             }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[][] points = {{1, 1}, {2, 2}, {2, 0}, {2, 4}, {3, 3}, {4, 2}};
+        Point[] points1 = new Point[points.length];
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            Point p = new Point(point[0], point[1]);
+            points1[i] = p;
+        }
+        ErecttheFence fence = new ErecttheFence();
+        List<Point> res = fence.outerTrees(points1);
+        System.out.println("Result: ");
+        for (Point p : res) {
+            System.out.println("x:" + p.x + " y:" + p.y);
+        }
+
+        Solution s = new ErecttheFence.Solution();
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            Point p = new Point(point[0], point[1]);
+            points1[i] = p;
+        }
+        List<Point> resOpt = s.outerTrees(points1);
+        System.out.println("Result: ");
+        for (Point p : resOpt) {
+            System.out.println("x:" + p.x + " y:" + p.y);
         }
     }
 }
