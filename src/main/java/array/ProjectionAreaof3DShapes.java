@@ -39,20 +39,32 @@ Here are the three projections ("shadows") of the shape made with each axis-alig
 public class ProjectionAreaof3DShapes {
     public static int projectionArea(int[][] grid) {
         int res = 0, n = grid.length;
+        // yz projection area
         for (int i = 0, v = 0; i < n; ++i, res += v, v = 0)
             for (int j = 0; j < n; ++j)
                 v = Math.max(v, grid[i][j]);
+        //  xz projection area
         for (int j = 0, v = 0; j < n; ++j, res += v, v = 0)
             for (int i = 0; i < n; ++i)
                 v = Math.max(v, grid[i][j]);
+        // xy bottom area
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
                 if (grid[i][j] > 0) res++;
         return res;
     }
-
     public static void main(String[] args) {
-        int[][] grid = {{2}};
+        /*
+        y
+        ^
+        |
+        |
+        |1|0|
+        |2|0|____________________> x
+         */
+
+
+        int[][] grid = {{2, 0},{1, 0}};
         System.out.println(projectionArea(grid));
     }
 }
