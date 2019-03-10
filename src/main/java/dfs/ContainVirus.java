@@ -135,8 +135,6 @@ public class ContainVirus {
             ans += dfs(grid, visited, x, y, color, walls);  // sum all zero point.
         }
         return ans;
-
-
     }
 
     private void removeIsland(int[][] grid, int r, int c) {
