@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 import java.util.LinkedList;
 import java.util.List;

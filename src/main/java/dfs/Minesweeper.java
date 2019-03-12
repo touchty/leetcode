@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 public class Minesweeper {
     public char[][] updateBoard(char[][] board, int[] click) {

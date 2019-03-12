@@ -1,4 +1,4 @@
-package deepFirst;
+package dfs;
 
 class TreeNode {
     int val;
