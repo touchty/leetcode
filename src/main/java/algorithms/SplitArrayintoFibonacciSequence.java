@@ -66,9 +66,11 @@ public class SplitArrayintoFibonacciSequence {
             if (size <= 1 || num == ans.get(size - 1) + ans.get(size - 2)) {
                 ans.add((int) num);
                 // branch pruning. if one branch has found fib seq, return true to upper call
+                // recursive function call
                 if (helper(s, ans, i + 1)) {
                     return true;
                 }
+                // invalid answer, thus removing the last value.
                 ans.remove(ans.size() - 1);
             }
         }
