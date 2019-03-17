@@ -58,7 +58,7 @@ Output:
 public class PrintBinaryTree {
     public List<List<String>> printTree(TreeNode root) {
         int depth = depth(root);
-        int width = (int) (Math.pow(2, depth) - 1);
+        int width = (int) (Math.pow(2, depth) - 1); // every line should be of the length of all elements
         List<List<String>> res = new ArrayList<>();
 
         for (int i = 0; i < depth; i++) {
