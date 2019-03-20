@@ -1,5 +1,7 @@
 package pq;
 
+import edu.princeton.cs.algs4.Heap;
+
 import java.util.Arrays;
 
 public class MinHeap {
@@ -29,7 +31,7 @@ public class MinHeap {
         while (2 * k <= n) {
             int j = 2 * k;
             while (j < n && array[j] > array[j + 1]) j++;
-            if (array[j] <= array[k]) break;
+            if (array[j] >= array[k]) break;
             swap(array, k, j);
             k = j;
         }
@@ -55,9 +57,9 @@ public class MinHeap {
             n--;
             sink(arr, 1, n);
         }
-        int[] res = Arrays.copyOf(arr, N);
+        int[] res = Arrays.copyOfRange(arr, 1, N + 1);
         N = 0;
-        arr = new int[0];
+        arr = new int[1];
         return res;
     }
 
@@ -67,5 +69,11 @@ public class MinHeap {
         int[] sorted = minHeap.sort();
         for (int i : sorted)
             System.out.println(i);
+
+        Integer[] arrInt = {1, 3, 5, 7, 2, 4, 6, 8};
+        Heap.sort(arrInt);
+        for (int i = 0; i < arrInt.length; i++) {
+            System.out.println(arrInt[i]);
+        }
     }
 }
