@@ -53,6 +53,7 @@ public class KthSmallestPrimeFraction {
         return new int[]{A[pq.peek()[0]], A[n - 1 - pq.peek()[1]]};
     }
 
+    // 5 ms
     public static class Solution {
         public int[] kthSmallestPrimeFraction(int[] primes, int K) {
             double lo = 0, hi = 1;
