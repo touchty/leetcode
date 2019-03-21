@@ -55,7 +55,7 @@ public class KthNumberinMultiplicationTable {
         while (low < high) {
             int mid = low + (high - low) / 2;
             int c = count(mid, m, n);
-            if (c >= k) high = mid;
+            if (c >= k) high = mid; // mid may not be in the table
             else low = mid + 1;
         }
 
