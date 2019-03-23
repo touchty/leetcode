@@ -143,6 +143,10 @@ public class LetterCasePermutation {
         int[][] b = {{1, 0}, {1, 0}};
         LetterCasePermutation solution = new LetterCasePermutation();
         int steps = solution.movesToChessboard(b);
+        //System.out.println(steps);
+
+        b = new int[][]{{0, 1, 0}, {1, 0, 1}, {0, 1, 0}};
+        steps = solution.movesToChessboardOpt(b);
         System.out.println(steps);
     }
 }
