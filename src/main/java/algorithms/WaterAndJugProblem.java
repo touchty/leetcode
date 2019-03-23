@@ -85,7 +85,7 @@ public class WaterAndJugProblem {
         return z % gcd(x, y) == 0;
     }
 
-    int gcd (int a, int b) {
+    int gcd(int a, int b) {
         while (b != 0) {
             int temp = b;
             a = a % b;

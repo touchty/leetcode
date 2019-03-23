@@ -2,10 +2,9 @@ package algorithms;
 
 import org.junit.Assert;
 
-import java.util.Arrays;
-
 public class SuperPow {
     static final int MOD = 1337;
+
     public int superPow(int a, int[] b) {
         if (b == null || b.length == 0)
             return 1;
@@ -17,6 +16,7 @@ public class SuperPow {
             return 1;
         return (powMod(helper(a, b, end - 1), 10) * powMod(a, b[end])) % MOD;
     }
+
     // (a ^ b) mod 1337;
     // 0 <= b <= 10
     static int powMod(int a, int b) {
@@ -32,7 +32,7 @@ public class SuperPow {
 
     public static void main(String[] args) {
         int[] a = {2, 2};
-        int[][] b = {{3}, {1,0}};
+        int[][] b = {{3}, {1, 0}};
         int[] res = new int[a.length];
         int[] expected = {8, 1024};
         SuperPow superPow = new SuperPow();

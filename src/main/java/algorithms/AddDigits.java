@@ -1,6 +1,6 @@
 package algorithms;
 
-class AddDigits{
+class AddDigits {
     public int addDigits(int num) {
         while (num >= 10) {
             int temp = 0;
@@ -15,17 +15,17 @@ class AddDigits{
     }
 
     public int addDigitsOpt(int num) {
-        
-        if(num<10){
+
+        if (num < 10) {
             return num;
         }
-        
-        int sum=0;
-        while(num>=10){
-            sum+=num%10;
-            num/=10;
+
+        int sum = 0;
+        while (num >= 10) {
+            sum += num % 10;
+            num /= 10;
         }
-        sum+=num;
+        sum += num;
         return addDigitsOpt(sum);
     }
 }

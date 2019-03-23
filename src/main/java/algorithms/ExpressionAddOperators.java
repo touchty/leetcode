@@ -1,6 +1,7 @@
 package algorithms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators
@@ -115,19 +116,18 @@ public class ExpressionAddOperators {
         // result and tail are for evaluating +-*/ on the fly.
 
         /**
-         *
          * @param results List storing all possible string
-         * @param nums initial number sequence
-         * @param n length of the nums
-         * @param i start point of next number
-         * @param target target number
-         * @param chars possible res after inserting
-         * @param j position of the possible string after inserting one of three operators
-         * @param result existing calculating result
-         * @param tail previous number
+         * @param nums    initial number sequence
+         * @param n       length of the nums
+         * @param i       start point of next number
+         * @param target  target number
+         * @param chars   possible res after inserting
+         * @param j       position of the possible string after inserting one of three operators
+         * @param result  existing calculating result
+         * @param tail    previous number
          */
         static void helper(List<String> results, char[] nums, int n, int i, long target,
-                    char[] chars, int j, long result, long tail) {
+                           char[] chars, int j, long result, long tail) {
             if (i == n) {
                 if (result + tail == target) {
                     results.add(String.valueOf(chars, 0, j));

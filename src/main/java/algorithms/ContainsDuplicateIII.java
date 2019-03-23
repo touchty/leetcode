@@ -15,26 +15,29 @@ public class ContainsDuplicateIII {
         return false;
     }*/
     public static boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-        if(nums.length<2||k<1||t<0) return false;
+        if (nums.length < 2 || k < 1 || t < 0) return false;
         ValuePosPair[] valPosArr = new ValuePosPair[nums.length];
-        for(int i =0;i<nums.length;i++) valPosArr[i] = new ValuePosPair(nums[i],i);
+        for (int i = 0; i < nums.length; i++) valPosArr[i] = new ValuePosPair(nums[i], i);
         Arrays.sort(valPosArr);
-        for(int i=0;i<valPosArr.length;i++){
-            for(int j=i+1;j<valPosArr.length&&((long)valPosArr[j].val-(long)valPosArr[i].val<=(long)t);j++){
-                if(Math.abs(valPosArr[j].pos-valPosArr[i].pos)<=k) return true;
+        for (int i = 0; i < valPosArr.length; i++) {
+            for (int j = i + 1; j < valPosArr.length && ((long) valPosArr[j].val - (long) valPosArr[i].val <= (long) t); j++) {
+                if (Math.abs(valPosArr[j].pos - valPosArr[i].pos) <= k) return true;
             }
         }
         return false;
     }
 
-    static class ValuePosPair implements Comparable<ValuePosPair>{
+    static class ValuePosPair implements Comparable<ValuePosPair> {
 
         int val;
         int pos;
 
-        ValuePosPair(int v, int p) { val = v; pos = p;}
+        ValuePosPair(int v, int p) {
+            val = v;
+            pos = p;
+        }
 
-        public int compareTo(ValuePosPair x){
+        public int compareTo(ValuePosPair x) {
             if (this.val == x.val) return 0;
             else if (this.val < x.val) return -1;
             else return 1;
@@ -42,7 +45,7 @@ public class ContainsDuplicateIII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2147483647,-2147483647};
+        int[] nums = {2147483647, -2147483647};
         int k = 1;
         int t = 2147483647;
         boolean res = containsNearbyAlmostDuplicate(nums, k, t);

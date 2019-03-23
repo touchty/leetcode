@@ -44,7 +44,7 @@ public class MergeSort {
         }
 
         // copy back to a
-        for (int pos = iLeft; pos < iRight; pos ++) {
+        for (int pos = iLeft; pos < iRight; pos++) {
             a[pos] = tmp[pos];
         }
     }
@@ -68,26 +68,27 @@ public class MergeSort {
             }
         }
     }
+
     static boolean isSorted(double[] array) {
-        for (int i = 0; i < array.length - 1; i++){
-            if (array[i] > array[i+1])
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[i + 1])
                 return false;
         }
         return true;
     }
-    public static void main( String[] args )
-    {
 
-        double[] x = {6.4, 3.5, 7.5, 2.5, 8.9, 4.2, 9.2, 1.1, 6.6, 6.7, 6.5,11} ;
+    public static void main(String[] args) {
+
+        double[] x = {6.4, 3.5, 7.5, 2.5, 8.9, 4.2, 9.2, 1.1, 6.6, 6.7, 6.5, 11};
         double[] help = new double[x.length];
 
-        System.out.println("Before sort:  " + Arrays.toString(x) );
+        System.out.println("Before sort:  " + Arrays.toString(x));
 
-        MergeSort.sort( x, help );  // Merge sort
+        MergeSort.sort(x, help);  // Merge sort
 
         assert isSorted(x);
 
-        System.out.println("After sort:  " + Arrays.toString(x) );
+        System.out.println("After sort:  " + Arrays.toString(x));
 
         Random random = new Random();
         int LEN = 1025;

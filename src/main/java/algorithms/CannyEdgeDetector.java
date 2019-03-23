@@ -31,7 +31,6 @@ import java.util.Arrays;
  * consult an explanation of the algorithm.</p>
  *
  * @author Tom Gibara
- *
  */
 
 public class CannyEdgeDetector {
@@ -193,7 +192,7 @@ public class CannyEdgeDetector {
      * values is deemed negligable, so this is actually a maximum radius.
      *
      * @param gaussianKernelWidth a radius for the convolution operation in
-     * pixels, at least 2.
+     *                            pixels, at least 2.
      */
 
     public void setGaussianKernelWidth(int gaussianKernelWidth) {
@@ -238,8 +237,9 @@ public class CannyEdgeDetector {
 
     /**
      * Sets whether the contrast is normalized
+     *
      * @param contrastNormalized true if the contrast should be normalized,
-     * false otherwise
+     *                           false otherwise
      */
 
     public void setContrastNormalized(boolean contrastNormalized) {
@@ -257,7 +257,7 @@ public class CannyEdgeDetector {
         if (contrastNormalized) normalizeContrast();
         computeGradients(gaussianKernelRadius, gaussianKernelWidth);
         int low = Math.round(lowThreshold * MAGNITUDE_SCALE);
-        int high = Math.round( highThreshold * MAGNITUDE_SCALE);
+        int high = Math.round(highThreshold * MAGNITUDE_SCALE);
         performHysteresis(low, high);
         thresholdEdges();
         writeEdges(data);
@@ -316,7 +316,7 @@ public class CannyEdgeDetector {
                 float sumY = sumX;
                 int xOffset = 1;
                 int yOffset = width;
-                for(; xOffset < kwidth ;) {
+                for (; xOffset < kwidth; ) {
                     sumY += kernel[xOffset] * (data[index - yOffset] + data[index + yOffset]);
                     sumX += kernel[xOffset] * (data[index - xOffset] + data[index + xOffset]);
                     yOffset += width;
@@ -425,7 +425,7 @@ public class CannyEdgeDetector {
                         && tmp > Math.abs(yGrad * nwMag + (xGrad - yGrad) * wMag) /*(4)*/
                         : (tmp = Math.abs(yGrad * gradMag)) >= Math.abs(xGrad * seMag + (yGrad - xGrad) * sMag) /*(3)*/
                         && tmp > Math.abs(xGrad * nwMag + (yGrad - xGrad) * nMag) /*(4)*/
-                ) {
+                        ) {
                     magnitude[index] = gradMag >= MAGNITUDE_LIMIT ? MAGNITUDE_MAX : (int) (MAGNITUDE_SCALE * gradMag);
                     //NOTE: The orientation of the edge is not employed by this
                     //implementation. It is a simple matter to compute it at
@@ -470,7 +470,7 @@ public class CannyEdgeDetector {
         int x0 = x1 == 0 ? x1 : x1 - 1;
         int x2 = x1 == width - 1 ? x1 : x1 + 1;
         int y0 = y1 == 0 ? y1 : y1 - 1;
-        int y2 = y1 == height -1 ? y1 : y1 + 1;
+        int y2 = y1 == height - 1 ? y1 : y1 + 1;
 
         data[i1] = magnitude[i1];
         for (int x = x0; x <= x2; x++) {
@@ -541,8 +541,8 @@ public class CannyEdgeDetector {
         int j = 0;
         for (int i = 0; i < histogram.length; i++) {
             sum += histogram[i];
-            int target = sum*255/picsize;
-            for (int k = j+1; k <=target; k++) {
+            int target = sum * 255 / picsize;
+            for (int k = j + 1; k <= target; k++) {
                 remap[k] = i;
             }
             j = target;

@@ -9,6 +9,7 @@ public class FFTTest {
         FFT.main(new String[]{"4096"});
     }
 }
+
 class FFTD {
 
     // compute the FFT of x[], assuming its length is a power of 2
@@ -16,7 +17,7 @@ class FFTD {
         int n = x.length;
 
         // base case
-        if (n == 1) return new Complex[] { x[0] };
+        if (n == 1) return new Complex[]{x[0]};
 
         // radix 2 Cooley-Tukey FFT
         if (n % 2 != 0) {
@@ -24,27 +25,27 @@ class FFTD {
         }
 
         // fft of even terms
-        Complex[] even = new Complex[n/2];
-        for (int k = 0; k < n/2; k++) {
-            even[k] = x[2*k];
+        Complex[] even = new Complex[n / 2];
+        for (int k = 0; k < n / 2; k++) {
+            even[k] = x[2 * k];
         }
         Complex[] q = fft(even);
 
         // fft of odd terms
-        Complex[] odd  = even;  // reuse the array
-        for (int k = 0; k < n/2; k++) {
-            odd[k] = x[2*k + 1];
+        Complex[] odd = even;  // reuse the array
+        for (int k = 0; k < n / 2; k++) {
+            odd[k] = x[2 * k + 1];
         }
         Complex[] r = fft(odd);
 
         // combine
         Complex[] y = new Complex[n];
-        for (int k = 0; k < n/2; k++) {
+        for (int k = 0; k < n / 2; k++) {
             double kth = -2 * k * Math.PI / n;
             Complex wk = new Complex(Math.cos(kth), Math.sin(kth));
             // period ：n / 2
-            y[k]       = q[k].plus(wk.times(r[k]));
-            y[k + n/2] = q[k].minus(wk.times(r[k]));
+            y[k] = q[k].plus(wk.times(r[k]));
+            y[k + n / 2] = q[k].minus(wk.times(r[k]));
         }
         return y;
     }
@@ -107,13 +108,13 @@ class FFTD {
     public static Complex[] convolve(Complex[] x, Complex[] y) {
         Complex ZERO = new Complex(0, 0);
 
-        Complex[] a = new Complex[2*x.length];
-        for (int i = 0;        i <   x.length; i++) a[i] = x[i];
-        for (int i = x.length; i < 2*x.length; i++) a[i] = ZERO;
+        Complex[] a = new Complex[2 * x.length];
+        for (int i = 0; i < x.length; i++) a[i] = x[i];
+        for (int i = x.length; i < 2 * x.length; i++) a[i] = ZERO;
 
-        Complex[] b = new Complex[2*y.length];
-        for (int i = 0;        i <   y.length; i++) b[i] = y[i];
-        for (int i = y.length; i < 2*y.length; i++) b[i] = ZERO;
+        Complex[] b = new Complex[2 * y.length];
+        for (int i = 0; i < y.length; i++) b[i] = y[i];
+        for (int i = y.length; i < 2 * y.length; i++) b[i] = ZERO;
 
         return cconvolve(a, b);
     }

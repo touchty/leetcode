@@ -1,7 +1,7 @@
 package algorithms;
 
 public class Kadane {
-    public static int  maxSumOfSubarray(int[] nums) {
+    public static int maxSumOfSubarray(int[] nums) {
         if (nums == null || nums.length == 0)
             return 0;
         int len = nums.length;
@@ -9,7 +9,7 @@ public class Kadane {
         int max_ending_here = Integer.MIN_VALUE;
 
         max_ending_here = nums[0];
-        max_so_far  = nums[0];
+        max_so_far = nums[0];
         for (int i = 1; i < len; i++) {
             max_ending_here = Math.max(nums[i], nums[i] + max_ending_here);
             max_so_far = Math.max(max_so_far, max_ending_here);

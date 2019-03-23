@@ -1,6 +1,7 @@
 package algorithms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 842. Split Array into Fibonacci Sequence
