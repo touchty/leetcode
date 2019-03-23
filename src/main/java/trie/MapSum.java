@@ -43,7 +43,9 @@ class MapSum {
 
     TrieNode root;
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public MapSum() {
         root = new TrieNode();
     }
@@ -84,6 +86,7 @@ class MapSum {
         }
         return sum;
     }
+
     private int bfs(TrieNode root) {
         if (root == null)
             return 0;

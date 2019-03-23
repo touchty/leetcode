@@ -7,6 +7,7 @@ public class GenerateRandomPointInACircle {
 
     double radius;
     double x_center, y_center;
+
     public GenerateRandomPointInACircle(double radius, double x_center, double y_center) {
         this.radius = radius;
         this.x_center = x_center;

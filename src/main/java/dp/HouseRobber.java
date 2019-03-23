@@ -1,15 +1,12 @@
 package dp;
 
-public class HouseRobber
-{
-    public static int rob(int[] nums)
-    {
-        int ifRobbedPrevious = 0; 	// max monney can get if rob current house
+public class HouseRobber {
+    public static int rob(int[] nums) {
+        int ifRobbedPrevious = 0;    // max monney can get if rob current house
         int ifDidntRobPrevious = 0; // max money can get if not rob current house
 
         // We go through all the values, we maintain two counts, 1) if we rob this cell, 2) if we didn't rob this cell
-        for(int i=0; i < nums.length; i++)
-        {
+        for (int i = 0; i < nums.length; i++) {
             // If we rob current cell, previous cell shouldn't be robbed. So, add the current value to previous one.
             int currRobbed = ifDidntRobPrevious + nums[i];
 
@@ -17,19 +14,18 @@ public class HouseRobber
             int currNotRobbed = Math.max(ifDidntRobPrevious, ifRobbedPrevious);
 
             // Update values for the next round
-            ifDidntRobPrevious  = currNotRobbed;
+            ifDidntRobPrevious = currNotRobbed;
             ifRobbedPrevious = currRobbed;
         }
 
         return Math.max(ifRobbedPrevious, ifDidntRobPrevious);
     }
 
-    public static int robRewrite(int[] nums){
+    public static int robRewrite(int[] nums) {
         int ifRobbedPrevious = 0;
         int ifNotRobbedPrevious = 0;
 
-        for (int i = 0; i < nums.length; i++)
-        {
+        for (int i = 0; i < nums.length; i++) {
             //Rob current house
             int currRobbed = ifNotRobbedPrevious + nums[i];
 
@@ -44,11 +40,10 @@ public class HouseRobber
         return Math.max(ifNotRobbedPrevious, ifRobbedPrevious);
     }
 
-    public int robTwoArr(int[] nums){
+    public int robTwoArr(int[] nums) {
         int[][] dp = new int[nums.length + 1][2];
 
-        for (int i = 1; i < dp.length; i++)
-        {
+        for (int i = 1; i < dp.length; i++) {
             // dp[][0] : if not rob current house
             // d[][1] : if rob current house
 
@@ -60,11 +55,11 @@ public class HouseRobber
         return Math.max(dp[dp.length - 1][0], dp[dp.length - 1][1]);
     }
 
-    public int robOpt(int[] nums){
+    public int robOpt(int[] nums) {
         int robCurr = 0;
         int notRobCurr = 0;
 
-        for (int m : nums){
+        for (int m : nums) {
             int robM = notRobCurr + m;
             int notRobM = Math.max(robCurr, notRobCurr);
 

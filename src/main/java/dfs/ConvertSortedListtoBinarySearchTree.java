@@ -1,15 +1,15 @@
 package dfs;
 
 /*
-* Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
-* For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of
-* every node never differ by more than 1.
-* */
+ * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
+ * For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of
+ * every node never differ by more than 1.
+ * */
 public class ConvertSortedListtoBinarySearchTree {
     private ListNode node;
 
     public TreeNode sortedListToBST(ListNode head) {
-        if(head == null){
+        if (head == null) {
             return null;
         }
 
@@ -17,16 +17,16 @@ public class ConvertSortedListtoBinarySearchTree {
         ListNode runner = head;
         node = head;
 
-        while(runner != null){
+        while (runner != null) {
             runner = runner.next;
-            size ++;
+            size++;
         }
 
         return inorderHelper(0, size - 1);
     }
 
-    public TreeNode inorderHelper(int start, int end){
-        if(start > end){
+    public TreeNode inorderHelper(int start, int end) {
+        if (start > end) {
             return null;
         }
 

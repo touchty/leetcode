@@ -17,11 +17,11 @@ import org.junit.Assert;
  * Both the left and right subtrees must also be binary search trees.
  * For example:
  * Given BST [1,null,2,2],
- *    1
- *     \
- *      2
- *     /
- *    2
+ * 1
+ * \
+ * 2
+ * /
+ * 2
  */
 
 /*
@@ -85,6 +85,7 @@ public class FindModeInBinarySearchTree {
      * having my separate handleValue function doesn't just nicely separate the traversal logic from this problem's
      * logic, but it's also beneficial for Morris traversal because I'm calling handleValue from two different places
      * in the code!
+     *
      * @param root
      */
     private void inorderOpt(TreeNode root) {

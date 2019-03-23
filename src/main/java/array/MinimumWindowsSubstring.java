@@ -20,7 +20,7 @@ public class MinimumWindowsSubstring {
             }
         }
 
-        return d == Integer.MAX_VALUE ? "" : s.substring(head, head+d);
+        return d == Integer.MAX_VALUE ? "" : s.substring(head, head + d);
     }
 
     public static void main(String[] args) {

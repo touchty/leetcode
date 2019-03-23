@@ -1,6 +1,7 @@
 package string;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 383. Ransom Note
@@ -32,10 +33,11 @@ public class RansomNote {
         }
         return true;
     }
+
     public boolean canConstructArr(String ransomNote, String magazine) {
         int[] count = new int[26];
         for (char c : magazine.toCharArray()) {
-            count[c - 'a'] ++;
+            count[c - 'a']++;
         }
         for (char c : ransomNote.toCharArray()) {
             count[c - 'a']--;

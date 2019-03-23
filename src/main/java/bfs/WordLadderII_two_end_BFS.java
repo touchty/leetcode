@@ -6,7 +6,7 @@ public class WordLadderII_two_end_BFS {
     public List<List<String>> findLadders(String start, String end, List<String> ListDict) {
 
         Set<String> dict = new HashSet<>(ListDict);
-        if (!dict.contains(end)) return  new ArrayList<List<String>>();
+        if (!dict.contains(end)) return new ArrayList<List<String>>();
         // hash set for both ends
         Set<String> set1 = new HashSet<String>();
         Set<String> set2 = new HashSet<String>();

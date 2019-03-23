@@ -2,15 +2,15 @@ package array;
 
 /**
  * Given two binary strings, return their sum (also a binary string).
- *
+ * <p>
  * The input strings are both non-empty and contains only characters 1 or 0.
- *
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: a = "11", b = "1"
  * Output: "100"
  * Example 2:
- *
+ * <p>
  * Input: a = "1010", b = "1011"
  * Output: "10101"
  */
@@ -25,21 +25,21 @@ public class AddBinary {
         int sum = 0;
         int carry = 0;
         while (aPtr >= 0 && bPtr >= 0) {
-            sum = (a.charAt(aPtr--) - '0' +b.charAt(bPtr--) - '0') +  carry;
+            sum = (a.charAt(aPtr--) - '0' + b.charAt(bPtr--) - '0') + carry;
             res[i] = sum % 2;
             carry = sum / 2;
             i--;
         }
 
         while (aPtr >= 0) {
-            sum = (a.charAt(aPtr--) - '0') +  carry;
+            sum = (a.charAt(aPtr--) - '0') + carry;
             res[i] = sum % 2;
             carry = sum / 2;
             i--;
         }
 
         while (bPtr >= 0) {
-            sum = (b.charAt(bPtr--) - '0') +  carry;
+            sum = (b.charAt(bPtr--) - '0') + carry;
             res[i] = sum % 2;
             carry = sum / 2;
             i--;

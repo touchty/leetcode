@@ -28,12 +28,12 @@ public class MajorityElementII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,1,1,3,3,2,2,2};
-        int[] expected = {1,2};
+        int[] nums = {1, 1, 1, 3, 3, 2, 2, 2};
+        int[] expected = {1, 2};
         List<Integer> res = majorityElement(nums);
 
         for (int i = 0; i < expected.length; i++) {
-            Assert.assertEquals(expected[i], (int)res.get(i));
+            Assert.assertEquals(expected[i], (int) res.get(i));
         }
     }
 }

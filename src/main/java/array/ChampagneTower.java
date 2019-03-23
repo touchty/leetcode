@@ -26,11 +26,11 @@ public class ChampagneTower {
     public static double champagneTower(int poured, int query_row, int query_glass) {
         double[] res = new double[101];
         res[0] = poured;
-        for(int row=1; row<=query_row; row++)
+        for (int row = 1; row <= query_row; row++)
             // i th glass
-            for(int i=row; i>=0; i--) {
-                res[i] = Math.max(0.0, (res[i]-1)/2);
-                res[i+1] += res[i];
+            for (int i = row; i >= 0; i--) {
+                res[i] = Math.max(0.0, (res[i] - 1) / 2);
+                res[i + 1] += res[i];
             }
             /*
             res[0] = Math.max(0.0, (res[0]-1)/2);
@@ -50,7 +50,7 @@ public class ChampagneTower {
         int poured = 2, query_glass = 1, query_row = 1;
         double res = ChampagneTower.champagneTower(poured, query_row, query_glass);
         double expected = 0.5;
-        double  threshold = (double) (1/ Math.pow(2, 32));
+        double threshold = (double) (1 / Math.pow(2, 32));
         Assert.assertTrue(Math.abs(expected - res) < threshold);
     }
 }

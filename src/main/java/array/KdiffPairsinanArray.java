@@ -37,7 +37,7 @@ public class KdiffPairsinanArray {
     }
 
     public static void main(String[] args) {
-        int[] a = {1,1,1,1,3,3,4,5};
+        int[] a = {1, 1, 1, 1, 3, 3, 4, 5};
         int k = 2;
         int res = KdiffPairsinanArray.findPairs(a, k);
         System.out.println(res);

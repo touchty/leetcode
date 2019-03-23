@@ -9,7 +9,7 @@ import org.junit.Assert;
  * Each move, you may take an egg (if you have an unbroken one) and drop it from any floor X (with 1 <= X <= N).
  * Your goal is to know with certainty what the value of F is.
  * What is the minimum number of moves that you need to know with certainty what F is, regardless of the initial value of F?
-
+ * <p>
  * Example 1:
  * Input: K = 1, N = 2
  * Output: 2
@@ -19,19 +19,19 @@ import org.junit.Assert;
  * If it didn't break, then we know with certainty F = 2.
  * Hence, we needed 2 moves in the worst case to know what F is with certainty.
  * Example 2:
- *
+ * <p>
  * Input: K = 2, N = 6
  * Output: 3
  * Example 3:
- *
+ * <p>
  * Input: K = 3, N = 14
  * Output: 4
  */
 public class SuperEggDrop {
     public static int superEggDrop(int K, int N) {
         // dp[i][j] min steps to find the certain K floor with i eggs within j floors
-        int[][] dp = new int[K+1][N+1];
-        for (int i = 0; i <= N; i++ ) {
+        int[][] dp = new int[K + 1][N + 1];
+        for (int i = 0; i <= N; i++) {
             dp[0][i] = 0; //no egg, no floor can check
         }
 
@@ -39,7 +39,7 @@ public class SuperEggDrop {
             dp[1][j] = j; // one egg, check floor from i to 1
         }
 
-        for (int i = 1; i <= K; i++ ) {
+        for (int i = 1; i <= K; i++) {
             dp[i][1] = 1; // one floor, one check
         }
 
@@ -47,7 +47,7 @@ public class SuperEggDrop {
             for (int j = 2; j <= N; j++) {
                 dp[i][j] = Integer.MAX_VALUE;
                 for (int p = 1; p <= j; p++) {
-                    int res = 1 + Math.max(dp[i - 1][j-p], dp[i][p - 1]);
+                    int res = 1 + Math.max(dp[i - 1][j - p], dp[i][p - 1]);
                     dp[i][j] = Math.min(dp[i][j], res);
                 }
             }
@@ -61,19 +61,19 @@ public class SuperEggDrop {
      * Some people may come up with idea O(KN^2)
      * where dp[K][N] = 1 + max(dp[K - 1][i - 1],dp[K][N - i]) for i in 1...N.
      * However this idea is very brute force, for the reason that you check all possiblity.
-     *
+     * <p>
      * So I consider this problem in a different way:
      * dp[M][K]means that, given K eggs and M moves,
      * what is the maximum number of floor that we can check.
-     *
+     * <p>
      * The dp equation is:
      * dp[m][k] = dp[m - 1][k - 1] + dp[m - 1][k] + 1,
      * which means we take 1 move to a floor,
      * if egg breaks, then we can check dp[m - 1][k - 1] floors.
      * if egg doesn't breaks, then we can check dp[m - 1][k - 1] floors.
-     *
+     * <p>
      * dp[m][k] is similar to the number of combinations and it increase exponentially to N
-     *
+     * <p>
      * Time Complexity:
      * O(KlogN) Time, O(NK) Space
      */

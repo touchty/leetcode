@@ -8,7 +8,7 @@ import org.junit.Assert;
  * Each child must have at least one candy.
  * Children with a higher rating get more candies than their neighbors.
  * What is the minimum candies you must give?
- *
+ * <p>
  * Example 1:
  * Input: [1,0,2]
  * Output: 5
@@ -17,7 +17,7 @@ import org.junit.Assert;
  * Input: [1,2,2]
  * Output: 4
  * Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
- *              The third child gets 1 candy because it satisfies the above two conditions.
+ * The third child gets 1 candy because it satisfies the above two conditions.
  */
 public class Candy {
     public static int candy(int[] ratings) {
@@ -41,8 +41,7 @@ public class Candy {
                 }
                 prev = ratings[i] == ratings[i - 1] ? 1 : prev + 1;
                 total += prev;
-            }
-            else {
+            } else {
                 countDown++;
             }
         }
@@ -60,26 +59,26 @@ public class Candy {
         if (ratings == null || ratings.length == 0) return 0;
         int total = 1, prev = 1, countDown = 0;
         for (int i = 1; i < ratings.length; i++) {
-            if (ratings[i] >= ratings[i-1]) {
+            if (ratings[i] >= ratings[i - 1]) {
                 if (countDown > 0) {
-                    total += countDown*(countDown+1)/2; // arithmetic progression
+                    total += countDown * (countDown + 1) / 2; // arithmetic progression
                     if (countDown >= prev) total += countDown - prev + 1;
                     countDown = 0;
                     prev = 1;
                 }
-                prev = ratings[i] == ratings[i-1] ? 1 : prev+1;
+                prev = ratings[i] == ratings[i - 1] ? 1 : prev + 1;
                 total += prev;
             } else countDown++;
         }
         if (countDown > 0) { // if we were descending at the end
-            total += countDown*(countDown+1)/2;
+            total += countDown * (countDown + 1) / 2;
             if (countDown >= prev) total += countDown - prev + 1;
         }
         return total;
     }
 
     public static void main(String[] args) {
-        int[] ratings = {3,2,1,0,1,2,2,2,2,2};
+        int[] ratings = {3, 2, 1, 0, 1, 2, 2, 2, 2, 2};
         // ratings {3,2,1,0,1,2,2,2,2,2}
         // candies {4,3,2,1,2,3,1,1,1,1}
         // note the last four candies are '1'

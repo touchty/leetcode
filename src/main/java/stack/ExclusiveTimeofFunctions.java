@@ -71,7 +71,7 @@ public class ExclusiveTimeofFunctions {
                 "0:end:6"};
         List<String> list = Arrays.asList(logs);
         int[] durations = exclusiveTime(n, list);
-        for (int i: durations) {
+        for (int i : durations) {
             System.out.println(i);
         }
     }

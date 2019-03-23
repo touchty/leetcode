@@ -94,7 +94,7 @@ public class NonOverlappingIntervals {
     }
 
     public static void main(String[] args) {
-        int[][] intervalsArr = {{1,2}, {2,3}, {3,4}, {1,3}};
+        int[][] intervalsArr = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
         Interval[] intervals = new Interval[intervalsArr.length];
         for (int i = 0; i < intervals.length; i++) {
             intervals[i] = new Interval(intervalsArr[i][0], intervalsArr[i][1]);

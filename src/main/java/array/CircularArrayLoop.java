@@ -32,7 +32,7 @@ public class CircularArrayLoop {
         return false;
     }
 
-    int getIndex(int i, int[] nums){
+    int getIndex(int i, int[] nums) {
         int n = nums.length;
         return (i + nums[i] % n + n) % n;
     }

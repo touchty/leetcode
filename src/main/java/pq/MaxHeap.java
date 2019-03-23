@@ -13,7 +13,7 @@ public class MaxHeap {
     public int[] sort(int[] array) {
         pq = new int[array.length + 1];
         for (int i = 0; i < array.length; i++) {
-            pq[i+1] = array[i];
+            pq[i + 1] = array[i];
         }
         N = array.length;
         for (int i = N / 2; i >= 1; i--) {

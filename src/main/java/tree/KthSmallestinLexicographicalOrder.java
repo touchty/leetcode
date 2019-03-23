@@ -44,6 +44,7 @@ public class KthSmallestinLexicographicalOrder {
         }
         return curr;
     }
+
     //use long in case of overflow
     public static int calSteps(int n, long n1, long n2) {
         int steps = 0;
@@ -56,8 +57,8 @@ public class KthSmallestinLexicographicalOrder {
     }
 
     public static void main(String[] args) {
-        int n = 13,k = 2;
-        int kthNum = findKthNumber(n ,k);
+        int n = 13, k = 2;
+        int kthNum = findKthNumber(n, k);
         int expected = 10;
         Assert.assertEquals(expected, kthNum);
     }

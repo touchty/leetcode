@@ -1,6 +1,7 @@
 package sort;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MergeIntervals {
     public List<Interval> merge(List<Interval> intervals) {

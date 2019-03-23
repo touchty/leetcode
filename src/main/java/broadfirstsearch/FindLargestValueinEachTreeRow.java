@@ -1,6 +1,9 @@
 package broadfirstsearch;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class FindLargestValueinEachTreeRow {
     public List<Integer> largestValues(TreeNode root) {
@@ -15,7 +18,7 @@ public class FindLargestValueinEachTreeRow {
 
         queue.add(root);
         size = queue.size();
-        while (size > 0){
+        while (size > 0) {
 
             //  tempt max_val in the same row
             int max_val = Integer.MIN_VALUE;
@@ -23,10 +26,10 @@ public class FindLargestValueinEachTreeRow {
             for (int i = 0; i < size; i++) {
                 root = queue.poll();
                 max_val = Math.max(max_val, root.val);
-                if (root.left != null){
+                if (root.left != null) {
                     queue.add(root.left);
                 }
-                if (root.right != null){
+                if (root.right != null) {
                     queue.add(root.right);
                 }
             }
@@ -47,7 +50,7 @@ public class FindLargestValueinEachTreeRow {
         int queueSize = root == null ? 0 : 1;
         while (queueSize > 0) {
             int largestElement = Integer.MIN_VALUE;
-            for (int i=0;i<queueSize;i++) {
+            for (int i = 0; i < queueSize; i++) {
                 TreeNode cur = queue.poll();
                 largestElement = Math.max(cur.val, largestElement);
                 if (cur.left != null) queue.add(cur.left);
@@ -57,7 +60,7 @@ public class FindLargestValueinEachTreeRow {
             queueSize = queue.size();
         }
         int[] resArray = new int[res.size()];
-        for (int i=0;i<res.size();i++) resArray[i] = res.get(i);
+        for (int i = 0; i < res.size(); i++) resArray[i] = res.get(i);
         return resArray;
     }
 }

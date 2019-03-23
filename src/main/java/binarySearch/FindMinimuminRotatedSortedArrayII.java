@@ -9,8 +9,7 @@ public class FindMinimuminRotatedSortedArrayII {
             mid = lo + (hi - lo) / 2;
             if (nums[mid] > nums[hi]) {
                 lo = mid + 1;
-            }
-            else if (nums[mid] < nums[hi]) {
+            } else if (nums[mid] < nums[hi]) {
                 hi = mid;
             }
             // When num[mid] == num[hi], we couldn't sure the position of minimum in mid's left or right, so just let

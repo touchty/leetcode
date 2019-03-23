@@ -41,6 +41,7 @@ Otherwise, we return 0.
  */
 public class BinaryTreeCameras {
     int res = 0;
+
     public int minCameraCover(TreeNode root) {
         return (dfs(root) == 0 ? 1 : 0) + res;
     }

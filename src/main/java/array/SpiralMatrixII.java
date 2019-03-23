@@ -1,7 +1,5 @@
 package array;
 
-import java.util.ArrayList;
-
 public class SpiralMatrixII {
     public int[][] generateMatrix(int n) {
         int[][] matrix = new int[n][n];
@@ -11,7 +9,7 @@ public class SpiralMatrixII {
         int l = 0;
         int r = n - 1;
         int element = 1; // 1, 2, 3, ..., n^2
-        while (true){
+        while (true) {
             // up
             for (int column = l; column <= r; column++) {
                 matrix[u][column] = element++;

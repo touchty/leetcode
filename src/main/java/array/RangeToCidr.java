@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RangeToCidr {
-    public static List<String> range2cidrlist( String startIp, String endIp ) {
+    public static List<String> range2cidrlist(String startIp, String endIp) {
         // check parameters
         if (startIp == null || startIp.length() < 8 ||
                 endIp == null || endIp.length() < 8) return null;

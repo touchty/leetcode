@@ -1,6 +1,7 @@
 package array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Combinations {
     static void dfs(int pos, List<Integer> list, List<List<Integer>> res, int n, int k) {
@@ -8,7 +9,7 @@ public class Combinations {
             res.add(new ArrayList(list));
             return;
         }
-        for (int i = pos; i <= n; i++){
+        for (int i = pos; i <= n; i++) {
             list.add(i);
             dfs(i + 1, list, res, n, k);
             list.remove(list.size() - 1);
@@ -21,17 +22,19 @@ public class Combinations {
         combine(combs, new ArrayList<Integer>(), 1, n, k);
         return combs;
     }
+
     public static void combine(List<List<Integer>> combs, List<Integer> comb, int start, int n, int k) {
-        if(k==0) {
+        if (k == 0) {
             combs.add(new ArrayList<Integer>(comb));
             return;
         }
-        for(int i=start;i<=n;i++) {
+        for (int i = start; i <= n; i++) {
             comb.add(i);
-            combine(combs, comb, i+1, n, k-1);
-            comb.remove(comb.size()-1);
+            combine(combs, comb, i + 1, n, k - 1);
+            comb.remove(comb.size() - 1);
         }
     }
+
     public static void main(String[] args) {
         int n = 4;
         int k = 2;

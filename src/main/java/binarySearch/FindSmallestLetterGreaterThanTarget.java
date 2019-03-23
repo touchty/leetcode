@@ -29,15 +29,13 @@ public class FindSmallestLetterGreaterThanTarget {
             int mid = low + (high - low) / 2;
             if (letters[mid] <= target) {
                 low = mid + 1; // find larger element
-            }
-            else {
+            } else {
                 high = mid - 1;
             }
         }
         if (low == letters.length) {
             return letters[0];
-        }
-        else {
+        } else {
             return letters[low];
         }
     }

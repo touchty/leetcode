@@ -3,16 +3,16 @@ package string;
 /**
  * 680. Valid Palindrome II
  * Easy
- *
+ * <p>
  * 578
- *
+ * <p>
  * 39
- *
+ * <p>
  * Favorite
- *
+ * <p>
  * Share
  * Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
- *
+ * <p>
  * Example 1:
  * Input: "aba"
  * Output: True

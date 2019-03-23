@@ -11,8 +11,7 @@ public class UniqueSubstringsinWraparoundString {
             // ab || za
             if (i > 0 && (p.charAt(i) - p.charAt(i - 1) == 1 || (p.charAt(i - 1) - p.charAt(i) == 25))) {
                 maxLengthCur++;
-            }
-            else {
+            } else {
                 maxLengthCur = 1;
             }
 
@@ -35,7 +34,7 @@ public class UniqueSubstringsinWraparoundString {
 
         int maxLen = 0;
 
-        for (int i = 0; i < p.length(); i++){
+        for (int i = 0; i < p.length(); i++) {
             if (i > 0 && (p.charAt(i) - p.charAt(i - 1) == 1 || p.charAt(i - 1) - p.charAt(i) == 25))
                 maxLen++;
             else
@@ -49,7 +48,7 @@ public class UniqueSubstringsinWraparoundString {
 
         // sum the total substring num
         int sum = 0;
-        for (int i = 0; i < count.length; i++){
+        for (int i = 0; i < count.length; i++) {
             sum += count[i];
         }
         return sum;

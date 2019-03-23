@@ -44,8 +44,7 @@ public class SecondMinimumNodeInaBinaryTree {
         dfs(root, twoMins);
         if (twoMins[0] == twoMins[1] || twoMins[0] == Integer.MAX_VALUE || twoMins[1] == Integer.MAX_VALUE) {
             return -1;
-        }
-        else {
+        } else {
             return twoMins[1];
         }
     }
@@ -56,8 +55,7 @@ public class SecondMinimumNodeInaBinaryTree {
         if (root.val < twoMins[0]) {
             twoMins[1] = twoMins[0];
             twoMins[0] = root.val;
-        }
-        else if (root.val > twoMins[0] && root.val < twoMins[1])
+        } else if (root.val > twoMins[0] && root.val < twoMins[1])
             twoMins[1] = root.val;
 
         dfs(root.left, twoMins);

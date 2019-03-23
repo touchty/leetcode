@@ -1,6 +1,8 @@
 package sort;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class ReorganizeString {
     public String reorganizeString(String S) {
@@ -16,7 +18,7 @@ public class ReorganizeString {
         // Use PriorityQueue to store pairs of (char, count) and sort by count DESC.
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
         for (char c : map.keySet()) {
-            pq.add(new int[] {c, map.get(c)});
+            pq.add(new int[]{c, map.get(c)});
         }
         // Build the result.
         StringBuilder sb = new StringBuilder();

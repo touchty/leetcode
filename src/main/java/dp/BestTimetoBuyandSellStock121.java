@@ -9,12 +9,12 @@ public class BestTimetoBuyandSellStock121 {
 * you might end up being confused.
 Here, the logic is to calculate the difference (maxCur += prices[i] - prices[i-1]) of the original array, and find a contiguous subarray giving maximum profit. If the difference falls below 0, reset it to zero.
 * */
-    int maxProfit(int[] nums){
+    int maxProfit(int[] nums) {
         int maxCur = 0;
         int maxSoFar = 0;
 
         for (int i = 1; i < nums.length; i++) {
-            maxCur = Math.max(0, maxCur+=nums[i]-nums[i-1]);
+            maxCur = Math.max(0, maxCur += nums[i] - nums[i - 1]);
             maxSoFar = Math.max(maxCur, maxSoFar);
         }
         return maxSoFar;

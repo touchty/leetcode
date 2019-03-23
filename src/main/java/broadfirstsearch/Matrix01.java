@@ -2,7 +2,6 @@ package broadfirstsearch;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.*;
 /*
 Given a matrix consists of 0 and 1, find the distance of the nearest 0 for each cell.
 
@@ -33,9 +32,8 @@ public class Matrix01 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
-                    queue.offer(new int[] {i, j});
-                }
-                else {
+                    queue.offer(new int[]{i, j});
+                } else {
                     matrix[i][j] = Integer.MAX_VALUE;
                 }
             }
@@ -50,7 +48,7 @@ public class Matrix01 {
                 int c = cell[1] + d[1];
                 if (r < 0 || r >= m || c < 0 || c >= n ||
                         matrix[r][c] <= matrix[cell[0]][cell[1]] + 1) continue;
-                queue.add(new int[] {r, c});
+                queue.add(new int[]{r, c});
                 matrix[r][c] = matrix[cell[0]][cell[1]] + 1;
             }
         }

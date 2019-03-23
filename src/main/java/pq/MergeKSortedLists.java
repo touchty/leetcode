@@ -7,7 +7,6 @@ import java.util.PriorityQueue;
  */
 public class MergeKSortedLists {
     /**
-     *
      * @param lists list of ListNode
      * @return sorted ListNode
      */

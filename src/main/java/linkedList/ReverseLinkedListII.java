@@ -2,11 +2,11 @@ package linkedList;
 
 /**
  * Reverse a linked list from position m to n. Do it in one-pass.
- *
+ * <p>
  * Note: 1 ≤ m ≤ n ≤ length of list.
- *
+ * <p>
  * Example:
- *
+ * <p>
  * Input: 1->2->3->4->5->NULL, m = 2, n = 4
  * Output: 1->4->3->2->5->NULL
  */
@@ -19,11 +19,10 @@ public class ReverseLinkedListII {
         ListNode R = null;
         ListNode node;
         int count = 1;
-        for (node = head;node != null;node = node.next) {
+        for (node = head; node != null; node = node.next) {
             if (count == m)
                 L = node;
-            else if (count == n + 1)
-            {
+            else if (count == n + 1) {
                 R = node.next;
                 break;
             }
@@ -44,7 +43,7 @@ public class ReverseLinkedListII {
         pivot = tempHead.next; // head of the reversed sub list
 
         L.next = pivot;
-        while(pivot != null && pivot.next != null)
+        while (pivot != null && pivot.next != null)
             pivot = pivot.next;
 
         pivot.next = R;
@@ -56,7 +55,7 @@ public class ReverseLinkedListII {
         ListNode dummy = new ListNode(0);
         ListNode curr = head;
         ListNode prev = dummy;
-        for(int i=1; i<m; i++){
+        for (int i = 1; i < m; i++) {
             prev.next = curr;
             curr = curr.next;
             prev = prev.next;
@@ -65,7 +64,7 @@ public class ReverseLinkedListII {
         //cool now reverse from m to n
         ListNode start = curr;
         ListNode rev = null;
-        for(int i=m; i<=n; i++){
+        for (int i = m; i <= n; i++) {
             ListNode next = curr.next;
             curr.next = rev;
             rev = curr;
@@ -79,8 +78,8 @@ public class ReverseLinkedListII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5};
-        ListNode head= new ListNode(-1);
+        int[] nums = {1, 2, 3, 4, 5};
+        ListNode head = new ListNode(-1);
         ListNode realHead = head;
         for (int i : nums) {
             ListNode node = new ListNode(i);
@@ -88,7 +87,7 @@ public class ReverseLinkedListII {
             head = node;
         }
         head = realHead.next;
-        head = reverseBetween(head, 2,4);
+        head = reverseBetween(head, 2, 4);
         System.out.println(head.val);
     }
 }

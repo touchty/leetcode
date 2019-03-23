@@ -72,11 +72,15 @@ public class ValidTicTacToeState {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i].charAt(j) == 'X') {
-                    turns++; rows[i]++; cols[j]++;
+                    turns++;
+                    rows[i]++;
+                    cols[j]++;
                     if (i == j) diag++;
                     if (i + j == 2) antidiag++;
                 } else if (board[i].charAt(j) == 'O') {
-                    turns--; rows[i]--; cols[j]--;
+                    turns--;
+                    rows[i]--;
+                    cols[j]--;
                     if (i == j) diag--;
                     if (i + j == 2) antidiag--;
                 }
@@ -104,5 +108,5 @@ public class ValidTicTacToeState {
 
         res[1] = ValidTicTacToeState.validTicTacToe(boards[1]);
         System.out.println(res[1]);
-     }
+    }
 }

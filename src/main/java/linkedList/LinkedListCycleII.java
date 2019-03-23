@@ -1,7 +1,5 @@
 package linkedList;
 
-import java.util.Collections;
-
 public class LinkedListCycleII {
     public ListNode detectCycle(ListNode head) {
         int[] result = isCircular(head);
@@ -9,11 +7,11 @@ public class LinkedListCycleII {
         if (result[0] == 0)
             return null;
         ListNode nodeFollowing = head;
-        for (int i = 0; i < result[1]; i++){
+        for (int i = 0; i < result[1]; i++) {
             nodeFollowing = nodeFollowing.next;
         }
 
-        while (nodeFollowing != null){
+        while (nodeFollowing != null) {
             if (nodeFollowing == head) return head;
             head = head.next;
             nodeFollowing = nodeFollowing.next;
@@ -31,12 +29,12 @@ public class LinkedListCycleII {
         ListNode slow = head;
         ListNode fast = head;
 
-        while (fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast){
+            if (slow == fast) {
                 ListNode travelNode = slow;
-                while(travelNode.next != slow){
+                while (travelNode.next != slow) {
                     length++;
                     travelNode = travelNode.next;
                 }
@@ -58,11 +56,13 @@ public class LinkedListCycleII {
         ListNode l4 = new ListNode(4);
         //
         l1.next = l2;
-        l2.next = l3; l3.next = l4; l4.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l2;
 
         int[] result = linkedListCycleII.isCircular(l1);
-        for (int i:
-             result) {
+        for (int i :
+                result) {
             System.out.println(i);
         }
 

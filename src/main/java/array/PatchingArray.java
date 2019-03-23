@@ -35,8 +35,6 @@ Output: 0
 
 import org.junit.Assert;
 
-import javax.sound.midi.Patch;
-
 /*
 Solution:
 Explanation

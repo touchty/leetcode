@@ -27,11 +27,12 @@ Example:
  */
 public class RandomPickwithWeight {
     int[] sums;
+
     public RandomPickwithWeight(int[] w) {
         int len = w.length;
         sums = new int[len];
         // sums must be in ascending order because w[i] > 0
-        for (int i = 0; i < len;i++) {
+        for (int i = 0; i < len; i++) {
             sums[i] = (i == 0 ? 0 : sums[i - 1]) + w[i];
         }
     }
@@ -49,8 +50,7 @@ public class RandomPickwithWeight {
             else
                 index = -1 * (index + 1);
             return index;
-        }
-        else {
+        } else {
             return -1;
         }
     }

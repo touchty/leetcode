@@ -1,31 +1,32 @@
 package graph;
 
 import bfs.TreeNode;
+
 import java.util.*;
 
 /**
  * 863. All Nodes Distance K in Binary Tree
  * Medium
- *
+ * <p>
  * 539
- *
+ * <p>
  * 8
- *
+ * <p>
  * Favorite
- *
+ * <p>
  * Share
  * We are given a binary tree (with root node root), a target node, and an integer value K.
- *
+ * <p>
  * Return a list of the values of all nodes that have a distance K from the target node.  The answer can be returned in any order.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, K = 2
- *
+ * <p>
  * Output: [7,4,1]
- *
+ * <p>
  * Explanation:
  * The nodes that are a distance 2 from the target node (with value 5)
  * have values 7, 4, and 1.
@@ -51,6 +52,7 @@ def distanceK(self, root, target, K):
  */
 public class AllNodesDistanceKinBinaryTree {
     Map<Integer, List<Integer>> conn = new HashMap<>();
+
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
         connect(null, root);
         Set<Integer> seen = new HashSet<>();
@@ -69,6 +71,7 @@ public class AllNodesDistanceKinBinaryTree {
         }
         return bfs;
     }
+
     void connect(TreeNode parent, TreeNode child) {
         if (child == null) return;
         if (!conn.containsKey(child.val))

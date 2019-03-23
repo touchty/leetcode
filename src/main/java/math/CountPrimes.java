@@ -2,7 +2,7 @@ package math;
 
 /**
  * Count the number of prime numbers less than a non-negative number, n.
- *
+ * <p>
  * Example:
  * Input: 10
  * Output: 4

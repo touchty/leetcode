@@ -1,6 +1,7 @@
 package array;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
 904. Fruit Into Baskets
@@ -113,12 +114,13 @@ public class FruitIntoBaskets {
     /**
      * Problem
      * "Start from any index, we can collect at most two types of fruits. What is the maximum amount"
-     *
+     * <p>
      * Translation
      * Find out the longest length of subarrays with at most 2 different numbers?
-     *
+     * <p>
      * Complexity:
      * O(N) time, O(1) space
+     *
      * @param tree
      * @return
      */

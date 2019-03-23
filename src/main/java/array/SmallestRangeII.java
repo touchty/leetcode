@@ -1,8 +1,8 @@
 package array;
 
-import java.util.Arrays;
-
 import org.junit.Assert;
+
+import java.util.Arrays;
 
 /*
 Given an array A of integers, for each integer A[i] we need to choose either x = -K or x = K, and add x to A[i] (only once).
@@ -48,7 +48,7 @@ public class SmallestRangeII {
     }
 
     public static void main(String[] args) {
-        int[]  A = {1,3,6};
+        int[] A = {1, 3, 6};
         int K = 3;
 
         int expected = 3;

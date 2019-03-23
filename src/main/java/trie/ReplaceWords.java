@@ -26,6 +26,7 @@ public class ReplaceWords {
             trie.insert(str);
         return replaceWords(tokens, trie);
     }
+
     String replaceWords(String[] tokens, Trie trie) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String token : tokens) {
@@ -38,8 +39,7 @@ public class ReplaceWords {
                         break;
                     }
 
-                }
-                else {
+                } else {
                     stringBuilder.append(token).append(" ");
                     break;
                 }
@@ -61,7 +61,7 @@ public class ReplaceWords {
                 stringBuilder.append(getShortestReplacement(token, root));
                 stringBuilder.append(" ");
             }
-            return stringBuilder.substring(0, stringBuilder.length()-1);
+            return stringBuilder.substring(0, stringBuilder.length() - 1);
         }
 
         private String getShortestReplacement(String token, final TrieNode root) {

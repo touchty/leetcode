@@ -8,8 +8,8 @@ public class FractionToRecurringDecimal {
         StringBuilder res = new StringBuilder();
         // "+" or "-"
         res.append(((numerator > 0) ^ (denominator > 0)) ? "-" : "");
-        long num = Math.abs((long)numerator);
-        long den = Math.abs((long)denominator);
+        long num = Math.abs((long) numerator);
+        long den = Math.abs((long) denominator);
 
         // integral part
         res.append(num / den);
@@ -31,8 +31,7 @@ public class FractionToRecurringDecimal {
                 res.insert(index, "(");
                 res.append(")");
                 break;
-            }
-            else {
+            } else {
                 map.put(num, res.length());
             }
         }

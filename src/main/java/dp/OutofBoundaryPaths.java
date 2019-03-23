@@ -41,27 +41,27 @@ public class OutofBoundaryPaths {
         int[][] count = new int[m][n];
         count[i][j] = 1;
         int result = 0;
-        int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
+        int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-        for (int step = 0; step < N; step++){
+        for (int step = 0; step < N; step++) {
             int[][] temp = new int[m][n];
             for (int r = 0; r < m; r++) {
                 for (int c = 0; c < n; c++) {
-                    for (int[] dir : dirs){
+                    for (int[] dir : dirs) {
                         // four directions
                         int nr = r + dir[0];
                         int nc = c + dir[1];
 
-                        if (nr <0 || nr>=m ||nc<0||nc>=n){
+                        if (nr < 0 || nr >= m || nc < 0 || nc >= n) {
                             result += count[r][c];
-                        }else {
+                        } else {
                             temp[nr][nc] = (temp[nr][nc] + count[r][c]) % MOD;
                         }
                     }
                 }
 
             }
-            count=temp;
+            count = temp;
         }
         return result;
     }

@@ -11,6 +11,7 @@ public class DiameterOfBinaryTree {
     /**
      * For every node, length of longest path which pass
      * it = MaxDepth of its left subtree + MaxDepth of its right subtree.
+     *
      * @param root
      * @return
      */
@@ -32,7 +33,7 @@ public class DiameterOfBinaryTree {
         }
 
         int[] max = new int[1];
-        helper (root, max);
+        helper(root, max);
         return max[0];
 
     }
@@ -46,8 +47,8 @@ public class DiameterOfBinaryTree {
         }
         int left = helper(root.left, max);
         int right = helper(root.right, max);
-        if (left + right  > max[0]) {
-            max[0] = left + right ;
+        if (left + right > max[0]) {
+            max[0] = left + right;
         }
         return Math.max(left, right) + 1;
     }

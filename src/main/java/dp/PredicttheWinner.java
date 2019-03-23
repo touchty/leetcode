@@ -10,8 +10,8 @@ public class PredicttheWinner {
         }
         for (int len = 1; len < n; len++) {
             for (int i = 0; i < n - len; i++) {
-                for (int j = i+len; j < n; j++) {
-                    dp[i][j] = Math.max(nums[i]-dp[i+1][j], nums[j]-dp[i][j-1]);
+                for (int j = i + len; j < n; j++) {
+                    dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
                 }
             }
         }

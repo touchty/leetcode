@@ -42,12 +42,12 @@ public class MaximalSquare {
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (a[i - 1][j - 1] == '1') {
-                    dp[i][j] = Math.min(Math.min(dp[i-1][j], dp[i - 1][j - 1]),dp[i][j-1]) + 1;
+                    dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i - 1][j - 1]), dp[i][j - 1]) + 1;
                     edge = Math.max(edge, dp[i][j]);
                 }
             }
         }
-        return edge*edge;
+        return edge * edge;
     }
 
 }

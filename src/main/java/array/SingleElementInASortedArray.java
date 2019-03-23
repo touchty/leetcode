@@ -2,7 +2,7 @@ package array;
 
 /**
  * Given a sorted array consisting of only integers where every element appears twice except for one element which appears once. Find this single element that appears only once.
- *
+ * <p>
  * Example 1:
  * Input: [1,1,2,3,3,4,4,8,8]
  * Output: 2

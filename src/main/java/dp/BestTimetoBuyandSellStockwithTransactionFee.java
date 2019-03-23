@@ -82,6 +82,6 @@ Not hold stock:
             T_ik1 = Math.max(T_ik1, T_ik0_old - price);
         }
 
-        return (int)T_ik0;
+        return (int) T_ik0;
     }
 }

@@ -1,24 +1,24 @@
 public class UniquePathsII {
 
     /*
-    *   Dynamic processing:
-    *
-    *   map:
-    *   0 0 0
-    *   0 1 0
-    *   0 0 0
-    *
-    *   loop:
-    *   dp[0] dp[1] dp[2]
-    *   1     1     1     loop1
-    *         |
-    *   1  ==>0     1     loop2
-    *
-    *   1     1     2     loop3
-    *
-    *   dp[j] = dp[j] + dp[j - 1] : current cell = top cell + left cell
-    *
-    * */
+     *   Dynamic processing:
+     *
+     *   map:
+     *   0 0 0
+     *   0 1 0
+     *   0 0 0
+     *
+     *   loop:
+     *   dp[0] dp[1] dp[2]
+     *   1     1     1     loop1
+     *         |
+     *   1  ==>0     1     loop2
+     *
+     *   1     1     2     loop3
+     *
+     *   dp[j] = dp[j] + dp[j - 1] : current cell = top cell + left cell
+     *
+     * */
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int width = obstacleGrid[0].length;

@@ -13,7 +13,7 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
         // postorder 后序遍历
         // preorder 前序遍历
         Map<Integer, Integer> order = new HashMap<>();
-        for (int i = 0; i < inorder.length; i ++) {
+        for (int i = 0; i < inorder.length; i++) {
             order.put(inorder[i], i);
         }
 
@@ -21,7 +21,7 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
 
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        for (int i = postorder.length - 2; i >= 0; i --) {
+        for (int i = postorder.length - 2; i >= 0; i--) {
             TreeNode curr = new TreeNode(postorder[i]);
             if (order.get(curr.val) > order.get(stack.peek().val)) {
                 stack.peek().right = curr;
@@ -43,6 +43,7 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
     public TreeNode buildTreeDFS(int[] inorder, int[] postorder) {
         return dfs(postorder.length - 1, 0, inorder.length - 1, postorder, inorder);
     }
+
     private TreeNode dfs(int posStart, int inStart, int inEnd, int[] postorder, int[] inorder) {
         if (posStart < 0 || inStart > inEnd) {
             return null;

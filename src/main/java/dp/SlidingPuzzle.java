@@ -51,8 +51,8 @@ public class SlidingPuzzle {
         // all the positions 0 can be swapped to
         // when zero is in position:0 it can go to cell {1,3}, position:1 it can go {0,2,4} and so on, also when i mean
         // position i'm talking about the index of zero in the string not the input array.
-        int[][] dirs = new int[][] { { 1, 3 }, { 0, 2, 4 },
-                { 1, 5 }, { 0, 4 }, { 1, 3, 5 }, { 2, 4 } };
+        int[][] dirs = new int[][]{{1, 3}, {0, 2, 4},
+                {1, 5}, {0, 4}, {1, 3, 5}, {2, 4}};
         Queue<String> queue = new LinkedList<>();
         queue.offer(start);
         visited.add(start);
@@ -90,7 +90,7 @@ public class SlidingPuzzle {
     }
 
     public static void main(String[] args) {
-        int[][] board = {{1,2,3},{4,0,5}};
+        int[][] board = {{1, 2, 3}, {4, 0, 5}};
         SlidingPuzzle slidingPuzzle = new SlidingPuzzle();
         int res = slidingPuzzle.slidingPuzzle(board);
         int expected = 1;

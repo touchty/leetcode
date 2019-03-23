@@ -5,26 +5,26 @@ import org.junit.Assert;
 /**
  * 903. Valid Permutations for DI Sequence
  * Hard
- *
+ * <p>
  * 123
- *
+ * <p>
  * 16
- *
+ * <p>
  * Favorite
- *
+ * <p>
  * Share
  * We are given S, a length n string of characters from the set {'D', 'I'}. (These letters stand for "decreasing" and "increasing".)
- *
+ * <p>
  * A valid permutation is a permutation P[0], P[1], ..., P[n] of integers {0, 1, ..., n}, such that for all i:
- *
+ * <p>
  * If S[i] == 'D', then P[i] > P[i+1], and;
  * If S[i] == 'I', then P[i] < P[i+1].
  * How many valid permutations are there?  Since the answer may be large, return your answer modulo 10^9 + 7.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: "DID"
  * Output: 5
  * Explanation:
@@ -44,7 +44,7 @@ for "D", we calculate sufixsum of the array.
  */
 public class ValidPermutationsForDISequence {
     public static int numPermsDISequence(String S) {
-        int n = S.length(), mod = (int)1e9 + 7;
+        int n = S.length(), mod = (int) 1e9 + 7;
         int[][] dp = new int[n + 1][n + 1];
         for (int j = 0; j <= n; j++) dp[0][j] = 1;
         for (int i = 0; i < n; i++) {

@@ -2,13 +2,13 @@ package array;
 
 /**
  * 724. Find Pivot Index
- *
+ * <p>
  * Given an array of integers nums, write a method that returns the "pivot" index of this array.
- *
+ * <p>
  * We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index.
- *
+ * <p>
  * If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.
- *
+ * <p>
  * Example 1:
  * Input:
  * nums = [1, 7, 3, 6, 5, 6]
@@ -32,7 +32,7 @@ public class FindPivotIndex {
         }
         int res = -1;
         for (int i = 0; i < sums.length - 1; i++) {
-            if (sums[i] == sums[sums.length - 1] - sums[i+1])
+            if (sums[i] == sums[sums.length - 1] - sums[i + 1])
                 return i;
         }
 

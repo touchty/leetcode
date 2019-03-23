@@ -8,21 +8,19 @@ public class IntersectionofTwoArraysII {
         int p2 = 0;
         int length1 = nums1.length;
         int length2 = nums2.length;
-        int[] result = new int[Math.min(length1,length2)];
+        int[] result = new int[Math.min(length1, length2)];
         int counter = 0;
         Arrays.sort(nums1);
         Arrays.sort(nums2);
-        while (p1 < length1 && p2 < length2){
+        while (p1 < length1 && p2 < length2) {
             if (nums1[p1] == nums2[p2]) {
                 result[counter] = nums1[p1];
                 p1++;
                 p2++;
                 counter++;
-            }
-            else if (nums1[p1] > nums2[p2]){
+            } else if (nums1[p1] > nums2[p2]) {
                 p2++;
-            }
-            else{
+            } else {
                 p1++;
             }
         }

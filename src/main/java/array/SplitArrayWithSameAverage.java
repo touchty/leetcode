@@ -21,15 +21,15 @@ Explanation: We can split the array into [1,4,5,8] and [2,3,6,7], and both of th
 public class SplitArrayWithSameAverage {
     public boolean splitArraySameAverage(int[] A) {
 
-        int length=A.length;
-        int sum=0;
+        int length = A.length;
+        int sum = 0;
         for (int i = 0; i < length; i++) {
-            sum=sum+A[i];
+            sum = sum + A[i];
         }
         Arrays.sort(A);
-        for (int i = 1; i <= length/2; i++) { // only need to find one set
-            if(sum*i%length==0){
-                if(checkNSum(A,i,i*sum/length,0)){
+        for (int i = 1; i <= length / 2; i++) { // only need to find one set
+            if (sum * i % length == 0) {
+                if (checkNSum(A, i, i * sum / length, 0)) {
                     return true;
                 }
             }
@@ -39,28 +39,29 @@ public class SplitArrayWithSameAverage {
 
     /**
      * whether there exits a set of n numbers starting from startIndex, with sum of n * average
+     *
      * @param nums
      * @param n
      * @param target
      * @param startIndex
      * @return
      */
-    private boolean checkNSum(int[] nums,int n,int target,int startIndex){
-        if(target==0 && n==0){
+    private boolean checkNSum(int[] nums, int n, int target, int startIndex) {
+        if (target == 0 && n == 0) {
             return true;
         }
-        if(n!=0){
+        if (n != 0) {
             for (int i = startIndex; i <= nums.length - n; i++) {
                 // right part of A is larger than the left part
                 // i < nums.length+1-n is right to limit the start index
                 // [len - n, len - 1], the startIndex should be startIndex <= len - n
-                if(i>startIndex && nums[i]==nums[i-1]){
+                if (i > startIndex && nums[i] == nums[i - 1]) {
                     continue;
                 }
-                if(target<nums[i]*n || target>nums[nums.length-1]*n){ // target is too small or to large
+                if (target < nums[i] * n || target > nums[nums.length - 1] * n) { // target is too small or to large
                     break;
                 }
-                if(checkNSum(nums,n-1,target-nums[i],i+1)){
+                if (checkNSum(nums, n - 1, target - nums[i], i + 1)) {
                     return true;
                 }
             }

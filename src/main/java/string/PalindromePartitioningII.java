@@ -2,8 +2,6 @@ package string;
 
 import org.junit.Assert;
 
-import javax.print.DocFlavor;
-
 /**
  * 132. Palindrome Partitioning II
  * Hard
@@ -42,12 +40,12 @@ public class PalindromePartitioningII {
             pal[i][i] = true;
         }
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             int min = i;
-            for(int j = 0; j <= i; j++) {
+            for (int j = 0; j <= i; j++) {
                 // special case : i == j , i == j + 1
                 // more strict: if(c[j] == c[i] && (j + 1 > i - 1 || pal[j + 1][i - 1] && (j+1) < n && (i - 1) >= 0))
-                if(c[j] == c[i] && (j + 1 > i - 1 || pal[j + 1][i - 1])) {
+                if (c[j] == c[i] && (j + 1 > i - 1 || pal[j + 1][i - 1])) {
                     pal[j][i] = true;
                     min = j == 0 ? 0 : Math.min(min, cut[j - 1] + 1);
                 }

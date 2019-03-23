@@ -1,6 +1,9 @@
 package bfs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class BinaryTreeZigzagLevelOrderTraversal {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -12,15 +15,14 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         queue.add(root);
         boolean toRight = true;
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
             LinkedList<Integer> list = new LinkedList<>();
-            for (int i = 0; i < size; i++){
+            for (int i = 0; i < size; i++) {
                 root = queue.poll();
-                if (toRight){
+                if (toRight) {
                     list.addFirst(root.val);
-                }
-                else {
+                } else {
                     list.add(root.val);
                 }
                 if (root.right != null) queue.offer(root.right);

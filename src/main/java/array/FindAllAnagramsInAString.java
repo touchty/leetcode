@@ -1,8 +1,5 @@
 package array;
 
-import edu.princeton.cs.algs4.In;
-
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +34,7 @@ public class FindAllAnagramsInAString {
 
         return list;
     }
+
     public List<Integer> findAnagramsOpt(String s, String p) {
         List<Integer> list = new ArrayList<>();
         if (s == null || s.length() == 0 || p == null || p.length() == 0) return list;

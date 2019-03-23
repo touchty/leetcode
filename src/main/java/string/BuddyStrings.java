@@ -7,27 +7,27 @@ import java.util.Set;
 
 /**
  * Given two strings A and B of lowercase letters, return true if and only if we can swap two letters in A so that the result equals B.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: A = "ab", B = "ba"
  * Output: true
  * Example 2:
- *
+ * <p>
  * Input: A = "ab", B = "ab"
  * Output: false
  * Example 3:
- *
+ * <p>
  * Input: A = "aa", B = "aa"
  * Output: true
  * Example 4:
- *
+ * <p>
  * Input: A = "aaaaaaabc", B = "aaaaaaacb"
  * Output: true
  * Example 5:
- *
+ * <p>
  * Input: A = "", B = "aa"
  * Output: false
  */

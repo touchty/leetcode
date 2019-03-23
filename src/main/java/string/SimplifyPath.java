@@ -1,6 +1,7 @@
 package string;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class SimplifyPath {
     public static String simplifyPath(String path) {
@@ -9,10 +10,9 @@ public class SimplifyPath {
         for (String element : pathSplit) {
             if (element.length() == 0 || element.equals("."))
                 continue;
-            if (element.equals("..") && !deque.isEmpty()){
+            if (element.equals("..") && !deque.isEmpty()) {
                 deque.pop();
-            }
-            else if (!element.equals(".."))
+            } else if (!element.equals(".."))
                 deque.push(element);
         }
 

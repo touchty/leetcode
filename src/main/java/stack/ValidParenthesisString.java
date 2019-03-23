@@ -5,7 +5,7 @@ import org.junit.Assert;
 /**
  * 678. Valid Parenthesis String
  * Given a string containing only three types of characters: '(', ')' and '*', write a function to check whether this string is valid. We define the validity of a string by these rules:
- *
+ * <p>
  * Any left parenthesis '(' must have a corresponding right parenthesis ')'.
  * Any right parenthesis ')' must have a corresponding left parenthesis '('.
  * Left parenthesis '(' must go before the corresponding right parenthesis ')'.

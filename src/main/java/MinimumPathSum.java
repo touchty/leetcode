@@ -7,15 +7,15 @@ public class MinimumPathSum {
         int[] dp = new int[width];
 
         dp[0] = grid[0][0];
-        for (int i = 1; i < width; i++){
+        for (int i = 1; i < width; i++) {
             dp[i] = dp[i - 1] + grid[0][i];
         }
 
-        for (int r = 1; r < grid.length; r++){
+        for (int r = 1; r < grid.length; r++) {
             dp[0] = dp[0] + grid[r][0];// vertically
-            for (int i = 1; i < width; i++){
-                    int min = Math.min(dp[i], dp[i - 1]);//vertically or horizontally
-                    dp[i] = min + grid[r][i];
+            for (int i = 1; i < width; i++) {
+                int min = Math.min(dp[i], dp[i - 1]);//vertically or horizontally
+                dp[i] = min + grid[r][i];
             }
 
         }

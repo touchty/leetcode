@@ -8,11 +8,11 @@ package dp;
  * path -- single path
  * sum = left_path + right_path + node.val
  * Input: [-10,9,20,null,null,15,7]
- *    -10
- *    / \
- *   9  20*
- *     /  \
- *    15*  7*
+ * -10
+ * / \
+ * 9  20*
+ * /  \
+ * 15*  7*
  * Output: 42
  */
 public class BinaryTreeMaximumPathSum {
@@ -23,7 +23,7 @@ public class BinaryTreeMaximumPathSum {
         return (maxPath);
     }
 
-    int maxPathDown(TreeNode node){
+    int maxPathDown(TreeNode node) {
         if (node == null) return 0;
 
         int leftMax = Math.max(0, maxPathDown(node.left));

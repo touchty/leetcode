@@ -37,7 +37,7 @@ The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6).
  */
 public class KthSmallestNumberinMultiplicationTable {
     public int findKthNumber(int m, int n, int k) {
-        int low = 1 , high = m * n + 1;
+        int low = 1, high = m * n + 1;
 
         while (low < high) {
             int mid = low + (high - low) / 2;
@@ -52,7 +52,7 @@ public class KthSmallestNumberinMultiplicationTable {
     int count(int v, int m, int n) {
         int count = 0;
         for (int i = 1; i <= m; i++) {
-            int temp = Math.min(v / i , n);
+            int temp = Math.min(v / i, n);
             count += temp;
         }
         return count;

@@ -12,10 +12,10 @@ public class ValidSquare {
 
         int count = 0;
         for (int i = 0; i < 6; i++) {
-            if (edges[i][0]  == 0 && edges[i][0] == edges[i][1])
+            if (edges[i][0] == 0 && edges[i][0] == edges[i][1])
                 return false;
-            for (int j = i+1; j < 6; j++) {
-                if (edges[i][0]*edges[j][0] + edges[i][1]*edges[j][1] == 0)
+            for (int j = i + 1; j < 6; j++) {
+                if (edges[i][0] * edges[j][0] + edges[i][1] * edges[j][1] == 0)
                     count++;
             }
 
@@ -30,15 +30,15 @@ public class ValidSquare {
         int[]p3 = {1,1};
         int[]p4 = {0,1};*/
 
-        int[]p1 = {6,0};
-        int[]p2 = {2,4};
-        int[]p3 = {9,8};
-        int[]p4 = {2,4};
+        int[] p1 = {6, 0};
+        int[] p2 = {2, 4};
+        int[] p3 = {9, 8};
+        int[] p4 = {2, 4};
 
-        System.out.println(validSquare(p1,p2,p3,p4));
-        System.out.println(validSquare(p4,p2,p3,p1));
-        System.out.println(validSquare(p1,p3,p2,p4));
-        System.out.println(validSquare(p3,p2,p1,p4));
+        System.out.println(validSquare(p1, p2, p3, p4));
+        System.out.println(validSquare(p4, p2, p3, p1));
+        System.out.println(validSquare(p1, p3, p2, p4));
+        System.out.println(validSquare(p3, p2, p1, p4));
     }
 }
 // 98%

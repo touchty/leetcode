@@ -43,24 +43,25 @@ For detailed explanation on how to solve subset sum problem, you may refer to Pa
     }
 
 
-    public static int findTargetSumWaysRewrite(int[] nums, int target){
+    public static int findTargetSumWaysRewrite(int[] nums, int target) {
         int sum = 0;
 
         for (int n : nums)
             sum += n;
 
-        return (target > sum || (target + sum) % 2 > 0) ?0 : subsetSumRewrite(nums, (target + sum) >>> 1);
+        return (target > sum || (target + sum) % 2 > 0) ? 0 : subsetSumRewrite(nums, (target + sum) >>> 1);
     }
+
     private static int subsetSumRewrite(int[] nums, int s) {
         int[] dp = new int[s + 1];
 
         dp[0] = 1;
 
-        for (int n : nums){
+        for (int n : nums) {
             for (int i = s; i >= n; i--)
                 dp[i] += dp[i - n];
         }
         return dp[s];
     }
 
-    }
+}

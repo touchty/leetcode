@@ -2,11 +2,11 @@ package array;
 
 /**
  * Given two arrays of length m and n with digits 0-9 representing two numbers. Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the k digits.
- *
+ * <p>
  * Note: You should try to optimize your time and space complexity.
- *
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input:
  * nums1 = [3, 4, 6, 5]
  * nums2 = [9, 1, 2, 5, 8, 3]
@@ -14,7 +14,7 @@ package array;
  * Output:
  * [9, 8, 6, 5, 3]
  * Example 2:
- *
+ * <p>
  * Input:
  * nums1 = [6, 7]
  * nums2 = [6, 0, 4]
@@ -57,6 +57,7 @@ public class CreateMaximumNumber {
         }
         return 0;
     }
+
     // k <= nums.length
     int[] maxNumberInArray(int[] nums, int k) {
         int[] res = new int[k];
@@ -64,7 +65,7 @@ public class CreateMaximumNumber {
         for (int i = 0; i < k; i++) {
             int pos = findMax(nums, start, nums.length - (k - i));
             res[i] = nums[pos];
-            start =  pos + 1;
+            start = pos + 1;
         }
         return res;
     }
@@ -85,26 +86,24 @@ public class CreateMaximumNumber {
         int[] res = new int[digits1.length + digits2.length];
         int pos = 0;
         // merge
-        while(i < digits1.length && j < digits2.length) {
+        while (i < digits1.length && j < digits2.length) {
             if (digits1[i] > digits2[j])
                 res[pos++] = digits1[i++];
             else if (digits1[i] < digits2[j])
                 res[pos++] = digits2[j++];
             else { // figure out which array's next digit is greater!
                 boolean assigned = false;
-                int p = i+1, q = j+1;
-                while( p < digits1.length && q < digits2.length) {
+                int p = i + 1, q = j + 1;
+                while (p < digits1.length && q < digits2.length) {
                     if (digits1[p] > digits2[q]) {
                         res[pos++] = digits1[i++];
                         assigned = true;
                         break;
-                    }
-                    else if (digits1[p] < digits2[q]) {
+                    } else if (digits1[p] < digits2[q]) {
                         res[pos++] = digits2[j++];
                         assigned = true;
                         break;
-                    }
-                    else {
+                    } else {
                         p++;
                         q++;
                     }
@@ -119,9 +118,9 @@ public class CreateMaximumNumber {
             }
         }
 
-        while(i < digits1.length)
+        while (i < digits1.length)
             res[pos++] = digits1[i++];
-        while(j < digits2.length)
+        while (j < digits2.length)
             res[pos++] = digits2[j++];
         return res;
     }
@@ -137,8 +136,9 @@ public class CreateMaximumNumber {
         k = 15;
         int[] maxNumber = createMaximumNumber.maxNumber(nums1, nums2, k);*/
 
-        nums1 = new int[]{2,1,7,8,0,1,7,3,5,8,9,0,0,7,0,2,2,7,3,5,5};
-        nums2 = new int[]{2,6,2,0,1,0,5,4,5,5,3,3,3,4};;
+        nums1 = new int[]{2, 1, 7, 8, 0, 1, 7, 3, 5, 8, 9, 0, 0, 7, 0, 2, 2, 7, 3, 5, 5};
+        nums2 = new int[]{2, 6, 2, 0, 1, 0, 5, 4, 5, 5, 3, 3, 3, 4};
+        ;
         k = 35;
         int[] maxNumber = createMaximumNumber.maxNumber(nums1, nums2, k);
 

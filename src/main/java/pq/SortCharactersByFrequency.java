@@ -19,7 +19,7 @@ public class SortCharactersByFrequency {
         StringBuilder sb2 = new StringBuilder();
         while (!pq.isEmpty()) {
             Map.Entry e = pq.poll();
-            for (int i = 0; i < (int)e.getValue(); i++)
+            for (int i = 0; i < (int) e.getValue(); i++)
                 sb.append(e.getKey());
         }
         for (Map.Entry<Character, Integer> entry : list) {

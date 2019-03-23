@@ -7,20 +7,25 @@ public class ShuffleAnArray {
     int[] origin;
     int[] shuffled;
     Random random = new Random();
+
     public ShuffleAnArray(int[] nums) {
         origin = nums;
         shuffled = Arrays.copyOf(nums, nums.length);
     }
 
-    /** Resets the array to its original configuration and return it. */
+    /**
+     * Resets the array to its original configuration and return it.
+     */
     public int[] reset() {
         return origin;
     }
 
-    /** Returns a random shuffling of the array. */
+    /**
+     * Returns a random shuffling of the array.
+     */
     public int[] shuffle() {
 
-        for (int i = shuffled.length - 1; i >= 1; i--){
+        for (int i = shuffled.length - 1; i >= 1; i--) {
             int prev = random.nextInt(i + 1);
             //swap
             if (prev == i)
@@ -33,7 +38,7 @@ public class ShuffleAnArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3};
+        int[] nums = {1, 2, 3};
         ShuffleAnArray shuffleAnArray = new ShuffleAnArray(nums);
         int[] shuffled = shuffleAnArray.shuffle();
         for (int i : shuffled)

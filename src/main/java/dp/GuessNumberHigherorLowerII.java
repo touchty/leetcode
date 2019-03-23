@@ -2,7 +2,7 @@ package dp;
 
 public class GuessNumberHigherorLowerII {
     public int getMoneyAmount(int n) {
-        int[][] table = new int[n+1][n+1];
+        int[][] table = new int[n + 1][n + 1];
         return DP(table, 1, n);
     }
 
@@ -14,18 +14,18 @@ public class GuessNumberHigherorLowerII {
     then we get DP([i~j]) = min{xi, … ,xj}
     –> // this min makes sure that you are minimizing your cost.
     */
-    private int DP(int[][] t, int s, int e){
+    private int DP(int[][] t, int s, int e) {
 
         //t[s][e] means the min cost from s to e
         //
-        if(s >= e) return 0;
+        if (s >= e) return 0;
 
-        if(t[s][e] != 0) return t[s][e];
+        if (t[s][e] != 0) return t[s][e];
 
         int res = Integer.MAX_VALUE;
 
-        for(int x=s; x<=e; x++){
-            int tmp = x + Math.max(DP(t, s, x-1), DP(t, x+1, e));
+        for (int x = s; x <= e; x++) {
+            int tmp = x + Math.max(DP(t, s, x - 1), DP(t, x + 1, e));
             res = Math.min(res, tmp);
         }
 
@@ -34,7 +34,7 @@ public class GuessNumberHigherorLowerII {
         return res;
     }
 
-    private int dpRe(int[][] t, int s, int e){
+    private int dpRe(int[][] t, int s, int e) {
         if (s >= e) return 0;
 
         if (t[s][e] != 0) return t[s][e];
@@ -52,7 +52,7 @@ public class GuessNumberHigherorLowerII {
     }
 
     public int getMoneyAmountRe(int n) {
-        int[][] table = new int[n+1][n+1];
+        int[][] table = new int[n + 1][n + 1];
         return dpRe(table, 1, n);
     }
 

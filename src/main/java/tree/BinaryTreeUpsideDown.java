@@ -36,6 +36,7 @@ public class BinaryTreeUpsideDown {
         root.right = null;
         return res;
     }
+
     public TreeNode upsideDownBinaryTreeIter(TreeNode root) {
         TreeNode cur = root, pre = null, next = null, tmp = null;
         while (cur != null) {

@@ -2,27 +2,30 @@ package string;
 
 import org.junit.Assert;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 187. Repeated DNA Sequences
  * Medium
- *
+ * <p>
  * 357
- *
+ * <p>
  * 142
- *
+ * <p>
  * Favorite
- *
+ * <p>
  * Share
  * All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.
- *
+ * <p>
  * Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.
- *
+ * <p>
  * Example:
- *
+ * <p>
  * Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
- *
+ * <p>
  * Output: ["AAAAACCCCC", "CCCCCAAAAA"]
  */
 public class RepeatedDNASequences {

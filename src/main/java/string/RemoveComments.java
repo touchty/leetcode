@@ -23,16 +23,13 @@ public class RemoveComments {
                         mode = false;
                         i++;        //skip '/' on next iteration of i
                     }
-                }
-                else {
+                } else {
                     if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '/') {
                         break;      //ignore remaining characters on line s
-                    }
-                    else if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '*') {
+                    } else if (s.charAt(i) == '/' && i < s.length() - 1 && s.charAt(i + 1) == '*') {
                         mode = true;
                         i++;           //skip '*' on next iteration of i
-                    }
-                    else    sb.append(s.charAt(i));     //not a comment
+                    } else sb.append(s.charAt(i));     //not a comment
                 }
             }
             if (!mode && sb.length() > 0) {
@@ -50,7 +47,7 @@ public class RemoveComments {
         boolean tag = false;    // use for block
 
         StringBuilder sb = new StringBuilder();
-        for (String str: source) {
+        for (String str : source) {
             // reset String
             if (!tag) {
                 sb.setLength(0);
@@ -59,10 +56,10 @@ public class RemoveComments {
             int i = 0;
             while (i < str.length()) {
                 if (!tag) {
-                    if (str.charAt(i) == '/' &&  i+1 < str.length() && str.charAt(i+1) == '/') {
+                    if (str.charAt(i) == '/' && i + 1 < str.length() && str.charAt(i + 1) == '/') {
                         ++i;
                         break;
-                    } else if (str.charAt(i) == '/' &&  i+1 < str.length() && str.charAt(i+1) == '*') {
+                    } else if (str.charAt(i) == '/' && i + 1 < str.length() && str.charAt(i + 1) == '*') {
                         ++i;
                         tag = true;
                     } else {
@@ -70,7 +67,7 @@ public class RemoveComments {
                     }
                 } else {
                     // if there is an open block
-                    if (str.charAt(i) == '*' && i+1 < str.length() && str.charAt(i+1) == '/') {
+                    if (str.charAt(i) == '*' && i + 1 < str.length() && str.charAt(i + 1) == '/') {
                         ++i;
                         tag = false;
                     }

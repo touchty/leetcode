@@ -6,28 +6,28 @@ import java.util.LinkedList;
 /**
  * 965. Univalued Binary Tree
  * Easy
- *
+ * <p>
  * 60
- *
+ * <p>
  * 15
- *
+ * <p>
  * Favorite
- *
+ * <p>
  * Share
  * A binary tree is univalued if every node in the tree has the same value.
- *
+ * <p>
  * Return true if and only if the given tree is univalued.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
- *
+ * <p>
+ * <p>
  * Input: [1,1,1,1,1,null,1]
  * Output: true
  * Example 2:
- *
- *
+ * <p>
+ * <p>
  * Input: [2,2,2,5,2]
  * Output: false
  */

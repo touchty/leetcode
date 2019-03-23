@@ -2,13 +2,13 @@ package linkedList;
 
 /**
  * Given a sorted linked list, delete all duplicates such that each element appear only once.
- *
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: 1->1->2
  * Output: 1->2
  * Example 2:
- *
+ * <p>
  * Input: 1->1->2->3->3
  * Output: 1->2->3
  */
@@ -19,7 +19,7 @@ public class RemoveDuplicatesFromSortedList {
         ListNode slow = head;
         ListNode fast = slow.next;
 
-        while(fast != null) {
+        while (fast != null) {
             while (fast != null && fast.val == slow.val) {
                 fast = fast.next;
             }

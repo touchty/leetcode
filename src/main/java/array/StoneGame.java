@@ -2,17 +2,17 @@ package array;
 
 /**
  * Alex and Lee play a game with piles of stones.  There are an even number of piles arranged in a row, and each pile has a positive integer number of stones piles[i].
- *
+ * <p>
  * The objective of the game is to end with the most stones.  The total number of stones is odd, so there are no ties.
- *
+ * <p>
  * Alex and Lee take turns, with Alex starting first.  Each turn, a player takes the entire pile of stones from either the beginning or the end of the row.  This continues until there are no more piles left, at which point the person with the most stones wins.
- *
+ * <p>
  * Assuming Alex and Lee play optimally, return True if and only if Alex wins the game.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: [5,3,4,5]
  * Output: true
  * Explanation:
@@ -49,7 +49,7 @@ I didn't find a tricky solution when the number of stones is odd (maybe there is
 public class StoneGame {
     public boolean stoneGame(int[] p) {
         int n = p.length;
-        int[][] dp  = new int[n][n];
+        int[][] dp = new int[n][n];
         for (int i = 0; i < n; i++) dp[i][i] = p[i];
         for (int d = 1; d < n; d++)
             for (int i = 0; i < n - d; i++)

@@ -6,16 +6,16 @@ public class LongestIncreasingSubsequence {
     public int lengthOfLIS(int[] nums) {
 
         /*
-        * dp[i] is the minimum value a subsequence of length i+1 might end with.
-        * case 1 : 1,2,3,4,5
-        * len can increase,cause 1 < 2, 2 < 3
-        *
-        *
-        * case 2 : 1,2,4,3,5
-        * 1==>len=1, 2==>len=2, 4==>len=3, but 3=/=>len++ because 3 < 4
-        * then update dp[2] = 3.
-        * we don't need 4 any more cause wecan always use 3 instead of 4.
-        * */
+         * dp[i] is the minimum value a subsequence of length i+1 might end with.
+         * case 1 : 1,2,3,4,5
+         * len can increase,cause 1 < 2, 2 < 3
+         *
+         *
+         * case 2 : 1,2,4,3,5
+         * 1==>len=1, 2==>len=2, 4==>len=3, but 3=/=>len++ because 3 < 4
+         * then update dp[2] = 3.
+         * we don't need 4 any more cause wecan always use 3 instead of 4.
+         * */
 
         int[] dp = new int[nums.length];
         int len = 0;

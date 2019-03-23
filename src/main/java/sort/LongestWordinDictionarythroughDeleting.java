@@ -18,7 +18,7 @@ public class LongestWordinDictionarythroughDeleting {
         int index = 0;
         for (char c : sub.toCharArray()) {
             // searching from index, guarantee relative position
-            index = str.indexOf(c,index);
+            index = str.indexOf(c, index);
             if (index == -1) return false;
             index++;
         }

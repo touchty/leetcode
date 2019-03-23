@@ -7,10 +7,9 @@ public class TopKFrequentWords {
 
         List<String> result = new LinkedList<>();
         Map<String, Integer> map = new HashMap<>();
-        for(int i=0; i<words.length; i++)
-        {
-            if(map.containsKey(words[i]))
-                map.put(words[i], map.get(words[i])+1);
+        for (int i = 0; i < words.length; i++) {
+            if (map.containsKey(words[i]))
+                map.put(words[i], map.get(words[i]) + 1);
             else
                 map.put(words[i], 1);
         }
@@ -18,17 +17,16 @@ public class TopKFrequentWords {
         PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
                 // Tricky point. Notice the lines: if(pq.size()>k) pq.poll();
                 // We discard the pq's first element! So we maintain a min heap.
-                (a,b) -> a.getValue()==b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue()-b.getValue()
+                (a, b) -> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue()
         );
 
-        for(Map.Entry<String, Integer> entry: map.entrySet())
-        {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             pq.offer(entry);
-            if(pq.size()>k)
+            if (pq.size() > k)
                 pq.poll();
         }
 
-        while(!pq.isEmpty())
+        while (!pq.isEmpty())
             result.add(0, pq.poll().getKey());
 
         return result;

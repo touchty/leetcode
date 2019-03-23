@@ -21,18 +21,18 @@ public class WiggleSortII {
     public void wiggleSort(int[] nums) {
         int[] copy = new int[nums.length];
         Arrays.sort(nums);
-        for(int i = 0; i < nums.length; i++) copy[i] = nums[i];
+        for (int i = 0; i < nums.length; i++) copy[i] = nums[i];
 
         // larger numbers in odd positions
         int index = 1;
-        for(int i = nums.length - 1; i > (nums.length - 1) / 2; i--){
+        for (int i = nums.length - 1; i > (nums.length - 1) / 2; i--) {
             nums[index] = copy[i];
             index += 2;
         }
 
         // less numbers in even positions
         index = 0;
-        for(int i = (nums.length - 1) / 2; i >= 0; i--){
+        for (int i = (nums.length - 1) / 2; i >= 0; i--) {
             nums[index] = copy[i];
             index += 2;
         }

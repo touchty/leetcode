@@ -4,13 +4,13 @@ import org.junit.Assert;
 
 /**
  * Design a data structure that supports the following two operations:
- *
+ * <p>
  * void addWord(word)
  * bool search(word)
  * search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
- *
+ * <p>
  * Example:
- *
+ * <p>
  * addWord("bad")
  * addWord("dad")
  * addWord("mad")

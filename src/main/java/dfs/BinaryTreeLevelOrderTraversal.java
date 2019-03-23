@@ -1,6 +1,9 @@
 package dfs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -10,10 +13,10 @@ public class BinaryTreeLevelOrderTraversal {
         if (root == null) return res;
 
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> list = new ArrayList<>();
-            while(size-- > 0){
+            while (size-- > 0) {
                 root = queue.poll();
                 list.add(root.val);
                 if (root.left != null) queue.offer(root.left);

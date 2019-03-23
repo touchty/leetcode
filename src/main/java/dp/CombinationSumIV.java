@@ -9,7 +9,7 @@ public class CombinationSumIV {
 
         for (int i = 1; i < dp.length; i++) {
             for (int j = 0; j < nums.length; j++) {
-                if (i >= nums[j]){
+                if (i >= nums[j]) {
                     dp[i] += dp[i - nums[j]];
                 }
             }
@@ -20,17 +20,17 @@ public class CombinationSumIV {
     }
 
 
-    public int combinationSum4Rewrite(int[] nums, int target){
+    public int combinationSum4Rewrite(int[] nums, int target) {
         int[] dp = new int[target + 1];
 
-        for (int i = 0; i < nums.length && i <= target; i++){
+        for (int i = 0; i < nums.length && i <= target; i++) {
             //nums[i] = nums[i]
             dp[nums[i]] = 1;
         }
 
-        for (int i = 1; i <= target; i++){
-            for (int x : nums){
-                if (i > x){
+        for (int i = 1; i <= target; i++) {
+            for (int x : nums) {
+                if (i > x) {
                     dp[i] += dp[i - x];
                 }
             }

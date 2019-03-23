@@ -30,7 +30,8 @@ public class FourSum {
                         int m3 = Math.max(pair[0], i);  // m3 will be one of the middle two indices
                         int m4 = Math.max(pair[1], j);  // m4 will always be the largest index
 
-                        if (m1 == m3 || m1 == m4 || m2 == m3 || m2 == m4) continue;  // two pairs are overlapping, so just ignore this case
+                        if (m1 == m3 || m1 == m4 || m2 == m3 || m2 == m4)
+                            continue;  // two pairs are overlapping, so just ignore this case
 
                         res.add(Arrays.asList(num[m1], num[Math.min(m2, m3)], num[Math.max(m2, m3)], num[m4]));  // else record the result
                     }
@@ -38,7 +39,7 @@ public class FourSum {
 
                 // mark that we have visited current pair and add it to the corrsponding pair sum group.
                 // here we've encoded the pair indices i and j into an integer array of length 2.
-                twoSumMap.computeIfAbsent(num[i] + num[j], key -> new ArrayList<>()).add(new int[] {i, j});
+                twoSumMap.computeIfAbsent(num[i] + num[j], key -> new ArrayList<>()).add(new int[]{i, j});
             }
         }
 

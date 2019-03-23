@@ -16,21 +16,21 @@ import java.util.LinkedList;
  */
 public class SumOfSubarrayMinimums {
     public static int sumSubarrayMins(int[] A) {
-        int res = 0, n = A.length, mod = (int)1e9 + 7;
+        int res = 0, n = A.length, mod = (int) 1e9 + 7;
         int[] left = new int[n], right = new int[n];
         Deque<int[]> s1 = new LinkedList<>(), s2 = new LinkedList<>();
         for (int i = 0; i < n; ++i) {
             int count = 1;
             while (!s1.isEmpty() && s1.peek()[0] > A[i])
                 count += s1.pop()[1];
-            s1.push(new int[] {A[i], count});
+            s1.push(new int[]{A[i], count});
             left[i] = count;
         }
         for (int i = n - 1; i >= 0; --i) {
             int count = 1;
             while (!s2.isEmpty() && s2.peek()[0] >= A[i])
                 count += s2.pop()[1];
-            s2.push(new int[] {A[i], count});
+            s2.push(new int[]{A[i], count});
             right[i] = count;
         }
         for (int i = 0; i < n; ++i)
@@ -39,7 +39,7 @@ public class SumOfSubarrayMinimums {
     }
 
     public static void main(String[] args) {
-        int[] nums = {3,1,2,4};
+        int[] nums = {3, 1, 2, 4};
         int res = sumSubarrayMins(nums);
         int expected = 17;
         Assert.assertEquals(expected, res);
@@ -54,7 +54,7 @@ public class SumOfSubarrayMinimums {
             int[] next = new int[Len];
 
             for (int i = 0; i < Len; i++) {
-                prev[i] = i+1;
+                prev[i] = i + 1;
                 next[i] = Len - i;
             }
 
@@ -64,16 +64,16 @@ public class SumOfSubarrayMinimums {
                 prev[i] = stackPrev.isEmpty() ? i + 1 : i - stackPrev.peek();
                 stackPrev.push(i);
 
-                while(!stackNext.isEmpty() && A[i] < A[stackNext.peek()]) {
+                while (!stackNext.isEmpty() && A[i] < A[stackNext.peek()]) {
                     int x = stackNext.pop();
                     next[x] = i - x;
                 }
                 stackNext.push(i);
             }
 
-            int ans = 0, mod = (int)1e9 +7;
-            for(int i = 0; i < Len; i++){
-                ans = (ans + A[i]*prev[i]*next[i])%mod;
+            int ans = 0, mod = (int) 1e9 + 7;
+            for (int i = 0; i < Len; i++) {
+                ans = (ans + A[i] * prev[i] * next[i]) % mod;
             }
             return ans;
         }

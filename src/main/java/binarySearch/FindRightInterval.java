@@ -26,7 +26,7 @@ public class FindRightInterval {
         int[] starts = new int[intervals.length];
 
         Map<Integer, Integer> indices = new HashMap<>();
-        for (int i=0;i<intervals.length;i++) {
+        for (int i = 0; i < intervals.length; i++) {
             indices.put(intervals[i].start, i);
             starts[i] = intervals[i].start;
         }
@@ -34,7 +34,7 @@ public class FindRightInterval {
         Arrays.sort(starts);
 
         int[] result = new int[intervals.length];
-        for (int i=0;i<intervals.length;i++) {
+        for (int i = 0; i < intervals.length; i++) {
             int index = Arrays.binarySearch(starts, intervals[i].end);
             if (index >= 0) {
                 result[i] = indices.get(starts[index]);
@@ -47,12 +47,21 @@ public class FindRightInterval {
             }
         }
 
-        return  result;
+        return result;
     }
 }
+
 class Interval {
     int start;
     int end;
-    Interval() { start = 0; end = 0; }
-    Interval(int s, int e) { start = s; end = e; }
+
+    Interval() {
+        start = 0;
+        end = 0;
+    }
+
+    Interval(int s, int e) {
+        start = s;
+        end = e;
+    }
 }

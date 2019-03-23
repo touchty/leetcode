@@ -1,13 +1,11 @@
 package dp;
 
-import java.util.Arrays;
-
 public class DeleteandEarn {
-    public int deleteAndEarn(int[] nums){
+    public int deleteAndEarn(int[] nums) {
         int n = 10001;
         int[] values = new int[n];
 
-        for (int num: nums){
+        for (int num : nums) {
             values[num] += num;
         }
 

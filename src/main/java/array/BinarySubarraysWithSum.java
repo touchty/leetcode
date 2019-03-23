@@ -4,11 +4,11 @@ import org.junit.Assert;
 
 /**
  * In an array A of 0s and 1s, how many non-empty subarrays have sum S?
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: A = [1,0,1,0,1], S = 2
  * Output: 4
  * Explanation:
@@ -38,7 +38,7 @@ public class BinarySubarraysWithSum {
     }
 
     public static void main(String[] args) {
-        int[] A = {1,0,1,0,1};
+        int[] A = {1, 0, 1, 0, 1};
         int S = 2;
         int actual = new BinarySubarraysWithSum().numSubarraysWithSum(A, S);
         int expected = 4;

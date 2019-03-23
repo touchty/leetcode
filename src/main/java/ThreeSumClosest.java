@@ -8,16 +8,16 @@ public class ThreeSumClosest {
         int result = nums[0] + nums[1] + nums[2];
 
         for (int i = 0; i < nums.length; i++) {
-            int j = i+ 1;
+            int j = i + 1;
             int k = nums.length - 1;
-            while (j < k){
+            while (j < k) {
                 sum = nums[i] + nums[j] + nums[k];
                 if (sum > target)
                     k--;
                 else
                     j++;
 
-                if (Math.abs(sum - target) < Math.abs(result - target)){
+                if (Math.abs(sum - target) < Math.abs(result - target)) {
                     result = sum;
                     if (result == target) return target;
                 }
@@ -25,12 +25,13 @@ public class ThreeSumClosest {
         }
         return result;
     }
+
     public int threeSumClosestOp(int[] nums, int target) {
         Arrays.sort(nums);
         int n = nums.length;
         int res = 0;
         if (n <= 3) {
-            for (int num:nums)
+            for (int num : nums)
                 res += num;
             return res;
         }
@@ -54,12 +55,12 @@ public class ThreeSumClosest {
 
     public int threeSumClosestOptmized(int[] nums, int target) {
         int result = Integer.MAX_VALUE, n = nums.length;
-        if (n > 2){
+        if (n > 2) {
             // #0-数组排序
             Arrays.sort(nums);
             // #1-计算所有组合中的全局最小值与全局最大值
             int less = nums[0] + nums[1] + nums[2];
-            int more = nums[n-3] + nums[n-2] + nums[n-1];
+            int more = nums[n - 3] + nums[n - 2] + nums[n - 1];
             // #1.1-如果全局最小值比target大
             if (less >= target)
                 return less;
@@ -67,30 +68,30 @@ public class ThreeSumClosest {
             if (more <= target)
                 return more;
             // #2-计算以nums[i]开头的组合
-            for (int i = 0; i < n - 2; i++){
+            for (int i = 0; i < n - 2; i++) {
                 // #2.1-计算局部组合之和的最小值与最大值
-                int min = nums[i] + nums[i+1] + nums[i+2];
-                int max = nums[i] + nums[n-2] + nums[n-1];
+                int min = nums[i] + nums[i + 1] + nums[i + 2];
+                int max = nums[i] + nums[n - 2] + nums[n - 1];
                 // #2.2-如果最小值比target大，则更新全局最大值
-                if (min > target){
+                if (min > target) {
                     more = Math.min(more, min);
                     continue;
                 }
                 // #2.3-如果最大值比target小，则更新全局最小值
-                if (max < target){
+                if (max < target) {
                     less = Math.max(less, max);
                     continue;
                 }
                 // #2.4-如果min<=target<=max
                 int j = i + 1, k = n - 1;
-                while (j < k){
+                while (j < k) {
                     int sum = nums[i] + nums[j] + nums[k];
-                    if (sum > target){
+                    if (sum > target) {
                         more = Math.min(more, sum);
-                        while (j < --k && nums[k] == nums[k+1]);
-                    } else if (sum < target){
+                        while (j < --k && nums[k] == nums[k + 1]) ;
+                    } else if (sum < target) {
                         less = Math.max(less, sum);
-                        while (++j < k && nums[j] == nums[j-1]);
+                        while (++j < k && nums[j] == nums[j - 1]) ;
                     } else {
                         return target;
                     }
@@ -105,7 +106,7 @@ public class ThreeSumClosest {
 
     public static void main(String[] args) {
         ThreeSumClosest tsc = new ThreeSumClosest();
-        int result = tsc.threeSumClosest(new int[]{1,1,1,0}, 100);
+        int result = tsc.threeSumClosest(new int[]{1, 1, 1, 0}, 100);
         System.out.println(result);
     }
 }

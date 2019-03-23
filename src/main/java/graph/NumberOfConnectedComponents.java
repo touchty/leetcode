@@ -3,6 +3,7 @@ package graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 /*
 323. Number of Connected Components in an Undirected Graph
  */
@@ -27,13 +28,13 @@ public class NumberOfConnectedComponents {
             // Create a new list for each vertex
             // such that adjacent nodes can be stored
 
-            for(int i = 0; i < V ; i++){
+            for (int i = 0; i < V; i++) {
                 adjListArray[i] = new LinkedList<Integer>();
             }
         }
 
         // Adds an edge to an undirected graph
-        void addEdge( int src, int dest) {
+        void addEdge(int src, int dest) {
             // Add an edge from src to dest.
             adjListArray[src].add(dest);
 
@@ -50,28 +51,30 @@ public class NumberOfConnectedComponents {
             // Recur for all the vertices
             // adjacent to this vertex
             for (int x : adjListArray[v]) {
-                if(!visited[x]) DFSUtil(x,visited, component);
+                if (!visited[x]) DFSUtil(x, visited, component);
             }
 
         }
+
         public List<List<Integer>> connectedComponents() {
             // Mark all the vertices as not visited
             boolean[] visited = new boolean[V];
             List<List<Integer>> components = new ArrayList<>();
-            for(int v = 0; v < V; ++v) {
-                if(!visited[v]) {
+            for (int v = 0; v < V; ++v) {
+                if (!visited[v]) {
                     // print all reachable vertices
                     // from v
                     List<Integer> component = new ArrayList<>();
-                    DFSUtil(v,visited, component);
+                    DFSUtil(v, visited, component);
                     components.add(component);
                 }
             }
             return components;
         }
     }
+
     // Driver program to test above
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // Create a graph given in the above diagram
         Graph g = new Graph(5); // 5 vertices numbered from 0 to 4
 
@@ -79,12 +82,12 @@ public class NumberOfConnectedComponents {
         g.addEdge(2, 3);
         g.addEdge(3, 4);
         System.out.println("Following are connected components");
-        List<List<Integer>> components =  g.connectedComponents();
+        List<List<Integer>> components = g.connectedComponents();
         if (components == null) {
             System.out.println("number " + components.size());
-        }else {
+        } else {
             System.out.println("number " + components.size());
-            for (List<Integer> component: components) {
+            for (List<Integer> component : components) {
                 System.out.println(component);
             }
         }

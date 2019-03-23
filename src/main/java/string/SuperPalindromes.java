@@ -1,12 +1,10 @@
 package string;
 
-import java.util.*;
-
 public class SuperPalindromes {
     public int superpalindromesInRange(String L, String R) {
         Long l = Long.valueOf(L), r = Long.valueOf(R);
         int result = 0;
-        for (long i = (long)Math.sqrt(l); i * i <= r;) {
+        for (long i = (long) Math.sqrt(l); i * i <= r; ) {
             long p = nextP(i);
             if (p * p <= r && isP(p * p)) {
                 result++;
@@ -19,12 +17,12 @@ public class SuperPalindromes {
     private long nextP(long l) {
         String s = Long.toString(l);
         int N = s.length();
-        String half = s.substring(0, (N + 1)/2);
-        String reverse = new StringBuilder(half.substring(0, N/2)).reverse().toString();
+        String half = s.substring(0, (N + 1) / 2);
+        String reverse = new StringBuilder(half.substring(0, N / 2)).reverse().toString();
         long first = Long.valueOf(half + reverse);
-        if(first >= l)return first;
-        String nexthalf = Long.toString(Long.valueOf(half) +1);
-        String reverseNextHalf = new StringBuilder(nexthalf.substring(0,N/2)).reverse().toString();
+        if (first >= l) return first;
+        String nexthalf = Long.toString(Long.valueOf(half) + 1);
+        String reverseNextHalf = new StringBuilder(nexthalf.substring(0, N / 2)).reverse().toString();
         long second = Long.valueOf(nexthalf + reverseNextHalf);
         return second;
 

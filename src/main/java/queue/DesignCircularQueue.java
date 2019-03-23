@@ -21,7 +21,9 @@ public class DesignCircularQueue {
         final int[] a;
         int front, rear = -1, len = 0;
 
-        public MyCircularQueue(int k) { a = new int[k];}
+        public MyCircularQueue(int k) {
+            a = new int[k];
+        }
 
         public boolean enQueue(int val) {
             if (!isFull()) {
@@ -40,13 +42,21 @@ public class DesignCircularQueue {
             } else return false;
         }
 
-        public int Front() { return isEmpty() ? -1 : a[front];}
+        public int Front() {
+            return isEmpty() ? -1 : a[front];
+        }
 
-        public int Rear() {return isEmpty() ? -1 : a[rear];}
+        public int Rear() {
+            return isEmpty() ? -1 : a[rear];
+        }
 
-        public boolean isEmpty() { return len == 0;}
+        public boolean isEmpty() {
+            return len == 0;
+        }
 
-        public boolean isFull() { return len == a.length;}
+        public boolean isFull() {
+            return len == a.length;
+        }
     }
 
     public static void main(String[] args) {

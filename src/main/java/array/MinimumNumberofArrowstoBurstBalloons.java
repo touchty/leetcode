@@ -59,7 +59,7 @@ public class MinimumNumberofArrowstoBurstBalloons {
     }
 
     public static void main(String[] args) {
-        int[][] points = {{10,16}, {2,8}, {1,6}, {7,12}};
+        int[][] points = {{10, 16}, {2, 8}, {1, 6}, {7, 12}};
         int real = MinimumNumberofArrowstoBurstBalloons.findMinArrowShots(points);
         int expected = 2;
         Assert.assertEquals(expected, real);

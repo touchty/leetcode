@@ -3,13 +3,13 @@ package linkedList;
 /**
  * 725. Split Linked List in Parts
  * Given a (singly) linked list with head node root, write a function to split the linked list into k consecutive linked list "parts".
- *
+ * <p>
  * The length of each part should be as equal as possible: no two parts should have a size differing by more than 1. This may lead to some parts being null.
- *
+ * <p>
  * The parts should be in order of occurrence in the input list, and parts occurring earlier should always have a size greater than or equal parts occurring later.
- *
+ * <p>
  * Return a List of ListNode's representing the linked list parts that are formed.
- *
+ * <p>
  * Examples 1->2->3->4, k = 5 // 5 equal parts [ [1], [2], [3], [4], null ]
  * Example 1:
  * Input:
@@ -54,7 +54,7 @@ public class SplitLinkedListInParts {
         ListNode[] nodes = new SplitLinkedListInParts().splitListToParts(root, k);
         for (ListNode node : nodes) {
             StringBuilder builder = new StringBuilder();
-            for (ListNode head = node; head != null; head = head.next){
+            for (ListNode head = node; head != null; head = head.next) {
                 builder.append(head.val).append(" => ");
             }
             System.out.println(builder.toString());

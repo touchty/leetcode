@@ -22,7 +22,7 @@ public class LongestIncreasingSubsequence {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3,5,4,2,7,9};
+        int[] nums = new int[]{3, 5, 4, 2, 7, 9};
         int result = LongestIncreasingSubsequence.lengthOfLIS(nums);
         int expected = 4;
         Assert.assertEquals(result, expected);

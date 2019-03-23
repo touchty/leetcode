@@ -53,6 +53,7 @@ public class ProjectionAreaof3DShapes {
                 if (grid[i][j] > 0) res++;
         return res;
     }
+
     public static void main(String[] args) {
         /*
         y
@@ -64,7 +65,7 @@ public class ProjectionAreaof3DShapes {
          */
 
 
-        int[][] grid = {{2, 0},{1, 0}};
+        int[][] grid = {{2, 0}, {1, 0}};
         System.out.println(projectionArea(grid));
     }
 }

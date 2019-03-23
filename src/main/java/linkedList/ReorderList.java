@@ -18,7 +18,7 @@ public class ReorderList {
         // step 1 : find the mid of the list
         ListNode p1 = head;
         ListNode p2 = p1.next;
-        while(p2 != null && p2.next != null) {
+        while (p2 != null && p2.next != null) {
             p1 = p1.next;
             p2 = p2.next.next;
         }
@@ -37,7 +37,7 @@ public class ReorderList {
         // step 3 : merge the two sub list
         p1 = head;
         p2 = head2;
-        while ( p1 != null) {
+        while (p1 != null) {
             ListNode t = p1.next;
             p1.next = p2;
             p1 = p2;

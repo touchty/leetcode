@@ -1,22 +1,26 @@
 package bst;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /*
-* The smaller numbers on the right of a number are exactly those that jump from its
-* right to its left during a stable sort. So I do mergesort with added tracking of
-* those right-to-left jumps.
+ * The smaller numbers on the right of a number are exactly those that jump from its
+ * right to its left during a stable sort. So I do mergesort with added tracking of
+ * those right-to-left jumps.
  * */
 
 public class CountofSmallerNumbersAfterSelf {
     class Pair {
         int index;
         int val;
+
         public Pair(int index, int val) {
             this.index = index;
             this.val = val;
         }
     }
+
     public List<Integer> countSmaller(int[] nums) {
         List<Integer> res = new ArrayList<>();
         if (nums == null || nums.length == 0) {
@@ -32,6 +36,7 @@ public class CountofSmallerNumbersAfterSelf {
         res.addAll(Arrays.asList(smaller));
         return res;
     }
+
     private Pair[] mergeSort(Pair[] arr, Integer[] smaller) {
         if (arr.length <= 1) {
             return arr;
@@ -39,7 +44,7 @@ public class CountofSmallerNumbersAfterSelf {
         int mid = arr.length / 2;
         Pair[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid), smaller);
         Pair[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length), smaller);
-        for (int i = 0, j = 0; i < left.length || j < right.length;) {
+        for (int i = 0, j = 0; i < left.length || j < right.length; ) {
             if (j == right.length || i < left.length && left[i].val <= right[j].val) {
                 arr[i + j] = left[i];
                 smaller[left[i].index] += j;

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class GraphValidTree {
     /**
-     * @param n an integer
+     * @param n     an integer
      * @param edges a list of undirected edges
      * @return true if it's a valid tree, or false
      */

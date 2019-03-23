@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -41,7 +44,7 @@ public class StreamDemo {
         System.out.print(memNamesInUppercase);
 
         Optional<String> reduced = memberNames.stream()
-                .reduce((s1,s2) -> s2 + "#" + s1);
+                .reduce((s1, s2) -> s2 + "#" + s1);
 
         reduced.ifPresent(System.out::println);
 
@@ -60,12 +63,12 @@ public class StreamDemo {
 
         //6. Parallelism in Java Steam
         List<Integer> list = new ArrayList<Integer>();
-        for(int i = 1; i< 10; i++){
+        for (int i = 1; i < 10; i++) {
             list.add(i);
         }
         //Here creating a parallel stream
         Stream<Integer> stream = list.parallelStream();
-        Integer[] evenNumbersArr = stream.filter(i -> i%2 == 0).toArray(Integer[]::new);
+        Integer[] evenNumbersArr = stream.filter(i -> i % 2 == 0).toArray(Integer[]::new);
         System.out.print(evenNumbersArr.length);
 
     }

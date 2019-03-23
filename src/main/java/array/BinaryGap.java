@@ -21,19 +21,19 @@ import org.junit.Assert;
  * The second consecutive pair of 1's have distance 1.
  * The answer is the largest of these two distances, which is 2.
  * Example 2:
- *
+ * <p>
  * Input: 5
  * Output: 2
  * Explanation:
  * 5 in binary is 0b101.
  * Example 3:
- *
+ * <p>
  * Input: 6
  * Output: 1
  * Explanation:
  * 6 in binary is 0b110.
  * Example 4:
- *
+ * <p>
  * Input: 8
  * Output: 0
  * Explanation:
@@ -54,12 +54,13 @@ public class BinaryGap {
         }
         return res;
     }
+
     public static int binaryGapConsecutive(int N) {
         int prev = 0;
         int curr = 0;
         int MAXGAP = 0;
         while (N > 0) {
-            if ((N % 2) == 0){
+            if ((N % 2) == 0) {
                 MAXGAP = Math.max(MAXGAP, curr - prev);
                 prev = curr + 1;
             }

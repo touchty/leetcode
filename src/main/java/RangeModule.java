@@ -1,7 +1,11 @@
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 class RangeModule {
     TreeMap<Integer, Integer> map;
+
     public RangeModule() {
         map = new TreeMap<>();
     }

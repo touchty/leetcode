@@ -26,12 +26,12 @@ Input:
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 */
 /*
-* U R
-* L D
-* */
+ * U R
+ * L D
+ * */
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
-        if (matrix == null || matrix.length == 0){
+        if (matrix == null || matrix.length == 0) {
             return new ArrayList<>();
         }
         int u = 0;
@@ -39,7 +39,7 @@ public class SpiralMatrix {
         int l = 0;
         int r = matrix[0].length - 1;
         List<Integer> result = new ArrayList<>();
-        while (true){
+        while (true) {
             // up
             for (int column = l; column <= r; column++) {
                 result.add(matrix[u][column]);

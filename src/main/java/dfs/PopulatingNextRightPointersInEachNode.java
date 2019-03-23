@@ -2,21 +2,21 @@ package dfs;
 
 public class PopulatingNextRightPointersInEachNode {
     public void connect(TreeLinkNode root) {
-        if(root == null || (root.left == null && root.right == null)){
+        if (root == null || (root.left == null && root.right == null)) {
             return;
         }
         populate(root);
 
     }
 
-    void populate(TreeLinkNode root){
-        if(root == null){
+    void populate(TreeLinkNode root) {
+        if (root == null) {
             return;
         }
 
-        if(root.left != null){
+        if (root.left != null) {
             root.left.next = root.right;
-            if(root.next != null){
+            if (root.next != null) {
                 root.right.next = root.next.left;
             }
             populate(root.left);
@@ -25,22 +25,19 @@ public class PopulatingNextRightPointersInEachNode {
     }
 
     public void connectOpt(TreeLinkNode root) {
-        if( root == null )
+        if (root == null)
             return;
-        if( root.left != null )
-        {
+        if (root.left != null) {
             root.left.next = root.right;
         }
 
-        if( root.right != null)
-        {
-            if( root.next != null )
-            {
+        if (root.right != null) {
+            if (root.next != null) {
                 root.right.next = root.next.left;
             }
         }
 
-        connectOpt( root.left );
-        connectOpt( root.right );
+        connectOpt(root.left);
+        connectOpt(root.right);
     }
 }

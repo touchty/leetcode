@@ -1,7 +1,5 @@
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.Queue;
 
 //https://leetcode.com/problems/lru-cache/discuss/45922/JAVA-Easy-Version-To-Understand!!!!
 class LRUCache {
@@ -20,7 +18,7 @@ class LRUCache {
 
     public int get(int key) {
         int res = -1;
-        if(map.containsKey(key)){
+        if (map.containsKey(key)) {
             Node n = map.get(key);
             remove(n);
             insertToHead(n);
@@ -30,14 +28,14 @@ class LRUCache {
     }
 
     public void put(int key, int value) {
-        if(map.containsKey(key)){
+        if (map.containsKey(key)) {
             Node n = map.get(key);
             remove(n);
             n.value = value;
             insertToHead(n);
         } else {
 
-            if(map.size() == capacity){
+            if (map.size() == capacity) {
                 map.remove(tail.prev.key);
                 remove(tail.prev);
             }
@@ -48,12 +46,12 @@ class LRUCache {
         }
     }
 
-    private void remove(Node n){
+    private void remove(Node n) {
         n.prev.next = n.next;
         n.next.prev = n.prev;
     }
 
-    private void insertToHead(Node n){
+    private void insertToHead(Node n) {
         Node headNext = head.next;
         head.next = n;
         headNext.prev = n;
@@ -61,10 +59,11 @@ class LRUCache {
         n.next = headNext;
     }
 
-    class Node{
+    class Node {
         Node prev, next;
         int key, value;
-        Node(int k, int v){
+
+        Node(int k, int v) {
             key = k;
             value = v;
         }

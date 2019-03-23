@@ -8,15 +8,15 @@ import java.util.HashMap;
 public class LongestConsecutiveSequence {
     public int longestConsecutive(int[] nums) {
         int longest = 0;
-        if (nums == null || nums.length ==0) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
 
         Arrays.sort(nums);
         HashMap<Integer, Integer> consecutiveLength = new HashMap<>();
 
-        for (int num : nums){
-            if (!consecutiveLength.containsKey(num)){
+        for (int num : nums) {
+            if (!consecutiveLength.containsKey(num)) {
                 int prev = consecutiveLength.getOrDefault(num - 1, 0) + 1;
                 longest = Math.max(longest, prev);
                 consecutiveLength.put(num, prev);
@@ -26,7 +26,7 @@ public class LongestConsecutiveSequence {
     }
 
     public int longestConsecutiveV2(int[] nums) {
-        if (nums == null || nums.length ==0) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
 
@@ -37,7 +37,7 @@ public class LongestConsecutiveSequence {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1] + 1) {
                 current++;
-            }else if(nums[i] != nums[i - 1]){
+            } else if (nums[i] != nums[i - 1]) {
                 current = 1;
             }
             max = Math.max(max, current);

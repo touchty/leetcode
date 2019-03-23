@@ -22,7 +22,7 @@ public class PalindromeLinkedList {
         ListNode slow = head;
         ListNode fast = head.next;
 
-        while (fast != null && fast.next!= null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -35,8 +35,8 @@ public class PalindromeLinkedList {
             return true;
 
         int len = 0;
-        ListNode h= head;
-        while (h != null){
+        ListNode h = head;
+        while (h != null) {
             len++;
             h = h.next;
         }
@@ -53,15 +53,15 @@ public class PalindromeLinkedList {
     }
 
     static boolean isEqual(ListNode l, ListNode r) {
-        while (l != null && r != null){
-             if (l.val != r.val)
-                 break;
-             l = l.next;
-             r = r.next;
-         }
+        while (l != null && r != null) {
+            if (l.val != r.val)
+                break;
+            l = l.next;
+            r = r.next;
+        }
 
-         if (l == null && r == null) return true;
-         else return false;
+        if (l == null && r == null) return true;
+        else return false;
     }
     //Runtime: 2 ms
 
@@ -69,8 +69,7 @@ public class PalindromeLinkedList {
         ListNode slow = head;
         ListNode fast = head;
         ListNode pre = null;
-        while (fast != null && fast.next != null)
-        {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             ListNode nextTemp = slow.next;
             slow.next = pre;
@@ -81,10 +80,8 @@ public class PalindromeLinkedList {
         {
             slow = slow.next;
         }
-        while (slow != null && pre != null)
-        {
-            if (slow.val != pre.val)
-            {
+        while (slow != null && pre != null) {
+            if (slow.val != pre.val) {
                 return false;
             }
             pre = pre.next;

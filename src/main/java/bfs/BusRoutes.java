@@ -17,10 +17,10 @@ public class BusRoutes {
         HashMap<Integer, Set<Integer>> map = new HashMap<>();
         int ret = 0;
 
-        if (S==T) return 0;
+        if (S == T) return 0;
 
-        for(int i = 0; i < routes.length; i++){
-            for(int j = 0; j < routes[i].length; j++){
+        for (int i = 0; i < routes.length; i++) {
+            for (int j = 0; j < routes[i].length; j++) {
                 // check if we already have a list of stops following
                 Set<Integer> buses = map.getOrDefault(routes[i][j], new HashSet<>());
                 buses.add(i);
@@ -35,7 +35,7 @@ public class BusRoutes {
             for (int i = 0; i < len; i++) {
                 int cur = q.poll();
                 Set<Integer> buses = map.get(cur);
-                for (int bus: buses) {
+                for (int bus : buses) {
                     if (visited.contains(bus)) continue;
                     visited.add(bus);
                     for (int j = 0; j < routes[bus].length; j++) {

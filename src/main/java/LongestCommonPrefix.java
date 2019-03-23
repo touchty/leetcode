@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class LongestCommonPrefix {
     public String longestCommonPrefix(String[] strs) {
         String prefix = "";
@@ -8,7 +6,7 @@ public class LongestCommonPrefix {
 
         // minimun length of str in strs
         int min = strs[0].length();
-        for (String str : strs){
+        for (String str : strs) {
             if (str.length() < min)
                 min = str.length();
         }
@@ -17,8 +15,8 @@ public class LongestCommonPrefix {
 
         boolean isCommonPrefix = true;
 
-        while(pos < min){
-            for (int i = 1; i < strs.length; i++){
+        while (pos < min) {
+            for (int i = 1; i < strs.length; i++) {
                 if (strs[i].charAt(pos) != strs[0].charAt(pos))
                     isCommonPrefix = false;
             }

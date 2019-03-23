@@ -117,5 +117,5 @@ public class PalindromePairs {
         for (List<Integer> pair : pairs) {
             System.out.println(pair);
         }
-     }
+    }
 }

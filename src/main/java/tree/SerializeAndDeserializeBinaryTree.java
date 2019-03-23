@@ -1,6 +1,8 @@
 package tree;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class SerializeAndDeserializeBinaryTree {
     public class Codec {
@@ -20,9 +22,10 @@ public class SerializeAndDeserializeBinaryTree {
             } else {
                 sb.append(node.val).append(spliter);
                 buildString(node.left, sb);
-                buildString(node.right,sb);
+                buildString(node.right, sb);
             }
         }
+
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
             Deque<String> nodes = new LinkedList<>();

@@ -1,6 +1,7 @@
 package binarySearch;
 
 import java.util.Arrays;
+
 public class Searcha2DMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0) return false;
@@ -9,7 +10,7 @@ public class Searcha2DMatrix {
         if (n == 0) return false;
 
         int[] tmp = new int[m];
-        for (int i = 0; i < m; i++){
+        for (int i = 0; i < m; i++) {
             tmp[i] = matrix[i][0];
         }
         int row = Arrays.binarySearch(tmp, target);

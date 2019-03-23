@@ -38,7 +38,7 @@ so we only need to count the unique letter of each word, Coz the input is always
 public class ReconstructOriginalDigitsFromEnglish {
     public String originalDigits(String s) {
         int[] count = new int[10];
-        for (int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (c == 'z') count[0]++;
             if (c == 'w') count[2]++;
@@ -57,8 +57,8 @@ public class ReconstructOriginalDigitsFromEnglish {
         count[9] = count[9] - count[8] - count[5] - count[6];
         count[1] = count[1] - count[0] - count[2] - count[4];
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i <= 9; i++){
-            for (int j = 0; j < count[i]; j++){
+        for (int i = 0; i <= 9; i++) {
+            for (int j = 0; j < count[i]; j++) {
                 sb.append(i);
             }
         }

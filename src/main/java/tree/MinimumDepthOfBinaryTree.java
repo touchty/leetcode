@@ -6,17 +6,17 @@ package tree;
  * Note: A leaf is a node with no children.
  * Example:
  * Given binary tree [3,9,20,null,null,15,7],
- *     3
- *    / \
- *   9  20
- *     /  \
- *    15   7
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  * return its minimum depth = 2.
- *
+ * <p>
  * Attention : the end of the path should be a leaf node!
- *      3
- *     /
- *    9
+ * 3
+ * /
+ * 9
  * The answer should be 2, not 1.
  */
 public class MinimumDepthOfBinaryTree {
@@ -34,10 +34,10 @@ public class MinimumDepthOfBinaryTree {
     }
 
     public int minDepthOpt(TreeNode root) {
-        if(root == null) return 0;
+        if (root == null) return 0;
         int left = minDepth(root.left);
         int right = minDepth(root.right);
-        return (left == 0 || right == 0) ? left + right + 1: Math.min(left,right) + 1;
+        return (left == 0 || right == 0) ? left + right + 1 : Math.min(left, right) + 1;
 
     }
 }

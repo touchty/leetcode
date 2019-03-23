@@ -13,15 +13,15 @@ public class LetterCombinationsofaPhoneNumber {
         return res;
     }
 
-    private void helper(String[] s, List<String> res, StringBuilder sb, String digits){
-        if (sb.length() == digits.length()){
+    private void helper(String[] s, List<String> res, StringBuilder sb, String digits) {
+        if (sb.length() == digits.length()) {
             String str = new String(sb);
             res.add(str);
             return;
         }
 
         char[] ch = s[digits.charAt(sb.length()) - '0'].toCharArray();
-        for (int i = 0; i < ch.length; i++){
+        for (int i = 0; i < ch.length; i++) {
             sb.append(ch[i]);
             helper(s, res, sb, digits);
             sb.deleteCharAt(sb.length() - 1);

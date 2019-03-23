@@ -8,7 +8,7 @@ public class Reverse {
         ListNode p = head.next;
         head.next = null;
 
-        while(p != null) {
+        while (p != null) {
             ListNode temp = p.next;
             p.next = head;
             head = p;
@@ -24,7 +24,7 @@ public class Reverse {
             nodes[i] = new ListNode(i + 1);
         }
         for (int i = 0; i < nodes.length - 1; i++) {
-            nodes[i].next = nodes[i+1];
+            nodes[i].next = nodes[i + 1];
         }
 
         ListNode head = null;

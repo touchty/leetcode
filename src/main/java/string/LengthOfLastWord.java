@@ -9,7 +9,8 @@ public class LengthOfLastWord {
         else
             return 0;
     }
-    public static int lengthOfLastWordOpt(String s){
+
+    public static int lengthOfLastWordOpt(String s) {
         int pos = s.length() - 1;
         int length = 0;
         while (pos >= 0 && s.charAt(pos) == ' ') {

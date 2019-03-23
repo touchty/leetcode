@@ -8,23 +8,23 @@ import java.util.TreeMap;
 
 /**
  * Given two arrays A and B of equal size, the advantage of A with respect to B is the number of indices i for which A[i] > B[i].
- *
+ * <p>
  * Return any permutation of A that maximizes its advantage with respect to B.
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
+ * <p>
  * Input: A = [2,7,11,15], B = [1,10,4,11]
  * Output: [2,11,7,15]
  * Example 2:
- *
+ * <p>
  * Input: A = [12,24,8,32], B = [13,25,32,11]
  * Output: [24,32,8,12]
- *
- *
+ * <p>
+ * <p>
  * Note:
- *
+ * <p>
  * 1 <= A.length = B.length <= 10000
  * 0 <= A[i] <= 10^9
  * 0 <= B[i] <= 10^9
@@ -65,11 +65,12 @@ public class AdvantageShuffle {
         }
         return -1;
     }
+
     public int[] advantageCountOpt(int[] A, int[] B) {
 
         // the tree map stores <value, count> pairs of array A
         TreeMap<Integer, Integer> map = new TreeMap<>();
-        for (int num: A) {
+        for (int num : A) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
@@ -94,9 +95,9 @@ public class AdvantageShuffle {
     }
 
     public static void main(String[] args) {
-        int[] A = {2,7,11,15}, B = {1,10,4,11};
+        int[] A = {2, 7, 11, 15}, B = {1, 10, 4, 11};
         int[] res = advantageCount(A, B);
-        int[] expected = {2,11,7,15};
+        int[] expected = {2, 11, 7, 15};
         Assert.assertArrayEquals(expected, res);
     }
 }

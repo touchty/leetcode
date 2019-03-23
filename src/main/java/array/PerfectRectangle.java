@@ -1,6 +1,7 @@
 package array;
 
 import java.util.HashSet;
+
 /*
 391. Perfect Rectangle
 Given N axis-aligned rectangles where N > 0, determine if they all together form an exact cover of a rectangular region.
@@ -72,9 +73,10 @@ public class PerfectRectangle {
             if (!set.add(s4)) set.remove(s4);
         }
         // overlap are not allowed!
-        if (!set.contains(x1 + " " + y1) || !set.contains(x1 + " " + y2) || !set.contains(x2 + " " + y1) || !set.contains(x2 + " " + y2) || set.size() != 4) return false;
+        if (!set.contains(x1 + " " + y1) || !set.contains(x1 + " " + y2) || !set.contains(x2 + " " + y1) || !set.contains(x2 + " " + y2) || set.size() != 4)
+            return false;
 
-        return area == (x2-x1) * (y2-y1);
+        return area == (x2 - x1) * (y2 - y1);
     }
 
     public static void main(String[] args) {

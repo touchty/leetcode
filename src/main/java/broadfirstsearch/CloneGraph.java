@@ -12,6 +12,7 @@ public class CloneGraph {
         dfs(node, created);
         return created.get(node.label);
     }
+
     private void dfs(UndirectedGraphNode node, Map<Integer, UndirectedGraphNode> created) {
         UndirectedGraphNode copy = new UndirectedGraphNode(node.label);
         created.put(copy.label, copy);

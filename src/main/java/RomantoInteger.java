@@ -1,13 +1,13 @@
 public class RomantoInteger {
-    public int romanToInt(String s){
+    public int romanToInt(String s) {
         /*
         *
         Symbol	I	V	X	L	C	D	M
         Value	1	5	10	50	100	500	1,000
         */
         int[] nums = new int[s.length()];
-        for (int i = 0; i < s.length(); i++){
-            switch (s.charAt(i)){
+        for (int i = 0; i < s.length(); i++) {
+            switch (s.charAt(i)) {
                 case 'M':
                     nums[i] = 1000;
                     break;
@@ -32,7 +32,7 @@ public class RomantoInteger {
             }
         }
         int sum = 0;
-        for (int i = 0; i < s.length() - 1; i++){
+        for (int i = 0; i < s.length() - 1; i++) {
             if (nums[i] < nums[i + 1])
                 sum -= nums[i];
             else

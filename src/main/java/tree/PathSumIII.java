@@ -1,7 +1,7 @@
 package tree;
 
 public class PathSumIII {
-    int totalPaths  = 0;
+    int totalPaths = 0;
 
     public int pathSum(TreeNode root, int sum) {
         if (root == null) return totalPaths;
@@ -14,7 +14,7 @@ public class PathSumIII {
     void paths(TreeNode root, int sum) {
         if (root == null) return;
         sum -= root.val;
-        if (sum == 0 ) {
+        if (sum == 0) {
             totalPaths++;
         }
         paths(root.left, sum);

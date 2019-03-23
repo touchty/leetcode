@@ -1,12 +1,12 @@
 package broadfirstsearch;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.ArrayList;
 
 
 public class PathSumII {
-    public List<List<Integer>> pathSum(TreeNode root, int sum){
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
         return pathSum(root, sum, new ArrayList<Integer>());
     }
 
@@ -17,7 +17,7 @@ public class PathSumII {
 
         path.add(root.val);
 
-        if (root.val == sum && root.right == null && root.left == null){
+        if (root.val == sum && root.right == null && root.left == null) {
             pathList.add(path);
         }
 
@@ -29,13 +29,13 @@ public class PathSumII {
     }
 
     /*
-    * DFS with one LinkedList , accepted java solution
-    * */
-    class Solution{
-        public List<List<Integer>> pathSum(TreeNode root, int sum){
-            List<List<Integer>> result  = new LinkedList<List<Integer>>();
-            List<Integer> currentResult  = new LinkedList<Integer>();
-            pathSum(root,sum,currentResult,result);
+     * DFS with one LinkedList , accepted java solution
+     * */
+    class Solution {
+        public List<List<Integer>> pathSum(TreeNode root, int sum) {
+            List<List<Integer>> result = new LinkedList<List<Integer>>();
+            List<Integer> currentResult = new LinkedList<Integer>();
+            pathSum(root, sum, currentResult, result);
             return result;
         }
 

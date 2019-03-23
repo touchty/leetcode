@@ -47,5 +47,4 @@ public class FlattenNestedListIterator implements Iterator<Integer> {
     }
 
 
-
 }

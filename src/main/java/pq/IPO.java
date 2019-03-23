@@ -37,7 +37,7 @@ public class IPO {
         PriorityQueue<Integer> pqPro = new PriorityQueue<>((a, b) -> (b - a)); // Profit, max pq
 
         for (int i = 0; i < Profits.length; i++) {
-            pqCap.add(new int[] {Capital[i], Profits[i]});
+            pqCap.add(new int[]{Capital[i], Profits[i]});
         }
 
         for (int i = 0; i < k; i++) {

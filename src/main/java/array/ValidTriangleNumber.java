@@ -7,15 +7,14 @@ public class ValidTriangleNumber {
         Arrays.sort(A);
         int count = 0;
 
-        for (int i = A.length - 1; i > 1; i--){
+        for (int i = A.length - 1; i > 1; i--) {
             int l = 0;
             int r = i - 1;
             while (l < r) {
                 if (A[l] + A[r] > A[i]) {
-                    count += r-l;
+                    count += r - l;
                     r--;
-                }
-                else l++;
+                } else l++;
             }
         }
 

@@ -22,7 +22,7 @@ public class SwapNodesInPairs {
             nodes[i] = new ListNode(i);
         }
         for (int i = 0; i < nodes.length - 1; i++) {
-            nodes[i].next = nodes[i+1];
+            nodes[i].next = nodes[i + 1];
         }
 
         ListNode head = nodes[0];

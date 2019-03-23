@@ -34,7 +34,7 @@ public class NextGreaterElementII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,1};
+        int[] nums = {1, 2, 1};
         int[] res = nextGreaterElements(nums);
         int[] expected = new int[]{2, -1, 2};
         Assert.assertArrayEquals(expected, res);

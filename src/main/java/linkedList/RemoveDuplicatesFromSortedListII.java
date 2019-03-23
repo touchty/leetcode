@@ -9,15 +9,15 @@ public class RemoveDuplicatesFromSortedListII {
         ListNode fast = slow;
 
         while (slow != null) {
-            while(fast != null) {
-                if (fast.val == slow.val){
+            while (fast != null) {
+                if (fast.val == slow.val) {
                     fast = fast.next;
-                }else{
+                } else {
                     break;
                 }
             }
 
-            if (slow.next == fast){
+            if (slow.next == fast) {
                 p.next = slow;
                 p = p.next;
                 p.next = null; // Attention!

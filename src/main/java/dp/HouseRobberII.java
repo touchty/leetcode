@@ -1,13 +1,11 @@
 package dp;
 
-public class HouseRobberII
-{
-    private int robInRange(int[] nums, int lo, int hi){
+public class HouseRobberII {
+    private int robInRange(int[] nums, int lo, int hi) {
         int robCurr = 0;
         int notRobCurr = 0;
 
-        for (int i = lo; i <= hi; i++)
-        {
+        for (int i = lo; i <= hi; i++) {
             int robI = notRobCurr + nums[i];
             int notRonI = Math.max(robCurr, notRobCurr);
 
@@ -17,7 +15,7 @@ public class HouseRobberII
         return Math.max(robCurr, notRobCurr);
     }
 
-    public int rob(int[] nums){
+    public int rob(int[] nums) {
 
         //  particular case
         if (nums.length == 1) return nums[0];

@@ -9,42 +9,42 @@ public class MedianofTwoSortedArrays {
 
         int i = 0, j = 0, imin = 0, imax = m, half = (m + n + 1) / 2;
         double maxLeft = 0, minRight = 0;
-        while(imin <= imax){
+        while (imin <= imax) {
             i = (imin + imax) / 2;
             j = half - i;
-            if(j > 0 && i < m && nums2[j - 1] > nums1[i]){
+            if (j > 0 && i < m && nums2[j - 1] > nums1[i]) {
                 imin = i + 1;
-            }else if(i > 0 && j < n && nums1[i - 1] > nums2[j]){
+            } else if (i > 0 && j < n && nums1[i - 1] > nums2[j]) {
                 imax = i - 1;
-            }else{
-                if(i == 0){
-                    maxLeft = (double)nums2[j - 1];
-                }else if(j == 0){
-                    maxLeft = (double)nums1[i - 1];
-                }else{
-                    maxLeft = (double)Math.max(nums1[i - 1], nums2[j - 1]);
+            } else {
+                if (i == 0) {
+                    maxLeft = (double) nums2[j - 1];
+                } else if (j == 0) {
+                    maxLeft = (double) nums1[i - 1];
+                } else {
+                    maxLeft = (double) Math.max(nums1[i - 1], nums2[j - 1]);
                 }
                 break;
             }
         }
-        if((m + n) % 2 == 1){
+        if ((m + n) % 2 == 1) {
             return maxLeft;
         }
-        if(i == m){
-            minRight = (double)nums2[j];
-        }else if(j == n){
-            minRight = (double)nums1[i];
-        }else{
-            minRight = (double)Math.min(nums1[i], nums2[j]);
+        if (i == m) {
+            minRight = (double) nums2[j];
+        } else if (j == n) {
+            minRight = (double) nums1[i];
+        } else {
+            minRight = (double) Math.min(nums1[i], nums2[j]);
         }
 
-        return (double)(maxLeft + minRight) / 2;
+        return (double) (maxLeft + minRight) / 2;
     }
 
     public static void main(String[] args) {
         MedianofTwoSortedArrays m = new MedianofTwoSortedArrays();
-        int[] nums1 = {1,2,3,4};
-        int[] nums2 = {12,13,14,15};
+        int[] nums1 = {1, 2, 3, 4};
+        int[] nums2 = {12, 13, 14, 15};
         double result = m.findMedianSortedArrays(nums1, nums2);
         System.out.println(result);
     }

@@ -1,15 +1,17 @@
 package binarySearch;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class ValidateBinarySearchTree {
     // Binary Tree Inorder Traversal
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null) return list;
+        if (root == null) return list;
         Stack<TreeNode> stack = new Stack<>();
-        while(root != null || !stack.empty()){
-            while(root != null){
+        while (root != null || !stack.empty()) {
+            while (root != null) {
                 stack.push(root);
                 root = root.left;
             }
@@ -31,7 +33,7 @@ public class ValidateBinarySearchTree {
                 root = root.left;
             }
             root = stack.pop();
-            if(pre != null && root.val <= pre.val) return false;
+            if (pre != null && root.val <= pre.val) return false;
             pre = root;
             root = root.right;
         }

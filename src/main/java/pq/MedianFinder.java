@@ -23,8 +23,8 @@ public class MedianFinder {
     }
 
     public static void main(String[] args) {
-        int[] num = {1,2,3,4,5};
-        MedianFinder  medianFinder = new MedianFinder();
+        int[] num = {1, 2, 3, 4, 5};
+        MedianFinder medianFinder = new MedianFinder();
         for (int n : num) {
             medianFinder.addNum(n);
         }

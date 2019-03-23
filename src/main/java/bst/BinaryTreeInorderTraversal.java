@@ -1,6 +1,8 @@
 package bst;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class BinaryTreeInorderTraversal {
 
@@ -31,7 +33,7 @@ public class BinaryTreeInorderTraversal {
     }
 
     public void helper(TreeNode root, List<Integer> list) {
-        if(root == null) {
+        if (root == null) {
             return;
         }
         helper(root.left, list);

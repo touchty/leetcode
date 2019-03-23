@@ -5,11 +5,11 @@ import org.junit.Assert;
 /**
  * Given an integer array A, and an integer target, return the number of tuples i, j, k  such that i < j < k and A[i] + A[j] + A[k] == target.
  * As the answer can be very large, return it modulo 10^9 + 7.
- *
+ * <p>
  * Example 1
  * Input: A = [1,1,2,2,3,3,4,4,5,5], target = 8
  * Output: 20
- *
+ * <p>
  * Explanation:
  * Enumerating by the values (A[i], A[j], A[k]):
  * (1, 2, 5) occurs 8 times;
@@ -17,25 +17,25 @@ import org.junit.Assert;
  * (2, 2, 4) occurs 2 times;
  * (2, 3, 3) occurs 2 times.
  * Example 2:
- *
+ * <p>
  * Input: A = [1,1,2,2,2,2], target = 5
  * Output: 12
  * Explanation:
  * A[i] = 1, A[j] = A[k] = 2 occurs 12 times:
  * We choose one 1 from [1,1] in 2 ways,
  * and two 2s from [2,2,2,2] in 6 ways.
- *
+ * <p>
  * Solution:
  * Count the occurrence of each number.
  * using hashmap or array up to you.
- *
+ * <p>
  * Loop i on all numbers,
  * loop j on all numbers,
  * check if k = target - i - j is valid.
- *
+ * <p>
  * Add the number of this combination to result.
  * 3 cases covers all possible combination:
- *
+ * <p>
  * i == j == k
  * i == j != k
  * i < k && j < k
@@ -59,11 +59,11 @@ public class ThreeSumWithMultiplicity {
                     //
                     res += c[i] * c[j] * c[k];
             }
-        return (int)(res % (1e9 + 7));
+        return (int) (res % (1e9 + 7));
     }
 
     public static void main(String[] args) {
-        int[] A = {1,1,2,2,3,3,4,4,5,5};
+        int[] A = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
         int target = 8;
         int result = new ThreeSumWithMultiplicity().threeSumMulti(A, target);
         int expected = 20;

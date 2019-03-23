@@ -34,7 +34,7 @@ public class DetectCapital {
             return true;
         boolean isFirstUp = Character.isUpperCase(word.charAt(0));
         int countUp = 0;
-        for (int i = 0; i< word.length(); i++){
+        for (int i = 0; i < word.length(); i++) {
             if (Character.isUpperCase(word.charAt(i)))
                 countUp++;
         }

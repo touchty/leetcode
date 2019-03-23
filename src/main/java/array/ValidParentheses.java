@@ -1,6 +1,9 @@
 package array;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ValidParentheses {
     public boolean isValid(String s) {

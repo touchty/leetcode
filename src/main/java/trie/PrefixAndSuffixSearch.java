@@ -36,6 +36,7 @@ public class PrefixAndSuffixSearch {
     static class TrieNode {
         TrieNode[] children;
         int weight;
+
         public TrieNode() {
             children = new TrieNode[27]; // 'a' - 'z' and '{'. 'z' and '{' are neighbours in ASCII table
             weight = 0;
@@ -44,6 +45,7 @@ public class PrefixAndSuffixSearch {
 
     public static class WordFilter {
         TrieNode root;
+
         public WordFilter(String[] words) {
             root = new TrieNode();
             for (int weight = 0; weight < words.length; weight++) {
@@ -62,9 +64,10 @@ public class PrefixAndSuffixSearch {
                 }
             }
         }
+
         public int f(String prefix, String suffix) {
             TrieNode cur = root;
-            for (char c: (suffix + '{' + prefix).toCharArray()) {
+            for (char c : (suffix + '{' + prefix).toCharArray()) {
                 if (cur.children[c - 'a'] == null) {
                     return -1;
                 }

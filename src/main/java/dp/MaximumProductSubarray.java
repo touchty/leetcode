@@ -10,7 +10,7 @@ public class MaximumProductSubarray {
         for (int i = 1, imax = r, imin = r; i < n; i++) {
             // multiplied by a negative makes big number smaller, small number bigger
             // so we redefine the extremums by swapping them
-            if (A[i] < 0){
+            if (A[i] < 0) {
                 int temp = imax;
                 imax = imin;
                 imin = temp;

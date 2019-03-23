@@ -8,9 +8,9 @@ public class OddEvenLinkedList {
         ListNode oddHead = odd;
 
         ListNode even = odd.next;
-        ListNode evenHead =  even;
+        ListNode evenHead = even;
 
-        while (odd != null && even != null){
+        while (odd != null && even != null) {
             if (even.next == null) break;
             odd.next = even.next;
             odd = odd.next;

@@ -14,7 +14,7 @@ public class ShortestUnsortedContinuousSubarray {
             if (nums[low] == copy[low]) low++;
             else break;
         }
-        while (high >= 0){
+        while (high >= 0) {
             if (nums[high] == copy[high]) high--;
             else break;
         }
@@ -25,15 +25,16 @@ public class ShortestUnsortedContinuousSubarray {
     }
 
     public int findUnsortedSubarrayOpt(int[] A) {
-        int n = A.length, beg = -1, end = -2, min = A[n-1], max = A[0];
-        for (int i=1;i<n;i++) {
+        int n = A.length, beg = -1, end = -2, min = A[n - 1], max = A[0];
+        for (int i = 1; i < n; i++) {
             max = Math.max(max, A[i]);
-            min = Math.min(min, A[n-1-i]);
+            min = Math.min(min, A[n - 1 - i]);
             if (A[i] < max) end = i;
-            if (A[n-1-i] > min) beg = n-1-i;
+            if (A[n - 1 - i] > min) beg = n - 1 - i;
         }
         return end - beg + 1;
     }
+
     public static void main(String[] args) {
         int[] nums = {2, 6, 4, 8, 10, 9, 15};
         ShortestUnsortedContinuousSubarray s = new ShortestUnsortedContinuousSubarray();

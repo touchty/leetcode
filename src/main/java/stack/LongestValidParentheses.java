@@ -1,6 +1,7 @@
 package stack;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class LongestValidParentheses {
     public static int longestValidParentheses(String s) {

@@ -9,9 +9,9 @@ public class OnesandZeroes {
     // If we go from top left to bottom right, we would be using results from this iteration => overcounting
     // str can be used only once.
     public int findMaxForm(String[] strs, int m, int n) {
-        int[][] dp = new int[m+1][n+1];
+        int[][] dp = new int[m + 1][n + 1];
 
-        for (String str : strs){
+        for (String str : strs) {
             int zeros = 0;
             int ones = 0;
             for (int i = 0; i < str.length(); i++) {
@@ -21,9 +21,9 @@ public class OnesandZeroes {
                     ones++;
             }
 
-            for (int i = m; i >= zeros ; i--) {
-                for (int j = n; j >= ones ; j--) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i-zeros][j-ones] + 1);
+            for (int i = m; i >= zeros; i--) {
+                for (int j = n; j >= ones; j--) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - zeros][j - ones] + 1);
                 }
             }
         }

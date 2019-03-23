@@ -59,7 +59,7 @@ public class AsteroidCollision {
 
     public static void main(String[] args) {
         AsteroidCollision asteroidCollision = new AsteroidCollision();
-        int[] asteroids = {-5,10,-25};
+        int[] asteroids = {-5, 10, -25};
         int[] expected = {-5, -25};
         int[] result = asteroidCollision.asteroidCollision(asteroids);
         Assert.assertArrayEquals(expected, result);

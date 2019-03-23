@@ -1,20 +1,20 @@
 /**
  * '.' Matches any single character.
- '*' Matches zero or more of the preceding element.
-
- The matching should cover the entire input string (not partial).
-
- The function prototype should be:
- bool isMatch(const char *s, const char *p)
-
- Some examples:
- isMatch("aa","a") → false
- isMatch("aa","aa") → true
- isMatch("aaa","aa") → false
- isMatch("aa", "a*") → true
- isMatch("aa", ".*") → true
- isMatch("ab", ".*") → true
- isMatch("aab", "c*a*b") → true
+ * '*' Matches zero or more of the preceding element.
+ * <p>
+ * The matching should cover the entire input string (not partial).
+ * <p>
+ * The function prototype should be:
+ * bool isMatch(const char *s, const char *p)
+ * <p>
+ * Some examples:
+ * isMatch("aa","a") → false
+ * isMatch("aa","aa") → true
+ * isMatch("aaa","aa") → false
+ * isMatch("aa", "a*") → true
+ * isMatch("aa", ".*") → true
+ * isMatch("ab", ".*") → true
+ * isMatch("aab", "c*a*b") → true
  */
 
 /**
@@ -36,27 +36,27 @@ public class RegularExpressionMatching {
         if (s == null || p == null) {
             return false;
         }
-        boolean[][] dp = new boolean[s.length()+1][p.length()+1];
+        boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         dp[0][0] = true;
         for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '*' && dp[0][i-1]) {
-                dp[0][i+1] = true;
+            if (p.charAt(i) == '*' && dp[0][i - 1]) {
+                dp[0][i + 1] = true;
             }
         }
 
-        for (int i = 0 ; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             for (int j = 0; j < p.length(); j++) {
                 if (p.charAt(j) == '.') {
-                    dp[i+1][j+1] = dp[i][j];
+                    dp[i + 1][j + 1] = dp[i][j];
                 }
                 if (p.charAt(j) == s.charAt(i)) {
-                    dp[i+1][j+1] = dp[i][j];
+                    dp[i + 1][j + 1] = dp[i][j];
                 }
                 if (p.charAt(j) == '*') {
-                    if (p.charAt(j-1) != s.charAt(i) && p.charAt(j-1) != '.') {
-                        dp[i+1][j+1] = dp[i+1][j-1]; //in this case, a* only counts as empty
+                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.') {
+                        dp[i + 1][j + 1] = dp[i + 1][j - 1]; //in this case, a* only counts as empty
                     } else {
-                        dp[i+1][j+1] = (dp[i+1][j] || dp[i][j+1] || dp[i+1][j-1]);
+                        dp[i + 1][j + 1] = (dp[i + 1][j] || dp[i][j + 1] || dp[i + 1][j - 1]);
                     }
                 }
             }
@@ -64,33 +64,32 @@ public class RegularExpressionMatching {
         return dp[s.length()][p.length()];
     }
 
-    public boolean isMatch1(String s, String p){
-        if (s == null || p == null){
+    public boolean isMatch1(String s, String p) {
+        if (s == null || p == null) {
             return false;
         }
 
         boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         dp[0][0] = true;
 
-        for (int i = 0; i < p.length(); i++){
+        for (int i = 0; i < p.length(); i++) {
             if (p.charAt(i) == '*' && dp[0][i - 1]) {
                 dp[0][i] = true;
             }
         }
 
-        for (int i = 0; i < s.length(); i++){
-            for (int j = 0; j < p.length(); j++){
-                if (p.charAt(j) == '.'){
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j < p.length(); j++) {
+                if (p.charAt(j) == '.') {
                     dp[i + 1][j + 1] = dp[i][j];
                 }
-                if (p.charAt(j) == s.charAt(i)){
+                if (p.charAt(j) == s.charAt(i)) {
                     dp[i + 1][j + 1] = dp[i][j];
                 }
-                if (p.charAt(j) == '*'){
-                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.'){
+                if (p.charAt(j) == '*') {
+                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.') {
                         dp[i + 1][j + 1] = dp[i + 1][j - 1];
-                    }
-                    else {
+                    } else {
                         dp[i + 1][j + 1] = (dp[i + 1][j] || dp[i][j + 1] || dp[i + 1][j - 1]);
                         //dp[i + 1][j] in this case, a* counts as single a
                         //dp[i][j + 1] in this case, a* counts as multiple a

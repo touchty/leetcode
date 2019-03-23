@@ -1,6 +1,7 @@
 package array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PascalsTriangle {
     public static List<List<Integer>> generate(int numRows) {
@@ -18,7 +19,7 @@ public class PascalsTriangle {
             List<Integer> curr = new ArrayList<>(prev.size() + 1);
             curr.add(1);
             for (int j = 0; j <= prev.size() - 2; j++) {
-                curr.add(prev.get(j) + prev.get(j+1));
+                curr.add(prev.get(j) + prev.get(j + 1));
             }
             curr.add(1);
             triangle.add(curr);

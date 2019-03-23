@@ -1,6 +1,7 @@
 package array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
@@ -26,20 +27,22 @@ public class PascalsTriangleII {
     public List<Integer> getRowOpt(int rowIndex) {
         int[] result = new int[1];
         //result[0] = 1;
-        for(int i=0; i<=rowIndex; i++) {
-            int[] next = new int[i+1];
-            next[0] = 1; next[i] = 1;
-            for(int j=1; j<i; j++) {
-                next[j] = result[j-1] + result[j];
+        for (int i = 0; i <= rowIndex; i++) {
+            int[] next = new int[i + 1];
+            next[0] = 1;
+            next[i] = 1;
+            for (int j = 1; j < i; j++) {
+                next[j] = result[j - 1] + result[j];
             }
             result = next;
             // System.out.println(result.toString());
         }
         List<Integer> ans = new ArrayList();
-        for(int in : result)
+        for (int in : result)
             ans.add(in);
         return ans;
     }
+
     public static void main(String[] args) {
         int rowIndex = 3;
         List<Integer> res = getRow(rowIndex);

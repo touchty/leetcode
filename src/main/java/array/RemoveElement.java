@@ -11,7 +11,7 @@ public class RemoveElement {
 
         // start >= 0
         int left = start, right = start;
-        while (left >= 0){
+        while (left >= 0) {
             if (nums[left] == val) left--;
             else break;
         }
@@ -28,7 +28,7 @@ public class RemoveElement {
     }
 
     public static void main(String[] args) {
-        int[] nums = {0,1,2,2,3,0,4,2};
+        int[] nums = {0, 1, 2, 2, 3, 0, 4, 2};
         int n = 2;
         System.out.println(RemoveElement.removeElement(nums, n));
     }

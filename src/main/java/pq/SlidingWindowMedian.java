@@ -73,8 +73,7 @@ public class SlidingWindowMedian {
     private void remove(int num) {
         if (num < getMedian()) {
             maxHeap.remove(num);
-        }
-        else {
+        } else {
             minHeap.remove(num);
         }
         if (maxHeap.size() > minHeap.size()) {
@@ -89,15 +88,14 @@ public class SlidingWindowMedian {
         if (maxHeap.isEmpty() && minHeap.isEmpty()) return 0;
 
         if (maxHeap.size() == minHeap.size()) {
-            return ((double)maxHeap.peek() + (double)minHeap.peek()) / 2.0;
-        }
-        else {
-            return (double)minHeap.peek();
+            return ((double) maxHeap.peek() + (double) minHeap.peek()) / 2.0;
+        } else {
+            return (double) minHeap.peek();
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5,6};
+        int[] nums = {1, 2, 3, 4, 5, 6};
         SlidingWindowMedian slidingWindowMedian = new SlidingWindowMedian();
         double[] res = slidingWindowMedian.medianSlidingWindow(nums, 4);
         for (double m : res)

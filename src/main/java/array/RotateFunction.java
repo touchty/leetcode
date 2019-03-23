@@ -1,8 +1,8 @@
 package array;
 
-import java.util.stream.IntStream;
-
 import org.junit.Assert;
+
+import java.util.stream.IntStream;
 
 /*
 Given an array of integers A and let n to be its length.

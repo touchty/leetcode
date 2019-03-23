@@ -18,8 +18,8 @@ public class HammingDistance {
     public int hammingDistanceOpt(int x, int y) {
         int hammingDistance = 0;
         int sum = x + y;
-        while ( sum != 0) {
-            if ( sum % 2 == 0) {
+        while (sum != 0) {
+            if (sum % 2 == 0) {
                 x /= 2;
                 y /= 2;
                 sum = x + y;
@@ -35,6 +35,6 @@ public class HammingDistance {
     }
 
     public static void main(String[] args) {
-        int i = HammingDistance.hammingDistance(1,4);
+        int i = HammingDistance.hammingDistance(1, 4);
     }
 }

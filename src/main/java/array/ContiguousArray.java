@@ -43,8 +43,7 @@ public class ContiguousArray {
             sum += 2 * nums[i] - 1;
             if (sumToIndex.containsKey(sum)) {
                 max = Math.max(max, i - sumToIndex.get(sum));
-            }
-            else {
+            } else {
                 sumToIndex.put(sum, i);
             }
         }

@@ -65,7 +65,7 @@ public class RemoveInvalidParentheses {
         return ans;
     }
 
-    public void remove(String s, List<String> ans, int last_i, int last_j,  char[] par) {
+    public void remove(String s, List<String> ans, int last_i, int last_j, char[] par) {
         for (int stack = 0, i = last_i; i < s.length(); ++i) {
             if (s.charAt(i) == par[0]) stack++;
             if (s.charAt(i) == par[1]) stack--;

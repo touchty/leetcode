@@ -38,7 +38,7 @@ public class KthSmallestSortedMatrix {
         int n = matrix.length;
 
         for (int i = 0; i < n; i++) {
-            pq.offer(new int[] {i, 0});  // initialize the pool with elements from the first column
+            pq.offer(new int[]{i, 0});  // initialize the pool with elements from the first column
         }
 
         while (--k > 0) {                // remove the smallest elements from the matrix (k-1) times

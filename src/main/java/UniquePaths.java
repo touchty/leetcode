@@ -1,8 +1,8 @@
 public class UniquePaths {
-    public int uniquePaths(int m, int n){
+    public int uniquePaths(int m, int n) {
         int[][] map = new int[m][n];
 
-        for (int i = 0; i < m; i++){
+        for (int i = 0; i < m; i++) {
             map[i][0] = 1;
         }
 

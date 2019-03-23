@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyCalendarII {
     /*
@@ -28,13 +26,13 @@ public class MyCalendarII {
     }
 
     public boolean book(int start, int end) {
-        for (ArrayList<Integer> l : overlaps){
+        for (ArrayList<Integer> l : overlaps) {
             if (start < l.get(1) && end > l.get(0))
                 return false;
         }
 
-        for (ArrayList<Integer> l : calendar){
-            if (start < l.get(1) && end > l.get(0)){
+        for (ArrayList<Integer> l : calendar) {
+            if (start < l.get(1) && end > l.get(0)) {
                 ArrayList<Integer> temp = new ArrayList<>();
                 temp.add(Math.max(start, l.get(0)));
                 temp.add(Math.min(end, l.get(1)));
@@ -49,8 +47,9 @@ public class MyCalendarII {
         return true;
     }
 }
-class MyCalendarTwo{
-    class Pair{
+
+class MyCalendarTwo {
+    class Pair {
         int i;
         int j;
 
@@ -69,13 +68,13 @@ class MyCalendarTwo{
     }
 
     public boolean book(int start, int end) {
-        for (Pair pair : overlaps){
+        for (Pair pair : overlaps) {
             if (start < pair.j && end > pair.i)
                 return false;
         }
 
-        for (Pair pair : calendar){
-            if (start < pair.j && end > pair.i){
+        for (Pair pair : calendar) {
+            if (start < pair.j && end > pair.i) {
                 Pair temp = new Pair(Math.max(start, pair.i), Math.min(end, pair.j));
                 overlaps.add(temp);
             }

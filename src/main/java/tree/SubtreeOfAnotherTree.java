@@ -17,19 +17,19 @@ public class SubtreeOfAnotherTree {
     }
 
     public boolean isSubtreeOpt(TreeNode s, TreeNode t) {
-        return isSubtreeHelper(s,t,0);
+        return isSubtreeHelper(s, t, 0);
     }
 
-    public boolean isSubtreeHelper(TreeNode s, TreeNode t, int depth){
-        if(s == null && t == null) return true;
-        if(s == null || t == null) return false;
+    public boolean isSubtreeHelper(TreeNode s, TreeNode t, int depth) {
+        if (s == null && t == null) return true;
+        if (s == null || t == null) return false;
 
-        if(s.val == t.val){
-            if(isSubtreeHelper(s.left, t.left, depth + 1) && isSubtreeHelper(s.right, t.right, depth + 1)){
+        if (s.val == t.val) {
+            if (isSubtreeHelper(s.left, t.left, depth + 1) && isSubtreeHelper(s.right, t.right, depth + 1)) {
                 return true;
             }
-        }else{
-            if(depth > 0)
+        } else {
+            if (depth > 0)
                 return false;
         }
 

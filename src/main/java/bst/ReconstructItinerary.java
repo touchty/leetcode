@@ -14,7 +14,7 @@ public class ReconstructItinerary {
     }
 
     void visit(String airport) {
-        while(targets.containsKey(airport) && !targets.get(airport).isEmpty())
+        while (targets.containsKey(airport) && !targets.get(airport).isEmpty())
             visit(targets.get(airport).poll());
         route.add(0, airport);
     }

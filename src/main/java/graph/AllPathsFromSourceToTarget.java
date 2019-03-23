@@ -36,26 +36,25 @@ public class AllPathsFromSourceToTarget {
 
     // Opt
     class Solution {
-        public List<List<Integer>> allPathsSourceTarget(int[][] graph)
-        {
-            List<List<Integer>>path = new ArrayList<>();
-            List<Integer>list = new ArrayList<>();
+        public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+            List<List<Integer>> path = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();
             list.add(0);
-            path_utils(path,list,graph,0,graph.length-1);
+            path_utils(path, list, graph, 0, graph.length - 1);
 
             return path;
         }
 
-        public void path_utils(List<List<Integer>>path_list,List<Integer>path,int[][] graph,int s,int e){
-            if(s == e){
+        public void path_utils(List<List<Integer>> path_list, List<Integer> path, int[][] graph, int s, int e) {
+            if (s == e) {
                 path_list.add(new ArrayList<Integer>(path));
                 return;
             }
 
-            for(int i:graph[s]){
+            for (int i : graph[s]) {
                 path.add(i);
-                path_utils(path_list,path,graph,i,e);
-                path.remove(path.size()-1);
+                path_utils(path_list, path, graph, i, e);
+                path.remove(path.size() - 1);
             }
 
         }

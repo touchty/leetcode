@@ -2,6 +2,7 @@ package graph;
 
 public class LongestIncreasingPathInAMatrix {
     private static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
     public int longestIncreasingPath(int[][] matrix) {
         if (matrix == null || matrix.length == 0)
             return 0;
@@ -28,7 +29,7 @@ public class LongestIncreasingPathInAMatrix {
             int m = i + dir[0];
             int n = j + dir[1];
             if (m < 0 || m >= r || n < 0 || n >= c || matrix[m][n] <= matrix[i][j]) continue;
-            max = Math.max(max, 1 + dfs(matrix, m,n,r,c, cached));
+            max = Math.max(max, 1 + dfs(matrix, m, n, r, c, cached));
 
         }
         cached[i][j] = max;

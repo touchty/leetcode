@@ -1,14 +1,14 @@
-import java.util.Arrays;
-import java.util.List;
-
 import edu.princeton.cs.algs4.Complex;
 import edu.princeton.cs.algs4.FFT;
+
+import java.util.Arrays;
+
 public class Hello {
     public static void main(String[] args) {
-        int pos = Arrays.binarySearch(new int[]{1,2,3,4,5,6,7,8}, 7);
+        int pos = Arrays.binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 7);
         Complex[] data = new Complex[2];
-        Complex i1 = new Complex(1,2);
-        Complex i2 = new Complex(3,4);
+        Complex i1 = new Complex(1, 2);
+        Complex i2 = new Complex(3, 4);
         data[0] = i1;
         data[1] = i2;
         Complex[] fft = FFT.fft(data);

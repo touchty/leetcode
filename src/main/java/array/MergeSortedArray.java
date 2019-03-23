@@ -7,15 +7,14 @@ public class MergeSortedArray {
 
         int i = 0, j = 0;
         while (i < m && j < n) {
-            if (nums1[i] < nums2[j]){
+            if (nums1[i] < nums2[j]) {
                 merged[pos++] = nums1[i++];
-            }
-            else{
+            } else {
                 merged[pos++] = nums2[j++];
             }
         }
 
-        while (i < m){
+        while (i < m) {
             merged[pos++] = nums1[i++];
         }
 
@@ -38,10 +37,9 @@ public class MergeSortedArray {
         n--;
 
         while (m >= 0 && n >= 0) {
-            if (nums1[m] > nums2[n]){
+            if (nums1[m] > nums2[n]) {
                 nums1[pos--] = nums1[m--];
-            }
-            else {
+            } else {
                 nums1[pos--] = nums2[n--];
             }
         }
@@ -56,9 +54,9 @@ public class MergeSortedArray {
     }
 
     public static void main(String[] args) {
-        int[] nums1 = {1,2,3,0,0,0};
+        int[] nums1 = {1, 2, 3, 0, 0, 0};
         int m = 3;
-        int[] nums2 = {2,5,6};
+        int[] nums2 = {2, 5, 6};
         int n = 3;
 
         MergeSortedArray mergeSortedArray = new MergeSortedArray();

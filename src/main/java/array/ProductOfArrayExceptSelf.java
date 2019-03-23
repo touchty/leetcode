@@ -11,11 +11,10 @@ public class ProductOfArrayExceptSelf {
         int[] toRight = new int[n];
 
         for (int i = 0; i < n; i++) {
-            if (i == 0){
+            if (i == 0) {
                 toLeft[0] = nums[0];
                 toRight[n - 1] = nums[n - 1];
-            }
-            else {
+            } else {
                 toLeft[i] = nums[i] * toLeft[i - 1];
                 toRight[n - 1 - i] = nums[n - 1 - i] * toRight[n - i];
             }
@@ -27,7 +26,7 @@ public class ProductOfArrayExceptSelf {
             res[i] = toLeft[i - 1] * toRight[i + 1];
         }
         res[0] = toRight[1];
-        res[n-1] = toLeft[n - 2];
+        res[n - 1] = toLeft[n - 2];
 
         return res;
     }
@@ -38,18 +37,18 @@ public class ProductOfArrayExceptSelf {
         int len = nums.length;
         int prod[] = new int[len];
 
-        for(int i=0;i<len;i++){
+        for (int i = 0; i < len; i++) {
             prod[i] = 1;
         }
 
-        for(int i=0;i<len;i++){
-            prod[i]  =temp;
+        for (int i = 0; i < len; i++) {
+            prod[i] = temp;
             temp = nums[i] * temp;
         }
 
         temp = 1;
 
-        for(int i=len-1;i>=0;i--){
+        for (int i = len - 1; i >= 0; i--) {
             prod[i] = temp * prod[i];
             temp = temp * nums[i];
         }
@@ -59,9 +58,9 @@ public class ProductOfArrayExceptSelf {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3,4};
+        int[] nums = new int[]{1, 2, 3, 4};
         int[] res = ProductOfArrayExceptSelf.productExceptSelfOpt(nums);
-        int[] expected = new int[]{24,12,8,1};
-        Assert.assertArrayEquals("Error",res, expected);
+        int[] expected = new int[]{24, 12, 8, 1};
+        Assert.assertArrayEquals("Error", res, expected);
     }
 }

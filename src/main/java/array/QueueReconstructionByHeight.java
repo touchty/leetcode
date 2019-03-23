@@ -2,13 +2,16 @@ package array;
 
 import org.junit.Assert;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class QueueReconstructionByHeight {
     public static int[][] reconstructQueue(int[][] people) {
-        Arrays.sort(people,(a,b) -> {
-            if (a[0] - b[0] == 0) return a[1] - b[1];
-            else return b[0] - a[0];}
+        Arrays.sort(people, (a, b) -> {
+                    if (a[0] - b[0] == 0) return a[1] - b[1];
+                    else return b[0] - a[0];
+                }
         );
 
         ArrayList<int[]> list = new ArrayList<>();
@@ -42,6 +45,7 @@ public class QueueReconstructionByHeight {
         }
         return list.toArray(new int[m][]);
     }
+
     private void sort(int[][] a, int l, int r) {
         if (l >= r) {
             return;
@@ -69,12 +73,12 @@ public class QueueReconstructionByHeight {
     }
 
     public static void main(String[] args) {
-        int[][] people = {{7,0}, {4,4}, {7,1}, {5,0}, {6,1}, {5,2}};
+        int[][] people = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
 
-        int[][] expected = {{5,0}, {7,0}, {5,2}, {6,1}, {4,4}, {7,1}};
+        int[][] expected = {{5, 0}, {7, 0}, {5, 2}, {6, 1}, {4, 4}, {7, 1}};
         QueueReconstructionByHeight.reconstructQueue(people);
 
-        for (int[] pair :people){
+        for (int[] pair : people) {
             System.out.println(pair[0] + " " + pair[1]);
         }
 

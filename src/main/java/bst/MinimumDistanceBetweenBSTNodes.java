@@ -3,9 +3,10 @@ package bst;
 
 public class MinimumDistanceBetweenBSTNodes {
     /*
-    * It works only when every node's value is positive.
-    * */
+     * It works only when every node's value is positive.
+     * */
     Integer res = Integer.MAX_VALUE, pre = null;
+
     public int minDiffInBST(TreeNode root) {
         if (root.left != null) minDiffInBST(root.left);
 

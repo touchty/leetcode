@@ -1,15 +1,16 @@
 package binarySearch;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FourSumII {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
 
         Map<Integer, Integer> map = new HashMap<>();
 
-        for(int i=0; i<C.length; i++) {
+        for (int i = 0; i < C.length; i++) {
 
-            for(int j=0; j<D.length; j++) {
+            for (int j = 0; j < D.length; j++) {
 
                 int sum = C[i] + D[j];
 
@@ -19,13 +20,13 @@ public class FourSumII {
 
         }
 
-        int res=0;
+        int res = 0;
 
-        for(int i=0; i<A.length; i++) {
+        for (int i = 0; i < A.length; i++) {
 
-            for(int j=0; j<B.length; j++) {
+            for (int j = 0; j < B.length; j++) {
 
-                res += map.getOrDefault(-1 * (A[i]+B[j]), 0);
+                res += map.getOrDefault(-1 * (A[i] + B[j]), 0);
 
             }
 

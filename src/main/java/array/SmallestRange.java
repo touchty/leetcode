@@ -1,12 +1,14 @@
 package array;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
 
 /**
  * You have k lists of sorted integers in ascending order. Find the smallest range that includes at least one number from each of the k lists.
- *
+ * <p>
  * We define the range [a,b] is smaller than range [c,d] if b-a < d-c or a < c if b-a == d-c.
- *
+ * <p>
  * Example 1:
  * Input:[[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]
  * Output: [20,24]
@@ -54,7 +56,7 @@ public class SmallestRange {
             }
         }
 
-        return new int[] { start, end };
+        return new int[]{start, end};
     }
 
     class Element {

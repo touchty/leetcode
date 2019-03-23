@@ -8,10 +8,10 @@ import org.junit.Assert;
  * Given several boxes with different colors represented by different positive numbers.
  * You may experience several rounds to remove boxes until there is no box left. Each time you can choose some continuous boxes with the same color (composed of k boxes, k >= 1), remove them and get k*k points.
  * Find the maximum points you can get.
- *
+ * <p>
  * Example 1:
  * Input:
- *
+ * <p>
  * [1, 3, 2, 2, 2, 3, 4, 3, 1]
  * Output:
  * 23
@@ -33,7 +33,8 @@ public class RemoveBoxes {
         if (i > j) return 0;
         if (dp[i][j][k] > 0) return dp[i][j][k];
 
-        for (; i + 1 <= j && boxes[i + 1] == boxes[i]; i++, k++); // optimization: all boxes of the same color counted continuously from the first box should be grouped together
+        for (; i + 1 <= j && boxes[i + 1] == boxes[i]; i++, k++)
+            ; // optimization: all boxes of the same color counted continuously from the first box should be grouped together
         int res = (k + 1) * (k + 1) + removeBoxesSub(boxes, i + 1, j, 0, dp);
 
         for (int m = i + 1; m <= j; m++) {
@@ -47,7 +48,7 @@ public class RemoveBoxes {
     }
 
     public static void main(String[] args) {
-        int[] boxes = {1,3,2,2,2,3,4,3,1};
+        int[] boxes = {1, 3, 2, 2, 2, 3, 4, 3, 1};
         RemoveBoxes removeBoxes = new RemoveBoxes();
         int result = removeBoxes.removeBoxes(boxes);
         int expected = 23;
