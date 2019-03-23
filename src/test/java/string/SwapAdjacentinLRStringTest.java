@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class SwapAdjacentinLRStringTest {
     SwapAdjacentinLRString lr = new SwapAdjacentinLRString();
+
     @Test
     public void canTransform() {
         String start = "RXXLRXRXL", end = "XRLXXRRLX";

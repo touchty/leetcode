@@ -19,7 +19,7 @@ public class TopKFrequentWordsTest {
         resA = res.toArray(resA);
         Assert.assertArrayEquals(resA, new String[]{"i", "love"});
 
-        PriorityQueue<Integer> pq= new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         pq.offer(2);
         pq.offer(1);
         pq.offer(3);

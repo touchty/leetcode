@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class NQueensTest {
     NQueens nQueens = new NQueens();
+
     @Test
     public void solveNQueens() {
         int n = 10;

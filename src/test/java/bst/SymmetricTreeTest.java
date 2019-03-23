@@ -1,56 +1,53 @@
-package bst; 
+package bst;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Before;
+import org.junit.After;
 
-/** 
-* SymmetricTree Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>05/28/2018</pre> 
-* @version 1.0 
-*/ 
-public class SymmetricTreeTest { 
+/**
+ * SymmetricTree Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>05/28/2018</pre>
+ */
+public class SymmetricTreeTest {
     SymmetricTree symmetricTree = new SymmetricTree();
-@Before
-public void before() throws Exception { 
-} 
 
-@After
-public void after() throws Exception { 
-} 
+    @Before
+    public void before() throws Exception {
+    }
 
-/** 
-* 
-* Method: isSymmetric(TreeNode root) 
-* 
-*/ 
-@Test
-public void testIsSymmetric() throws Exception { 
-    TreeNode root = new TreeNode(5);
-    TreeNode left = new TreeNode(1);
-    TreeNode right = new TreeNode(1);
-    TreeNode left_right = new TreeNode(3);
-    TreeNode right_left = new TreeNode(3);
-    root.left = left;
-    root.right = right;
+    @After
+    public void after() throws Exception {
+    }
+
+    /**
+     * Method: isSymmetric(TreeNode root)
+     */
+    @Test
+    public void testIsSymmetric() throws Exception {
+        TreeNode root = new TreeNode(5);
+        TreeNode left = new TreeNode(1);
+        TreeNode right = new TreeNode(1);
+        TreeNode left_right = new TreeNode(3);
+        TreeNode right_left = new TreeNode(3);
+        root.left = left;
+        root.right = right;
 /*    left.right = left_right;
     right.left = right_left;*/
-    boolean expected = true;
-    boolean result = symmetricTree.isSymmetric(root);
-    Assert.assertEquals(expected, result);
-}
+        boolean expected = true;
+        boolean result = symmetricTree.isSymmetric(root);
+        Assert.assertEquals(expected, result);
+    }
 
 
-/** 
-* 
-* Method: isSymmetricHelp(TreeNode left, TreeNode right) 
-* 
-*/ 
-@Test
-public void testIsSymmetricHelp() throws Exception { 
+    /**
+     * Method: isSymmetricHelp(TreeNode left, TreeNode right)
+     */
+    @Test
+    public void testIsSymmetricHelp() throws Exception {
 //TODO: Test goes here... 
 /* 
 try { 
@@ -61,7 +58,7 @@ try {
 } catch(IllegalAccessException e) { 
 } catch(InvocationTargetException e) { 
 } 
-*/ 
-} 
+*/
+    }
 
 } 

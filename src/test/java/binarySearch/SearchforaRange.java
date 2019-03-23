@@ -28,14 +28,14 @@ public class SearchforaRange {
         return low;
     }
 
-    private int firstGreaterEqualRewrite(int[] A, int target){
+    private int firstGreaterEqualRewrite(int[] A, int target) {
         int low = 0, high = A.length;
-        while (low < high){
+        while (low < high) {
             int mid = low + (high - low) / 2;
             // low <= mid < high
-            if (A[mid] < target){
+            if (A[mid] < target) {
                 low = mid + 1;
-            }else {
+            } else {
                 high = mid;
             }
         }

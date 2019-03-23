@@ -11,8 +11,8 @@ public class TextJustificationTest {
 
     @Test
     public void fullJustify() {
-        String[] words = {"Science","is","what","we","understand","well","enough","to","explain",
-                "to","a","computer.","Art","is","everything","else","we","do"};
+        String[] words = {"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain",
+                "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"};
         int L = 32;
         List<String> lines = textJustification.fullJustify(words, L);
         for (String line : lines)

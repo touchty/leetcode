@@ -6,8 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BattleshipsInABoardTest {
-private BattleshipsInABoard battleshipsInABoard =
-        new BattleshipsInABoard();
+    private BattleshipsInABoard battleshipsInABoard =
+            new BattleshipsInABoard();
+
     @Test
     public void countBattleships() {
         char[][] board =

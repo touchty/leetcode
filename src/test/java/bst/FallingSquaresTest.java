@@ -1,37 +1,36 @@
-package bst; 
+package bst;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After; 
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
 
-/** 
-* FallingSquares Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>05/09/2018</pre> 
-* @version 1.0 
-*/ 
-public class FallingSquaresTest { 
+/**
+ * FallingSquares Tester.
+ *
+ * @author <Authors name>
+ * @version 1.0
+ * @since <pre>05/09/2018</pre>
+ */
+public class FallingSquaresTest {
     FallingSquares fallingSquares = new FallingSquares();
-@Before
-public void before() throws Exception { 
-} 
 
-@After
-public void after() throws Exception { 
-} 
+    @Before
+    public void before() throws Exception {
+    }
 
-/** 
-* 
-* Method: fallingSquares(int[][] positions) 
-* 
-*/ 
-@Test
-public void testFallingSquares() throws Exception { 
-    int[][] positions = {{1, 2}, {6, 1}};
-    int[] result = {2,5,5};
-    fallingSquares.fallingSquares(positions);
-} 
+    @After
+    public void after() throws Exception {
+    }
+
+    /**
+     * Method: fallingSquares(int[][] positions)
+     */
+    @Test
+    public void testFallingSquares() throws Exception {
+        int[][] positions = {{1, 2}, {6, 1}};
+        int[] result = {2, 5, 5};
+        fallingSquares.fallingSquares(positions);
+    }
 
 
 } 
