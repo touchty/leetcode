@@ -60,4 +60,11 @@ public class PermutationsII {
             }
         }
     }
+
+    public static void main(String[] args) {
+        int[] A = {2,2};
+        PermutationsII solution = new PermutationsII();
+        List<List<Integer>> lists = solution.permuteUnique(A);
+        System.out.println(lists.size());
+    }
 }
