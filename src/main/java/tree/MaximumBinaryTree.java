@@ -1,6 +1,7 @@
 package tree;
 
 /**
+ * 654. Maximum Binary Tree
  * Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
  * <p>
  * The root is the maximum number in the array.
@@ -29,6 +30,10 @@ public class MaximumBinaryTree {
 
     }
 
+    public TreeNode constructMaximumBinaryTreeOpt(int[] nums) {
+        return build(nums, 0, nums.length - 1);
+    }
+
     TreeNode helper(int[] nums, int l, int r) {
         if (l > r || l < 0 || r < 0 || l >= nums.length || r >= nums.length)
             return null;
@@ -45,10 +50,30 @@ public class MaximumBinaryTree {
         return node;
     }
 
+    TreeNode build(int[] nums, int left, int right) {
+        if (left > right) return null;
+        if (left == right) return new TreeNode(nums[left]);
+
+        int maxIdx = left;
+        int i = maxIdx + 1;
+        int max = nums[maxIdx];
+        while (i <= right) {
+            if (nums[i] > max) {
+                max = nums[i]; // update max element
+                maxIdx = i; // update max index
+            }
+            i++;
+        }
+        TreeNode root = new TreeNode(nums[maxIdx]);
+        root.left = build(nums, left, maxIdx - 1);
+        root.right = build(nums, maxIdx + 1, right);
+        return root;
+    }
+
     public static void main(String[] args) {
         int[] nums = {3, 2, 1, 6, 0, 5};
         MaximumBinaryTree maximumBinaryTree = new MaximumBinaryTree();
-        TreeNode root = maximumBinaryTree.constructMaximumBinaryTree(nums);
+        TreeNode root = maximumBinaryTree.constructMaximumBinaryTreeOpt(nums);
         System.out.println(root.val);
     }
 }
