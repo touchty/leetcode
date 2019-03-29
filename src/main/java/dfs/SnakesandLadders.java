@@ -74,7 +74,7 @@ public class SnakesandLadders {
         int n = board.length;
         int r = (num - 1) / n;
         int x = n - 1 - r;
-        int y = r % 2 == 0 ? num - 1 - r * n : n + r * n - num;
+        int y = r % 2 == 0 ? num - 1 - r * n : n + r * n - num; // two directions
         return board[x][y];
     }
 }
