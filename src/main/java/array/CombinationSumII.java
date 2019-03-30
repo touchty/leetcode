@@ -5,6 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
+40. Combination Sum II
+Medium
+
+744
+
+40
+
+Favorite
+
+Share
 Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 
 Each number in candidates may only be used once in the combination.
@@ -48,9 +58,18 @@ public class CombinationSumII {
             for (int i = start; i < nums.length; i++) {
                 if (i > start && nums[i] == nums[i - 1]) continue; // skip duplicates
                 tempList.add(nums[i]);
+                // start becomes i+1, because no reuse
                 backtrack(list, tempList, nums, remain - nums[i], i + 1);
                 tempList.remove(tempList.size() - 1);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] candidates = {1, 2, 2, 2, 2, 2, 2, 2, 5}; // {5}, {1,2,2}
+        int target = 5;
+        CombinationSumII solution = new CombinationSumII();
+        List<List<Integer>> list = solution.combinationSum2(candidates, target);
+        System.out.println(list.size());
     }
 }
