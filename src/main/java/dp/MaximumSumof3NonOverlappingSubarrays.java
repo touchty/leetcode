@@ -25,6 +25,23 @@ Output: [0, 3, 5]
 Explanation: Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices [0, 3, 5].
 We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger.
  */
+
+
+/*
+solution:
+
+https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/discuss/108231/C%2B%2BJava-DP-with-explanation-O(n)
+
+The question asks for three non-overlapping intervals with maximum sum of all 3 intervals. If the middle interval is [i, i+k-1], where k <= i <= n-2k, the left interval has to be in subrange [0, i-1], and the right interval is from subrange [i+k, n-1].
+
+So the following solution is based on DP.
+
+posLeft[i] is the starting index for the left interval in range [0, i];
+posRight[i] is the starting index for the right interval in range [i, n-1];
+Then we test every possible starting index of middle interval, i.e. k <= i <= n-2k, and we can get the corresponding left and right max sum intervals easily from DP. And the run time is O(n).
+
+Caution. In order to get lexicographical smallest order, when there are two intervals with equal max sum, always select the left most one. So in the code, the if condition is ">= tot" for right interval due to backward searching, and "> tot" for left interval. Thanks to @lee215 for pointing this out!
+ */
 public class MaximumSumof3NonOverlappingSubarrays {
     public int[] maxSumOfThreeSubarrays(int[] nums, int k) {
         int n = nums.length, maxsum = 0;
@@ -67,7 +84,7 @@ public class MaximumSumof3NonOverlappingSubarrays {
         int k = 2;
         MaximumSumof3NonOverlappingSubarrays solution = new MaximumSumof3NonOverlappingSubarrays();
         int[] pos = solution.maxSumOfThreeSubarrays(nums, k);
-        int[] expected = {0,3,5};
+        int[] expected = {0, 3, 5};
         Assert.assertArrayEquals(expected, pos);
     }
 }
