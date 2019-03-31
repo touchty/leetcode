@@ -23,5 +23,13 @@ public class CombinationSum {
             }
         }
     }
+
+    public static void main(String[] args) {
+        int[] candidates = {1,2,2};
+        int target = 5;
+        CombinationSum solution = new CombinationSum();
+        List<List<Integer>> list = solution.combinationSum(candidates, target);
+        System.out.println(list.size());
+    }
 }
 
