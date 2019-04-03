@@ -1,5 +1,7 @@
 package tree;
 
+import org.junit.Assert;
+
 /*
 968. Binary Tree Cameras
 Solution:
@@ -78,4 +80,16 @@ public class BinaryTreeCameras {
         return left == 1 || right == 1 ? 2 : 0;
     }
      */
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.left.left.left = new TreeNode(0);
+        root.left.left.left.right = new TreeNode(0);
+        BinaryTreeCameras solution = new BinaryTreeCameras();
+        int cameras = solution.minCameraCover(root);
+        int expected = 2;
+        Assert.assertEquals(expected, cameras);
+    }
 }
