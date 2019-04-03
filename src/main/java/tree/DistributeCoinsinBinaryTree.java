@@ -39,7 +39,7 @@ public class DistributeCoinsinBinaryTree {
         if (root == null) return 0;
         int left = dfs(root.left), right = dfs(root.right);
         res += Math.abs(left) + Math.abs(right); // steps to move coins from or to left and right sub tree
-        return root.val + left + right - 1;
+        return root.val + left + right - 1;  // every node have one coin at last.
     }
 
     public static void main(String[] args) {
