@@ -1,6 +1,7 @@
 package tree;
 
 /*
+968. Binary Tree Cameras
 Solution:
 Intuition:
 Consider a node in the tree.
@@ -51,9 +52,9 @@ public class BinaryTreeCameras {
             return 2;
         int left = dfs(root.left);
         int right = dfs(root.right);
-        if (left == 0 || right == 0) {
+        if (left == 0 || right == 0) { // Return 0 if it's a leaf.
             res++;
-            return 1;
+            return 1; // Return 1 if it's a parent of a leaf, with a camera on this node.
         }
         // left == 1 || right == 1, at least one child has a camera.
         // And the parent is covered in this case!
