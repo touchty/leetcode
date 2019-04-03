@@ -47,6 +47,36 @@ public class SetIntersectionSizeAtLeastTwo {
         return m;
     }
 
+    public class Solution {
+        public int intersectionSizeTwo(int[][] intervals) {
+            Arrays.sort(intervals, (interval1, interval2) -> (interval1[1] - interval2[1])); // sort by upper bounds (right edges).
+            int max1 = -1, max2 = -1, ans = 0; // selected points are dummy (-1), so selected 0 points.
+            for (int[] interval : intervals) {
+                int start = interval[0], end = interval[1];
+                if (start > max1) { // [Case1] no intersection with collected ones.
+                    // end>start>max1>max2
+                    ans += 2; // add 'max1' and 'max2'.
+                    // Pick 2 number having difference by 1, because the more smaller the range is, the better.
+                    max2 = end - 1; // Minimize the range of 2 numbers by greatest lower bounds.
+                    max1 = end;
+                } else if (start > max2) { // [Case2] has intersection
+                    // [Candidates are]
+                    // - end>   start>=max1>max2 // no need to add 'start'. Adding 'end' suffice 2 intersection.
+                    // - end> max1> start  >max2 // no need to add 'start'. use 'max1' instead of 'start'.
+                    // - end==max1> start  >max2 // no need to add 'start'. use 'max1'-1 instead of 'start'
+                    ans++; // Increment by 1 (Additionally use 'end'.) (Either 'max1' or 'start' is used, but total number used is unchanged.)
+                    max2 = max1 == end ? max1 - 1 : max1; // compare right edge then update 'max2'.
+                    max1 = end; // update 'max1'
+                }
+                // [Case 3] end > max1 > start
+                // 'max1' is already intersects with 'interval' and previous 'interval' from which 'max1' is collected.
+                // This means 'max1' already intersects more than or equal to 2 times.
+            }
+            return ans;
+        }
+    }
+
+
     public static void main(String[] args) {
         int[][] intervals = {{1, 3}, {1, 4}, {2, 5}, {3, 5}};
 
