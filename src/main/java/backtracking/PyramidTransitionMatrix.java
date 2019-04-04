@@ -57,8 +57,8 @@ public class PyramidTransitionMatrix {
 
     public boolean backtrack(int index, List<Character> level, List<Character> next, Map<String, List<Character>> map) {
         if (index == level.size() - 1) {
-            if (next.size() == 1) return true;
-            level = next;
+            if (next.size() == 1) return true; // top of the pyramid
+            level = next; // next level
             index = 0;
             next = new ArrayList();
         }
