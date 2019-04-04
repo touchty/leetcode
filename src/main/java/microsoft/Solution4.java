@@ -1,9 +1,21 @@
 package microsoft;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution4 {
     int max = Integer.MIN_VALUE;
+    Map<String, Double> map = new HashMap<>();
 
     int honey(int[][] fls, int[][] hs, int[] source, int time) {
+        for (int[] h: hs) {
+            for (int[] f: fls) {
+                String path = ""+h[0] + "-" + h[1] + "to" + f[0] + "-" + f[1];
+                double len = Math.pow(f[0] - h[0], 2) + Math.pow(f[1] - h[1], 2);
+                len = Math.sqrt(len);
+                map.put(path, len);
+            }
+        }
         dfs(source, time, fls, hs, false, 0);
         return max;
     }
@@ -34,11 +46,13 @@ public class Solution4 {
 
     public static void main(String[] args) {
         int[][] fls = {{1, 0}, {3, 0}, {4, 0}};
-        int[][] hs = {{2, 0}};
+        int[][] hs = {{2, 2}, {4,1}};
         int[] source = {0, 0};
-        int time = 5;
+        int time = 50;
         Solution4 solution = new Solution4();
         int res = solution.honey(fls, hs, source, time);
         System.out.println(res);
+        long[][] dists = new long[fls.length][hs.length];
+
     }
 }
