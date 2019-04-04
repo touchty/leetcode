@@ -45,7 +45,7 @@ public class PyramidTransitionMatrix {
     public boolean pyramidTransition(String bottom, List<String> allowed) {
         Map<String, List<Character>> map = new HashMap();
         for (String s : allowed) {
-            map.putIfAbsent(s.substring(0, 2), new ArrayList());
+            map.putIfAbsent(s.substring(0, 2), new ArrayList()); //(A, B, C), C MUST BE IN THE TOP OF (A, B)
             map.get(s.substring(0, 2)).add(s.charAt(2));
         }
         List<Character> b = new ArrayList();
