@@ -92,10 +92,10 @@ public class FindtheClosestPalindrome {
 
     public static void main(String[] args) {
         FindtheClosestPalindrome solution = new FindtheClosestPalindrome();
-        long highrtPalindrome = solution.findHigherPalindrome((long) 10);
-        System.out.println(highrtPalindrome);
+        long higherPalindrome = solution.findHigherPalindrome((long) 10);
+        System.out.println(higherPalindrome);
 
-        long lowerPalindrome = solution.findLowerPalindrome((long)1000);
+        long lowerPalindrome = solution.findLowerPalindrome((long) 1000);
         System.out.println(lowerPalindrome);
     }
 }
