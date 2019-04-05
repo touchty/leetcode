@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.*;
 
 /*
@@ -69,6 +71,20 @@ public class MagicDictionary {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        String[] dicts = {"hello", "leetcode"};
+        String[] strToSearch = {"hello", "hhllo", "leetcoed", "leetcodq"};
+        boolean[] searchRes = new boolean[strToSearch.length];
+        MagicDictionary dictionary = new MagicDictionary();
+        dictionary.buildDict(dicts);
+        for (int i = 0; i < strToSearch.length; i++) {
+            searchRes[i] = dictionary.search(strToSearch[i]);
+        }
+
+        boolean[] expected = {false, true, false, true};
+        Assert.assertArrayEquals(expected, searchRes);
+    }
 }
 
 class MagicDictionaryTrie {
@@ -76,27 +92,33 @@ class MagicDictionaryTrie {
     TrieNode mFakeRoot;
     int mOffset = 'a';
 
-    /** Initialize your data structure here. */
+    /**
+     * Initialize your data structure here.
+     */
     public MagicDictionaryTrie() {
         mFakeRoot = new TrieNode();
     }
 
-    /** Build a dictionary through a list of words */
+    /**
+     * Build a dictionary through a list of words
+     */
     public void buildDict(String[] dict) {
         for (String word : dict) {
             TrieNode cur = mFakeRoot;
             for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
-                if (cur.mChildren[c-mOffset] == null) {
-                    cur.mChildren[c-mOffset] = new TrieNode();
+                if (cur.mChildren[c - mOffset] == null) {
+                    cur.mChildren[c - mOffset] = new TrieNode();
                 }
-                cur = cur.mChildren[c-mOffset];
+                cur = cur.mChildren[c - mOffset];
             }
             cur.mIsWord = true;
         }
     }
 
-    /** Returns if there is any word in the trie that equals to the given word after modifying exactly one character */
+    /**
+     * Returns if there is any word in the trie that equals to the given word after modifying exactly one character
+     */
     public boolean search(String word) {
         return search(word, 0, mFakeRoot, false);
     }
@@ -118,21 +140,36 @@ class MagicDictionaryTrie {
                 }
             }
             // don't modify the char at index
-            return cur.mChildren[c-mOffset] != null &&
-                    search(word, index + 1, cur.mChildren[c-mOffset], false);
+            return cur.mChildren[c - mOffset] != null &&
+                    search(word, index + 1, cur.mChildren[c - mOffset], false);
         }
 
         // modified == true, i.e. some character was modified already
-        return cur.mChildren[c-mOffset] != null &&
-                search(word, index + 1, cur.mChildren[c-mOffset], true);
+        return cur.mChildren[c - mOffset] != null &&
+                search(word, index + 1, cur.mChildren[c - mOffset], true);
     }
 
     private class TrieNode {
         TrieNode[] mChildren;
         boolean mIsWord;
+
         public TrieNode() {
             mChildren = new TrieNode[26];
             mIsWord = false;
         }
+    }
+
+    public static void main(String[] args) {
+        String[] dicts = {"hello", "leetcode"};
+        String[] strToSearch = {"hello", "hhllo", "leetcoed", "leetcodq"};
+        boolean[] searchRes = new boolean[strToSearch.length];
+        MagicDictionaryTrie dictionaryTrie = new MagicDictionaryTrie();
+        dictionaryTrie.buildDict(dicts);
+        for (int i = 0; i < strToSearch.length; i++) {
+            searchRes[i] = dictionaryTrie.search(strToSearch[i]);
+        }
+
+        boolean[] expected = {false, true, false, true};
+        Assert.assertArrayEquals(expected, searchRes);
     }
 }
