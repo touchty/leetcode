@@ -70,3 +70,69 @@ public class MagicDictionary {
         return false;
     }
 }
+
+class MagicDictionaryTrie {
+
+    TrieNode mFakeRoot;
+    int mOffset = 'a';
+
+    /** Initialize your data structure here. */
+    public MagicDictionaryTrie() {
+        mFakeRoot = new TrieNode();
+    }
+
+    /** Build a dictionary through a list of words */
+    public void buildDict(String[] dict) {
+        for (String word : dict) {
+            TrieNode cur = mFakeRoot;
+            for (int i = 0; i < word.length(); i++) {
+                char c = word.charAt(i);
+                if (cur.mChildren[c-mOffset] == null) {
+                    cur.mChildren[c-mOffset] = new TrieNode();
+                }
+                cur = cur.mChildren[c-mOffset];
+            }
+            cur.mIsWord = true;
+        }
+    }
+
+    /** Returns if there is any word in the trie that equals to the given word after modifying exactly one character */
+    public boolean search(String word) {
+        return search(word, 0, mFakeRoot, false);
+    }
+
+    private boolean search(String word, int index, TrieNode cur, boolean modified) {
+        if (index == word.length()) {
+            return cur.mIsWord && modified;
+        }
+        int c = word.charAt(index);
+
+        // modified == false, the word was never modified before
+        if (modified == false) {
+            for (int i = 0; i < cur.mChildren.length; i++) {
+                // modify the char at index
+                if (cur.mChildren[i] != null && (i + mOffset) != c) {
+                    if (search(word, index + 1, cur.mChildren[i], true)) {
+                        return true;
+                    }
+                }
+            }
+            // don't modify the char at index
+            return cur.mChildren[c-mOffset] != null &&
+                    search(word, index + 1, cur.mChildren[c-mOffset], false);
+        }
+
+        // modified == true, i.e. some character was modified already
+        return cur.mChildren[c-mOffset] != null &&
+                search(word, index + 1, cur.mChildren[c-mOffset], true);
+    }
+
+    private class TrieNode {
+        TrieNode[] mChildren;
+        boolean mIsWord;
+        public TrieNode() {
+            mChildren = new TrieNode[26];
+            mIsWord = false;
+        }
+    }
+}
