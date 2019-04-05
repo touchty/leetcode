@@ -1,5 +1,7 @@
 package array;
 
+import org.junit.Assert;
+
 import java.util.Arrays;
 
 /*
@@ -97,5 +99,13 @@ public class FindtheClosestPalindrome {
 
         long lowerPalindrome = solution.findLowerPalindrome((long) 1000);
         System.out.println(lowerPalindrome);
+
+        String start = "123";
+        String closestPalindrome = solution.nearestPalindromic(start);
+        String expected = "121";
+        Assert.assertEquals(expected, closestPalindrome);
+        /*String a = "hello";
+        String b = new String("hello");
+        System.out.println(a.equals(b));*/
     }
 }
