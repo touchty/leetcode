@@ -35,7 +35,7 @@ The length of words will be in the range [1, 1000].
 The length of words[i] will be in the range [1, 30].
  */
 public class LongestWordinDictionary {
-    class TrieNode {
+    /*class TrieNode {
         String word = "";
         TrieNode[] children = new TrieNode[26];
     }
@@ -66,6 +66,46 @@ public class LongestWordinDictionary {
                 if (childWord.length() > res.length() ||
                         (childWord.length() == res.length() && childWord.compareTo(res) < 0))
                     res = childWord;
+            }
+        }
+        return res;
+    }*/
+
+    class TrieNode {
+        // String word;
+        // TrieNode[] children;
+        // public TrieNode() {
+        //     word = "";
+        //     children = new TrieNode[26];
+        // }
+        String word = "";
+        TrieNode[] children = new TrieNode[26];
+    }
+
+
+    public String longestWord(String[] words) {
+        // build trie
+        TrieNode root = new TrieNode();
+        for (String word : words) {
+            TrieNode node = root; // the position should be in the loop
+            for (char c : word.toCharArray()) {
+                if (node.children[c - 'a'] == null)
+                    node.children[c - 'a'] = new TrieNode();
+                node = node.children[c - 'a'];
+            }
+            node.word = word;
+        }
+        return dfs(root);
+    }
+
+    String dfs(TrieNode root) {
+        String res = root.word;
+        for (TrieNode child : root.children) {
+            if (child != null && child.word.length() > 0) {
+                String potential = dfs(child);
+                if (potential.length() > res.length() ||
+                        (potential.length() == res.length() && potential.compareTo(res) < 0))
+                    res = potential;
             }
         }
         return res;
