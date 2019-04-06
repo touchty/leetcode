@@ -1,5 +1,8 @@
 package algorithms;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 /*
@@ -68,5 +71,16 @@ public class CrackingtheSafe {
         }
 
         return false;
+    }
+
+    public static void main(String[] args) throws IOException {
+        int n = 2;
+        int k = 2;
+        CrackingtheSafe solution = new CrackingtheSafe();
+        String DeBruijnSequence = solution.crackSafe(n, k);
+        BufferedWriter writer = new BufferedWriter(new FileWriter("./DeBruijnSequence" + ".txt"));
+        writer.write(DeBruijnSequence);
+        writer.close();
+        System.out.println(DeBruijnSequence);
     }
 }
