@@ -57,7 +57,7 @@ public class MinimumCosttoHireKWorkers {
             qsum += worker[1];
             pq.add(-worker[1]);
             if (pq.size() > K) qsum += pq.poll();
-            if (pq.size() == K) res = Math.min(res, qsum * worker[0]);
+            if (pq.size() == K) res = Math.min(res, qsum * worker[0]); // work[0] is the greatest ratio so far.
         }
         return res;
     }
