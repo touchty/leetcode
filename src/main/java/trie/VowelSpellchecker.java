@@ -161,7 +161,7 @@ public class VowelSpellchecker {
     }
 
     // trie solution
-    public class Solution {
+    public static class Solution {
         class Node {
             Node[] next;
             char now;
@@ -251,6 +251,7 @@ public class VowelSpellchecker {
             }
             next = root.next[may];
             if (next != null) {//有这个节点
+                // choose the smaller index
                 res = Math.min(res, likeSearch(word, next, index + 1));
             }
             return res;
@@ -260,8 +261,8 @@ public class VowelSpellchecker {
         private int vowelSearch(char[] word, Node root, int index) {
             if (index == word.length) return root.flag ? root.index : Integer.MAX_VALUE;//如果这个词是单词 就返回下标 否则没有匹配上
             int res = Integer.MAX_VALUE;
-            if (word[index] == 'a' || word[index] == 'e' || word[index] == 'i' || word[index] == 'o' || word[index] == 'u' ||
-                    word[index] == 'A' || word[index] == 'E' || word[index] == 'I' || word[index] == 'O' || word[index] == 'U') {
+            char[] vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
+            if (Arrays.binarySearch(vowels, word[index]) >= 0) {
                 int[] may = new int[]{26, 30, 34, 40, 46, 0, 4, 8, 14, 20};
                 for (int i : may) {
                     Node next = root.next[i];
@@ -300,7 +301,13 @@ public class VowelSpellchecker {
         String correct = "yellow";
         VowelSpellchecker solution = new VowelSpellchecker();
         String[] res = solution.spellcheckerOpt(wordlist, query);
-        for (String s : res)
-            System.out.println(s);
+        /*for (String s : res)
+            System.out.println(s);*/
+
+        Solution solution1 = new Solution();
+        String[] wl = {"AbC", "ABc"};
+        String[] qr = {"ABC"};
+        String[] res1 = solution1.spellchecker(wl, qr);
+        System.out.println(res1[0]);
     }
 }
