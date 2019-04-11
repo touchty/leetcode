@@ -160,6 +160,131 @@ public class VowelSpellchecker {
         return queries;
     }
 
+    // trie solution
+    public class Solution {
+        class Node {
+            Node[] next;
+            char now;
+            boolean flag;//标志这里是否是一个完整的单词
+            int index;//标志这个单词在字典里的顺序
+
+            public Node(char now) {
+                this.now = now;
+                this.next = new Node[52];
+            }
+        }
+
+        public String[] spellchecker(String[] wordlist, String[] queries) {
+            Node root = new Node(' ');
+            buildTree(wordlist, root);
+            String[] res = new String[queries.length];
+            for (int i = 0; i < queries.length; ++i) {
+                int match = matchSearch(queries[i], root);
+                if (match >= 0) {//精准匹配上了
+                    res[i] = wordlist[match];
+                    continue;
+                }
+                char[] chars = queries[i].toCharArray();
+                match = likeSearch(chars, root, 0);
+                if (match != Integer.MAX_VALUE) {//模糊匹配上了
+                    res[i] = wordlist[match];
+                    continue;
+                }
+                match = vowelSearch(chars, root, 0);
+                if (match != Integer.MAX_VALUE) {//元音匹配上了
+                    res[i] = wordlist[match];
+                    continue;
+                }
+                res[i] = "";//没有匹配上
+            }
+            return res;
+        }
+
+        //构造字典树
+        private void buildTree(String[] wordlist, Node root) {
+            Node now = root;
+            for (int i = 0; i < wordlist.length; ++i) {
+                char[] chars = wordlist[i].toCharArray();
+                for (int j = 0; j < chars.length; ++j) {
+                    int id = 0;
+                    if (chars[j] >= 'a') id = 26 + chars[j] - 'a';
+                    else id = chars[j] - 'A';
+                    Node next = now.next[id];
+                    if (next == null) {
+                        now.next[id] = new Node(chars[j]);
+                        next = now.next[id];
+                    }
+                    now = next;
+                }
+                if (!now.flag) {//检查是否已经被初始化
+                    now.flag = true;
+                    now.index = i;
+                }
+                now = root;//重新组织下一个单词
+            }
+
+        }
+
+        //完全匹配
+        private int matchSearch(String word, Node root) {
+            Node now = root;
+            for (int i = 0; i < word.length(); ++i) {
+                char c = word.charAt(i);
+                int id = c >= 'a' ? 26 + c - 'a' : c - 'A';
+                Node next = now.next[id];
+                if (next == null) return -1;//表示没有匹配上
+                now = next;
+            }
+            return now.flag ? now.index : -1;//如果这个词是单词 就返回下标 否则没有匹配上
+        }
+
+        //模糊替换
+        private int likeSearch(char[] word, Node root, int index) {
+            //如果这个词是单词 就返回下标 否则没有匹配上
+            if (index == word.length) return root.flag ? root.index : Integer.MAX_VALUE;
+            int may = word[index] >= 'a' ? word[index] - 'a' : word[index] - 'A' + 26; // change to the other case
+            int now = word[index] >= 'a' ? word[index] - 'a' + 26 : word[index] - 'A'; // real case
+            int res = Integer.MAX_VALUE;
+            Node next = root.next[now];
+            if (next != null) {//有这个节点
+                res = likeSearch(word, next, index + 1);
+            }
+            next = root.next[may];
+            if (next != null) {//有这个节点
+                res = Math.min(res, likeSearch(word, next, index + 1));
+            }
+            return res;
+        }
+
+        //元音替换
+        private int vowelSearch(char[] word, Node root, int index) {
+            if (index == word.length) return root.flag ? root.index : Integer.MAX_VALUE;//如果这个词是单词 就返回下标 否则没有匹配上
+            int res = Integer.MAX_VALUE;
+            if (word[index] == 'a' || word[index] == 'e' || word[index] == 'i' || word[index] == 'o' || word[index] == 'u' ||
+                    word[index] == 'A' || word[index] == 'E' || word[index] == 'I' || word[index] == 'O' || word[index] == 'U') {
+                int[] may = new int[]{26, 30, 34, 40, 46, 0, 4, 8, 14, 20};
+                for (int i : may) {
+                    Node next = root.next[i];
+                    if (next != null) res = Math.min(res, vowelSearch(word, next, index + 1));
+                }
+            } else {//否则不是元音字母 仅触发大小写敏感匹配
+                int may = word[index] >= 'a' ? word[index] - 'a' : word[index] - 'A' + 26;
+                int now = word[index] >= 'a' ? word[index] - 'a' + 26 : word[index] - 'A';
+                Node next = root.next[now];
+                if (next != null) {
+                    res = vowelSearch(word, next, index + 1);
+                }
+                next = root.next[may];
+                if (next != null) {//有这个节点
+                    res = Math.min(res, vowelSearch(word, next, index + 1));
+                }
+            }
+            return res;
+        }
+
+
+    }
+
     public static void main(String[] args) {
         // String[] wordlist = {"aa", "ae"};
         // String[] query = {"UU"};
