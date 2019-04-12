@@ -65,6 +65,19 @@ public class MaximumSumCircularSubarray {
         return min_so_far;
     }
 
+    // one pass, lee215
+    public int maxSubarraySumCircularOpt(int[] A) {
+        int total = 0, maxSum = -30000, curMax = 0, minSum = 30000, curMin = 0;
+        for (int a : A) {
+            curMax = Math.max(curMax + a, a);
+            maxSum = Math.max(maxSum, curMax);
+            curMin = Math.min(curMin + a, a);
+            minSum = Math.min(minSum, curMin);
+            total += a;
+        }
+        return maxSum > 0 ? Math.max(maxSum, total - minSum) : maxSum;
+    }
+
     public static void main(String[] args) {
         int[] A = {-2, -3, -1};
         MaximumSumCircularSubarray solution = new MaximumSumCircularSubarray();
