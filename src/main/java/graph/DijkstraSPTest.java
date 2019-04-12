@@ -34,5 +34,9 @@ public class DijkstraSPTest {
         DijkstraSP dijkstraSP = new DijkstraSP(G, s);
         double d = dijkstraSP.distTo(3);
         System.out.println(d);
+        Iterable<DirectedEdge> path = dijkstraSP.pathTo(4);
+        for (DirectedEdge edge: path) {
+            System.out.println(edge);
+        }
     }
 }
