@@ -1,5 +1,7 @@
 package queue;
 
+import org.junit.Assert;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -59,10 +61,11 @@ public class ShortestSubarraywithSumatLeastK {
 
     public static void main(String[] args) {
         int[] A = {2, -1, 2};
-        int K = 3;
-
+        int K = 1;
         ShortestSubarraywithSumatLeastK s = new ShortestSubarraywithSumatLeastK();
         int length = s.shortestSubarray(A, K);
+        int expected = 3;
+        //Assert.assertEquals(expected, length);
         System.out.println(length);
     }
 }
