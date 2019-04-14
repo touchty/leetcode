@@ -53,7 +53,9 @@ public class ShortestSubarraywithSumatLeastK {
         for (int i = 0; i < N + 1; i++) {
             while (d.size() > 0 && B[i] - B[d.getFirst()] >= K)
                 res = Math.min(res, i - d.pollFirst());
-            while (d.size() > 0 && B[i] <= B[d.getLast()]) d.pollLast(); // keep B increasing in the queue
+            // keep B increasing in the queue
+            // no leading 0 or minus
+            while (d.size() > 0 && B[i] <= B[d.getLast()]) d.pollLast();
             d.addLast(i);
         }
         return res <= N ? res : -1;
