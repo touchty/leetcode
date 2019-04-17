@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Hello {
     public static void main(String[] args) {
-        int pos = Arrays.binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 7);
+        /*int pos = Arrays.binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 7);
         Complex[] data = new Complex[2];
         Complex i1 = new Complex(1, 2);
         Complex i2 = new Complex(3, 4);
@@ -17,8 +17,11 @@ public class Hello {
             System.out.println(c);
 
         for (Complex c : fft)
-            System.out.println(c);
+            System.out.println(c);*/
         /*aMethod();*/
+
+        long l = (long) (((long) Integer.MAX_VALUE) + 1);
+        System.out.println(l > Integer.MAX_VALUE);
     }
     /*public static void aMethod(){
         var name = "Java 10";
