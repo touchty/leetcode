@@ -100,17 +100,24 @@ public class TrappingRainWater {
         int low = 0;
         int high = height.length - 1;
         int ans = 0;
-        while(low < high){
-            left = Math.max(left,height[low]);
+        while (low < high) {
+            left = Math.max(left, height[low]);
             right = Math.max(right, height[high]);
-            if(left < right){
+            if (left < right) {
                 ans += left - height[low];
                 low++;
-            }else{
+            } else {
                 ans += right - height[high];
                 high--;
             }
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        int[] A = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        TrappingRainWater solution = new TrappingRainWater();
+        int res = solution.trap(A);
+        System.out.println(res);
     }
 }
