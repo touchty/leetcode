@@ -38,6 +38,7 @@ Output: 42
  */
 public class BinaryTreeMaximumPathSum {
     int maxSum = Integer.MIN_VALUE;
+
     public int maxPathSum(TreeNode root) {
         dfs(root);
         return maxSum;
@@ -49,9 +50,19 @@ public class BinaryTreeMaximumPathSum {
         }
         int left = dfs(node.left);
         int right = dfs(node.right);
+        // node's val may be minus. the sum of one path may be minus.
         left = Math.max(left, 0); // no left sub node
         right = Math.max(right, 0); // no right sub node
-        maxSum = Math.max(maxSum, left + right  + node.val);
+        maxSum = Math.max(maxSum, left + right + node.val);
         return Math.max(left, right) + node.val; // max sum of one path from he current node to the left or to the right.
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        BinaryTreeMaximumPathSum s = new BinaryTreeMaximumPathSum();
+        int max = s.maxPathSum(root);
+        System.out.println(max);
     }
 }
