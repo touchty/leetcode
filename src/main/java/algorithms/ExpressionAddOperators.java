@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+282. Expression Add Operators
 Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators
 (not unary) +, -, or * between the digits so they evaluate to the target value.
 Example 1:
@@ -45,7 +46,7 @@ public class ExpressionAddOperators {
         helper(rst, "", num, target, 0, 0, 0);
         return rst;
     }
-
+    // ... + (multed) (+/-/*) cur
     public void helper(List<String> rst, String path, String num, int target, int pos, long eval, long multed) {
         if (pos == num.length()) {
             if (target == eval)
