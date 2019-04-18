@@ -1,8 +1,7 @@
 package tree;
 
 public class BstToLinkedList {
-    public TreeNode Convert(TreeNode pRootOfTree)
-    {
+    public TreeNode Convert(TreeNode pRootOfTree) {
         TreeNode lastNodeOfList = null;// LastNodeOfList指向已经转换好的链表的最后一个结点
         // 返回头结点
         TreeNode headNodeOfList = ConvertNode(pRootOfTree, lastNodeOfList);
@@ -14,8 +13,7 @@ public class BstToLinkedList {
     }
 
     // 把二叉树转换成链表,获得链表最后结点（即最大结点）
-    TreeNode ConvertNode(TreeNode pNode, TreeNode LastNodeOfList)
-    {
+    TreeNode ConvertNode(TreeNode pNode, TreeNode LastNodeOfList) {
         if (pNode == null)
             return null;
         TreeNode current = pNode;
@@ -37,8 +35,7 @@ public class BstToLinkedList {
         return LastNodeOfList;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         TreeNode pRootOfTree = new TreeNode(10);
         pRootOfTree.left = new TreeNode(6);
         pRootOfTree.right = new TreeNode(14);

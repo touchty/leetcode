@@ -2,6 +2,31 @@ package dp;
 
 public class DPLearning {
     // how many ways
+    /*
+    518. Coin Change 2
+    Medium
+
+    693
+
+    34
+
+    Favorite
+
+    Share
+    You are given coins of different denominations and a total amount of money. Write a function to compute the number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
+
+
+
+    Example 1:
+
+    Input: amount = 5, coins = [1, 2, 5]
+    Output: 4
+    Explanation: there are four ways to make up the amount:
+    5=5
+    5=2+2+1
+    5=2+1+1+1
+    5=1+1+1+1+1
+     */
     public int change(int amount, int[] coins) {
         int[][] dp = new int[coins.length + 1][amount + 1];
 
@@ -47,6 +72,14 @@ public class DPLearning {
             return -1;
         else
             return minNumber[amount];
+    }
+
+    public static void main(String[] args) {
+        int[] coins = {1, 2, 5};
+        int amount = 11;
+        DPLearning s = new DPLearning();
+        int minCoins = s.coinChange(coins, amount);
+        System.out.println(minCoins);
     }
 
 }
