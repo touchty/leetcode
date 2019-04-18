@@ -63,24 +63,6 @@ public class BinaryTreeCameras {
         return left == 1 || right == 1 ? 2 : 0;
     }
 
-    /*
-    int res = 0;
-    public int minCameraCover(TreeNode root) {
-        return (dfs(root) < 1 ? 1 : 0) + res;
-    }
-
-    public int dfs(TreeNode root) {
-        if (root == null) return 2;
-        int left = dfs(root.left), right = dfs(root.right);
-        if (left == 0 || right == 0) {
-            res++;
-            return 1;
-        }
-        // left == 1 || right == 1, at least one child has a camera. And the parent is covered in this case!
-        return left == 1 || right == 1 ? 2 : 0;
-    }
-     */
-
     public static void main(String[] args) {
         TreeNode root = new TreeNode(0);
         root.left = new TreeNode(0);
