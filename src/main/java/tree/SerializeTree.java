@@ -30,4 +30,16 @@ public class SerializeTree {
         }
         return node;
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        SerializeTree s = new SerializeTree();
+        String ser = s.Serialize(root);
+        System.out.println(ser);
+        TreeNode treeNode = s.Deserialize(ser);
+        System.out.println(treeNode.val);
+    }
 }
