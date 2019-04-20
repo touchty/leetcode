@@ -19,7 +19,7 @@ public class Person implements Serializable {
     private int age;
     private String name;
     private String sex;
-    public Foo foo;
+    transient public Foo foo;
 
     public int getAge() {
         return age;
