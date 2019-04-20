@@ -1,6 +1,11 @@
 package basics;
 
+import dp.CoinChange;
+import dp.Triangle;
+
 import java.io.*;
+import java.util.LinkedList;
+
 public class MyFileSystemClassLoader extends ClassLoader {
 
     private String rootDir;
@@ -43,13 +48,11 @@ public class MyFileSystemClassLoader extends ClassLoader {
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
         String rootDir = "C:\\Users\\touchty\\IdeaProjects\\leetcode\\target\\classes";
-        String classToFind = "WordBreakII";
+        String classToFind = "dp.Triangle";
         MyFileSystemClassLoader loader = new MyFileSystemClassLoader(rootDir);
         try {
-            Class myClass = loader.findClass(classToFind);
-            System.out.println(myClass.getName());
-            /*Class<WordBreakII> c = myClass;
-            WordBreakII nm = c.newInstance();*/
+            Class<Triangle> myClass = (Class<Triangle>) loader.findClass(classToFind);
+            // Triangle v = myClass.newInstance();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

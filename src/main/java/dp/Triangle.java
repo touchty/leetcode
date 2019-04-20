@@ -3,7 +3,7 @@ package dp;
 import java.util.List;
 
 public class Triangle {
-    int minimumTotal(List<List<Integer>> triangle) {
+    public int minimumTotal(List<List<Integer>> triangle) {
         int n = triangle.size();
         List<Integer> minlen = triangle.get(n - 1);
         for (int layer = n - 2; layer >= 0; layer--) // For each layer
