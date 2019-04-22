@@ -27,7 +27,8 @@ public class NIOServer {
 
         while (true) {
 
-            selector.select();
+            int i = selector.select();
+            System.out.println(i);
             Set<SelectionKey> keys = selector.selectedKeys();
             Iterator<SelectionKey> keyIterator = keys.iterator();
 
