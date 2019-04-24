@@ -43,4 +43,13 @@ public class BinaryTreePostorderTraversal {
         result.add(root.val);
         return;
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(2);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(3);
+        BinaryTreePostorderTraversal s = new BinaryTreePostorderTraversal();
+        List<Integer> postOrder = s.postorderTraversal(root);
+        System.out.println(postOrder);
+    }
 }
