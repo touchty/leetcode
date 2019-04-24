@@ -1,4 +1,4 @@
-package algorithms;
+package dataStructure;
 
 /******************************************************************************
  * SkipListNode                                                                *
@@ -7,11 +7,12 @@ package algorithms;
  * View LICENSE file for license information.                                  *
  ******************************************************************************/
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SkipListNode<E> {
     private E value;
-    public List<SkipListNode<E> > nextNodes;
+    public List<SkipListNode<E>> nextNodes;
 
     public E getValue() {
         return value;
@@ -19,7 +20,7 @@ public class SkipListNode<E> {
 
     public SkipListNode(E value) {
         this.value = value;
-        nextNodes = new ArrayList<SkipListNode<E> >();
+        nextNodes = new ArrayList<SkipListNode<E>>();
     }
 
     public int level() {

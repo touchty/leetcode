@@ -1,4 +1,4 @@
-package algorithms;
+package dataStructure;
 
 /******************************************************************************
  * Skiplist                                                                    *
@@ -6,6 +6,8 @@ package algorithms;
  * View README file for information about this project.                        *
  * View LICENSE file for license information.                                  *
  ******************************************************************************/
+
+import algorithms.AbstractSortedSet;
 
 import java.util.Iterator;
 

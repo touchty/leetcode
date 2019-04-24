@@ -1,4 +1,4 @@
-package algorithms;
+package dataStructure;
 
 /******************************************************************************
  * SkipListIterator                                                            *
@@ -7,7 +7,7 @@ package algorithms;
  * View LICENSE file for license information.                                  *
  ******************************************************************************/
 
-import java.util.*;
+import java.util.Iterator;
 
 public class SkipListIterator<E extends Comparable<E>> implements Iterator<E> {
     SkipList<E> list;
