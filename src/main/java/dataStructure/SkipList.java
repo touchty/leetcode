@@ -7,8 +7,6 @@ package dataStructure;
  * View LICENSE file for license information.                                  *
  ******************************************************************************/
 
-import algorithms.AbstractSortedSet;
-
 import java.util.Iterator;
 
 public class SkipList<E extends Comparable<E>> extends AbstractSortedSet<E> {
