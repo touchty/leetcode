@@ -19,7 +19,7 @@ import java.util.Scanner;
 212
 121
 ，解法如下：
-分别统计奇数位和偶数位出现最多的两种颜色，尽可能的取最大的，当然要考虑奇数和偶数位置是否相同
+分别统计奇数位和偶数位出现最多的两种颜色，尽可能的取最大的，当然要考虑奇数和偶数位的值是否相同
  */
 public class WhiteBlackBoard {
     public static void main(String[] args) {
