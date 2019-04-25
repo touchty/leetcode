@@ -104,7 +104,7 @@ public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         RegularExpressionMatching regrexMatch = new RegularExpressionMatching();
-        boolean result = regrexMatch.isMatch("aab", "c*a*b");
+        boolean result = regrexMatch.isMatch("aab", "ca.b");
         System.out.println(result);
     }
 
