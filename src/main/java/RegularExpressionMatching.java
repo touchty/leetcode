@@ -39,7 +39,7 @@ public class RegularExpressionMatching {
         boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
         dp[0][0] = true;
         for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '*' && dp[0][i - 1]) {
+            if (p.charAt(i) == '*' && i > 0 && dp[0][i - 1]) {
                 dp[0][i + 1] = true;
             }
         }
@@ -52,7 +52,7 @@ public class RegularExpressionMatching {
                 if (p.charAt(j) == s.charAt(i)) {
                     dp[i + 1][j + 1] = dp[i][j];
                 }
-                if (p.charAt(j) == '*') {
+                if (p.charAt(j) == '*' && j >= 1) {
                     if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.') {
                         dp[i + 1][j + 1] = dp[i + 1][j - 1]; //in this case, a* only counts as empty
                     } else {
@@ -104,7 +104,7 @@ public class RegularExpressionMatching {
 
     public static void main(String[] args) {
         RegularExpressionMatching regrexMatch = new RegularExpressionMatching();
-        boolean result = regrexMatch.isMatch("aab", "ca.b");
+        boolean result = regrexMatch.isMatch("aab", ".*");
         System.out.println(result);
     }
 
