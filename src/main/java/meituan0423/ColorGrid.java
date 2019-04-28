@@ -115,6 +115,19 @@ public class ColorGrid {
         return cnt;
     }
 
+    /*
+     intervals(start.............end)
+            |
+            |
+            |
+            |
+            |
+            |
+    ---------------------------
+            ^index
+
+
+     */
     private static boolean isCross(int index, List<Interval> list) {
         int s = 0, e = list.size() - 1;
         while (s < e) {
@@ -154,9 +167,9 @@ public class ColorGrid {
             int x2 = n2[0];
             int y2 = n2[1];
             if (x1 == x2) {
-                addInterval(rowMap, x1, y1, y2);
+                addInterval(rowMap, x1, y1, y2); // 纵直线
             } else if (y1 == y2) {
-                addInterval(colMap, y1, x1, x2);
+                addInterval(colMap, y1, x1, x2); // 横直线
             }
         }
 
