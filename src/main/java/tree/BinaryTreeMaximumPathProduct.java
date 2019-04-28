@@ -39,8 +39,14 @@ public class BinaryTreeMaximumPathProduct {
     }
 
     public static void main(String[] args) {
+        /*
+                 / -2\
+              -3\      -4
+                 2
+         */
         TreeNode root = new TreeNode(-2);
         root.left = new TreeNode(-3);
+        root.left.right = new TreeNode(2);
         root.right = new TreeNode(-4);
         BinaryTreeMaximumPathProduct s = new BinaryTreeMaximumPathProduct();
         int max = s.maxPathProduct(root);
