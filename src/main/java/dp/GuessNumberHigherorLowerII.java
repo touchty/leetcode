@@ -16,7 +16,7 @@ public class GuessNumberHigherorLowerII {
     */
     private int DP(int[][] t, int s, int e) {
 
-        //t[s][e] means the min cost from s to e
+        //t[s][e] means the min cost from s to e to guarantee a win
         //
         if (s >= e) return 0;
 
@@ -70,6 +70,13 @@ public class GuessNumberHigherorLowerII {
             }
         }
         return table[1][n];
+    }
+
+    public static void main(String[] args) {
+        int n = 10;
+        GuessNumberHigherorLowerII solution = new GuessNumberHigherorLowerII();
+        int res = solution.getMoneyAmount(n);
+        System.out.println(res);
     }
 }
 
