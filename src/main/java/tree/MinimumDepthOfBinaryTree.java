@@ -40,4 +40,13 @@ public class MinimumDepthOfBinaryTree {
         return (left == 0 || right == 0) ? left + right + 1 : Math.min(left, right) + 1;
 
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        MinimumDepthOfBinaryTree s = new MinimumDepthOfBinaryTree();
+        int res = s.minDepth(root);
+        System.out.println(res);
+    }
 }

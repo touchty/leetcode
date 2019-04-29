@@ -1,7 +1,7 @@
 package sort;
 
 public class SortList {
-    public ListNode sortList(ListNode head) {
+    public static ListNode sortList(ListNode head) {
         if (head == null || head.next == null)
             return head;
 
@@ -24,7 +24,7 @@ public class SortList {
         return merge(l1, l2);
     }
 
-    ListNode merge(ListNode l1, ListNode l2) {
+    static ListNode merge(ListNode l1, ListNode l2) {
         ListNode l = new ListNode(0), p = l;
 
         while (l1 != null && l2 != null) {
@@ -47,4 +47,18 @@ public class SortList {
         return l.next;
     }
 
+    public static void main(String[] args) {
+        ListNode head = new ListNode(4);
+        ListNode p = head;
+        int[] A = new int[]{2, 3, 1};
+        for (int a : A) {
+            p.next = new ListNode(a);
+            p = p.next;
+        }
+        head = SortList.sortList(head);
+        while (head != null) {
+            System.out.println(head.val);
+            head = head.next;
+        }
+    }
 }

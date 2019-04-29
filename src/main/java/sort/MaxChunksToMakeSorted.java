@@ -47,7 +47,7 @@ public class MaxChunksToMakeSorted {
             min = Math.min(min, arr[right]);
             if (max == right && min == left) {
                 partitions++;
-                left = right+1;
+                left = right + 1;
                 // update the max and min of the next window
                 max = Integer.MIN_VALUE;
                 min = Integer.MAX_VALUE;
@@ -58,8 +58,8 @@ public class MaxChunksToMakeSorted {
     }
 
     public static void main(String[] args) {
-        //int[] arr = {1,0,2,3,4};
-        int[] arr = {4,3,2,1,0};
+        int[] arr = {1, 0, 2, 3, 4};
+        //int[] arr = {4,3,2,1,0};
         MaxChunksToMakeSorted solution = new MaxChunksToMakeSorted();
         int res = solution.maxChunksToSorted(arr);
         System.out.println(res);

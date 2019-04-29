@@ -27,10 +27,35 @@ public class LongestPalindromicSubstring {
         return result;
     }
 
+    private int lo = 0;
+    private int maxLen = 0;
+
+    private void extendPalindrome(String s, int j, int k) {
+        while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+            j--;
+            k++;
+        }
+        if (maxLen < k - j - 1) {
+            lo = j + 1;
+            maxLen = k - j - 1;
+        }
+    }
+
+    public String longestP(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            extendPalindrome(s, i, i);
+            extendPalindrome(s, i, i + 1);
+        }
+        return s.substring(lo, maxLen);
+    }
+
     public static void main(String[] args) {
         String sample = "babad";
         LongestPalindromicSubstring l = new LongestPalindromicSubstring();
         String substr = l.longestPalindrome(sample);
-        System.out.printf(substr);
+        System.out.println(substr);
+
+        String str = l.longestP(sample);
+        System.out.println(str);
     }
 }

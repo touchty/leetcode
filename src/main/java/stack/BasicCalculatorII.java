@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /*
@@ -42,6 +44,7 @@ public class BasicCalculatorII {
                 num = num * 10 + s.charAt(i) - '0';
             }
             if ((!Character.isDigit(s.charAt(i)) && ' ' != s.charAt(i)) || i == len - 1) {
+                // sign is the sign before the current number
                 if (sign == '-') {
                     stack.push(-num);
                 }
@@ -54,7 +57,7 @@ public class BasicCalculatorII {
                 if (sign == '/') {
                     stack.push(stack.pop() / num);
                 }
-                sign = s.charAt(i); // sign before any number
+                sign = s.charAt(i); // next sign before any number 3 + 2 * 2 (sign is '+', '+', '*')
                 num = 0;
             }
         }
@@ -66,10 +69,38 @@ public class BasicCalculatorII {
         return re;
     }
 
+    public int calculateOpt(String s) {
+        int num = 0;
+        char sign = '+';
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                num = num * 10 + (s.charAt(i) - '0');
+            }
+            if ((!Character.isDigit(s.charAt(i)) && ' ' != s.charAt(i)) || i == s.length() - 1) {
+                if (sign == '+')
+                    stack.push(num);
+                if (sign == '-')
+                    stack.push(-num);
+                if (sign == '*')
+                    stack.push(stack.pop() * num);
+                if (sign == '\\')
+                    stack.push(stack.pop() / num);
+                sign = s.charAt(i); // next sign
+                num = 0; // clear num
+            }
+        }
+
+        int res = 0;
+        for (int i : stack)
+            res += i;
+        return res;
+    }
+
     public static void main(String[] args) {
-        String s = "1-";
+        String s = "3 + 2 * 2";
         BasicCalculatorII calculatorII = new BasicCalculatorII();
-        int res = calculatorII.calculate(s);
+        int res = calculatorII.calculateOpt(s);
         System.out.println(res);
     }
 }

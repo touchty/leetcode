@@ -71,7 +71,7 @@ public class RemoveInvalidParentheses {
             if (s.charAt(i) == par[1]) stack--;
             if (stack >= 0) continue;
             for (int j = last_j; j <= i; ++j)
-                if (s.charAt(j) == par[1] && (j == last_j || s.charAt(j - 1) != par[1]))
+                if (s.charAt(j) == par[1] && (j == last_j || s.charAt(j - 1) != par[1])) // no duplicates
                     remove(s.substring(0, j) + s.substring(j + 1), ans, i, j, par);
             return;
         }

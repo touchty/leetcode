@@ -44,4 +44,19 @@ public class ConvertSortedListtoBinarySearchTree {
 
         return treenode;
     }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        ListNode head1 = new ListNode(2);
+        ListNode head2 = new ListNode(3);
+        ListNode head3 = new ListNode(4);
+        head.next = head1;
+        head1.next = head2;
+        head2.next = head3;
+        ConvertSortedListtoBinarySearchTree s = new ConvertSortedListtoBinarySearchTree();
+        TreeNode root = s.sortedListToBST(head);
+        System.out.println(root.val);
+        System.out.println(root.left.val);
+        System.out.println(root.right.val);
+    }
 }
