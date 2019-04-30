@@ -30,7 +30,7 @@ public class JumpGameII {
             }
             step++;
         }
-        return step;
+        return -1;
     }
 
 
@@ -83,9 +83,9 @@ public class JumpGameII {
     }
 
     public static void main(String[] args) {
-        int[] jump = {1};
+        int[] jump = {1,0,0,1};
         JumpGameII s = new JumpGameII();
-        int res = s.jump(jump);
+        int res = s.jumpOpt(jump);
         System.out.println(res);
     }
 }
