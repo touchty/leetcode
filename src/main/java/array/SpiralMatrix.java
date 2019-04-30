@@ -40,30 +40,37 @@ public class SpiralMatrix {
         int r = matrix[0].length - 1;
         List<Integer> result = new ArrayList<>();
         while (true) {
-            // up
+            // up edge
             for (int column = l; column <= r; column++) {
                 result.add(matrix[u][column]);
             }
             if (++u > d) break;
 
-            // right
+            // right edge
             for (int row = u; row <= d; row++) {
                 result.add(matrix[row][r]);
             }
             if (--r < l) break;
 
-            // bottom
+            // bottom edge
             for (int column = r; column >= l; column--) {
                 result.add(matrix[d][column]);
             }
             if (--d < u) break;
 
-            // left
+            // left edge
             for (int row = d; row >= u; row--) {
                 result.add(matrix[row][l]);
             }
             if (++l > r) break;
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        SpiralMatrix solution = new SpiralMatrix();
+        List<Integer> list = solution.spiralOrder(matrix);
+        System.out.println(list);
     }
 }
