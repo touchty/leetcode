@@ -70,6 +70,7 @@ public class JumpGameII {
         if (n < 2) return 0;
         int level = 0, currentMax = 0, i = 0, nextMax = 0;
 
+        // i ---- |currentMax :current layer
         while (currentMax - i + 1 > 0) {        //nodes count of current level>0
             level++;
             for (; i <= currentMax; i++) {    //traverse current level , and update the max reach of next level
