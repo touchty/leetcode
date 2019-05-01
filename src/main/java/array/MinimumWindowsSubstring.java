@@ -24,7 +24,7 @@ public class MinimumWindowsSubstring {
     }
 
     public static void main(String[] args) {
-        String s = "ADOBECODEBANC";
+        String s = "XAABC";
         String t = "ABC";
 
         MinimumWindowsSubstring minimumWindowsSubstring = new MinimumWindowsSubstring();
