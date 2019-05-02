@@ -32,11 +32,14 @@ public class GrayCode {
 
     public static List<Integer> grayCodeOpt(int n) {
         List<Integer> result = new LinkedList<>();
-        for (int i = 0; i < 1 << n; i++) result.add(i ^ i >> 1);
+        for (int i = 0; i < 1 << n; i++) {
+            int element = i ^ i >> 1;
+            result.add(element);
+        }
         return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(grayCodeOpt(10));
+        System.out.println(grayCodeOpt(2));
     }
 }

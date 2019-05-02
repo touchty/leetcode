@@ -17,6 +17,13 @@ public class LinkedListHelper {
         return nodes[0];
     }
 
+    public static void print(ListNode head) {
+        while (head != null) {
+            System.out.printf(head.val + "-> ");
+            head = head.next;
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = {1};
         ListNode root = create(nums);
