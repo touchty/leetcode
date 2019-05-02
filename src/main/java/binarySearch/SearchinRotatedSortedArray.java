@@ -1,60 +1,34 @@
 package binarySearch;
 
 public class SearchinRotatedSortedArray {
-    int search(int A[], int target) {
-        int n = A.length;
-        int lo = 0, hi = n - 1;
-        // find the index of the smallest value using binary search.
-        // Loop will terminate since mid < hi, and lo or hi will shrink by at least 1.
-        // Proof by contradiction that mid < hi: if mid==hi, then lo==hi and loop would have been terminated.
-        while (lo < hi) {
-            int mid = (lo + hi) / 2;
-            if (A[mid] > A[hi]) lo = mid + 1;
-            else hi = mid;
-        }
-        // lo==hi is the index of the smallest value and also the number of places rotated.
-        int rot = lo;
-        lo = 0;
-        hi = n - 1;
-        // The usual binary search and accounting for rotation.
-        while (lo <= hi) {
-            int mid = (lo + hi) / 2;
-            int realmid = (mid + rot) % n;
-            if (A[realmid] == target) return realmid;
-            if (A[realmid] < target) lo = mid + 1;
-            else hi = mid - 1;
-        }
-        return -1;
-    }
-
-    int searchRewrite(int[] A, int target) {
-        int n = A.length;
-        int lo = 0;
-        int hi = n - 1;
-
-        //find the index of the smallest element
-        while (lo < hi) {
-            int mid = (lo + hi) / 2;
-            if (A[mid] > A[hi]) {
-                lo = mid + 1;
+    public static int search(int[] nums, int target) {
+        int start = 0, end = nums.length - 1, mid = -1;
+        while (start <= end) {
+            mid = (start + end) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            //If we know for sure right side is sorted or left side is unsorted
+            if (nums[mid] < nums[end] || nums[mid] < nums[start]) {
+                if (target > nums[mid] && target <= nums[end]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+                //If we know for sure left side is sorted or right side is unsorted
+            } else if (nums[mid] > nums[start] || nums[mid] > nums[end]) {
+                if (target < nums[mid] && target >= nums[start]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+                //If we get here, that means nums[start] == nums[mid] == nums[end], then shifting out
+                //any of the two sides won't change the result but can help remove duplicate from
+                //consideration, here we just use end-- but left++ works too
             } else {
-                hi = mid;
+                end--;
             }
         }
-
-        int rot = lo;
-        lo = 0;
-        hi = n - 1;
-        while (lo <= hi) {
-            int mid = (lo + hi) / 2;
-            int realMid = (mid + rot) % n;
-            if (A[realMid] == target)
-                return realMid;
-            else if (A[realMid] > target)
-                hi = realMid - 1;
-            else lo = realMid + 1;
-        }
         return -1;
     }
-
 }
