@@ -189,7 +189,8 @@ public class HuffmanDemo {
      */
     public static void main(String[] args) {
         HuffmanDemo demo = new HuffmanDemo();
-        String txt = "aaaaaaaabbbbccd";
+        //String txt = "aaaaaaaabbbbccd";
+        String txt = "aaaaaaaa";
         String[] res = demo.compress(txt);
         String expand = demo.expand(res[0], res[1]);
         System.out.println(txt);
