@@ -167,7 +167,8 @@ public class HuffmanDemo {
         return expand.toString();
     }
 
-
+    // 前序遍历
+    // 有叶子节点的标志，能够唯一的恢复二叉树
     private Node readTrie(String s) {
         if (triePos >= s.length())
             return null;
