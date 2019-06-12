@@ -17,6 +17,7 @@ public class PECSDemo {
     static class Circle extends Shape {
         void draw() {
         }
+
         @Override
         public String toString() {
             return "CIRCLE";
