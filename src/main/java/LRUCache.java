@@ -68,6 +68,15 @@ class LRUCache {
             value = v;
         }
     }
+    public static void main(String[] args) {
+        int capacity = 3;
+        LRUCache obj = new LRUCache(capacity);
+        obj.put(1, 1);
+        obj.put(2, 2);
+        obj.put(3, 3);
+        obj.put(4, 4);
+        System.out.println(obj.get(1));
+    }
 }
 
 /**
