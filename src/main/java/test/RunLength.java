@@ -1,15 +1,15 @@
 package test;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
 public class RunLength {
-    private static final int R    = 256;
+    private static final int R = 256;
     private static final int LG_R = 8;
 
     // Do not instantiate.
-    private RunLength() { }
+    private RunLength() {
+    }
 
     /**
      * Reads a sequence of bits from standard input (that are encoded
@@ -41,9 +41,8 @@ public class RunLength {
                 BinaryStdOut.write(run, LG_R);
                 run = 1;
                 old = !old;
-            }
-            else {
-                if (run == R-1) {
+            } else {
+                if (run == R - 1) {
                     BinaryStdOut.write(run, LG_R);
                     run = 0;
                     BinaryStdOut.write(run, LG_R);
@@ -70,7 +69,7 @@ public class RunLength {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
             if (count < MAX && s.charAt(i) == c) count++;
-            else{
+            else {
                 builder.append(c).append(count);
                 count = 1;
                 c = s.charAt(i);
