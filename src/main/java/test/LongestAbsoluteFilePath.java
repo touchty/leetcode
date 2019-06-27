@@ -9,9 +9,10 @@ import java.util.Deque;
 // 最长路径
 public class LongestAbsoluteFilePath {
     public static int lengthLongestPath(String input) {
+        int maxLen = 0;
         Deque<Integer> stack = new ArrayDeque<>();
         String[] arr = input.split("\n");
-        int maxLen = 0;
+
         stack.push(0); //dummy null length
         for (String s : arr) {
             /*
@@ -35,17 +36,35 @@ public class LongestAbsoluteFilePath {
             while (level < stack.size()) stack.poll();
             int curLen = stack.peek() + s.length() - numOfTabs + 1;
             stack.push(curLen);
-            if (s.contains("."))
+            if (s.contains(".")) {
                 maxLen = Math.max(maxLen, curLen - 1); //Only update the maxLen when a file is discovered,
+            }
             // And remove the "/" at the end of file
         }
         return maxLen;
     }
 
+    public int lengthLongestPathOpt(String input) {
+        int maxlen = 0;
+        int[] pathlen = new int[input.length() + 1];
+        String[] st = input.split("\n");
+        for (String line : st) {
+            String name = line.replaceAll("(\t)+", "");
+            int depth = line.length() - name.length();
+            if (name.contains("."))
+                maxlen = Math.max(maxlen, pathlen[depth] + name.length());
+            else
+                pathlen[depth + 1] = pathlen[depth] + name.length() + 1;
+        }
+        return maxlen;
+    }
+
+
     public static void main(String[] args) {
         // \n 换行
         // \t 制表 深度可以表示文件深度
-        String s = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext";
+        //String s = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext";
+        String s = "dir\n\tsubdir1\n\t\tfile1.txt\n\tsubdir2\n\t\tfile.txt\n\t\tfoo\n\t\t\tbar.txt";
         System.out.println(s);
         /*
         dir
@@ -54,10 +73,9 @@ public class LongestAbsoluteFilePath {
                 file.ext
          */
         int maxDepth = LongestAbsoluteFilePath.lengthLongestPath(s);
-        int expected = 20;
-        Assert.assertEquals(expected, maxDepth);
+        //int expected = 20;
+        //Assert.assertEquals(expected, maxDepth);
         System.out.println(maxDepth);
-
     }
 
 
