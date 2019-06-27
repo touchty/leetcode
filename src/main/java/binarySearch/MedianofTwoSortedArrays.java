@@ -51,7 +51,7 @@ public class MedianofTwoSortedArrays {
      * @return 第k小的数
      */
     public int getkth(int A[], int startA, int m, int[] B, int startB, int n, int k) {
-        // startBet m <= n
+        // start m <= n
         if (k > m + n || k <= 0) return Integer.MIN_VALUE;
         if (m > n)
             return getkth(B, startB, n, A, startA, m, k);
