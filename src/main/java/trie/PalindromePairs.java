@@ -60,12 +60,12 @@ public class PalindromePairs {
     private static class TrieNode {
         TrieNode[] next;
         int index;
-        List<Integer> list;
+        Set<Integer> set;
 
         TrieNode() {
             next = new TrieNode[26];
             index = -1;
-            list = new ArrayList<>();
+            set = new HashSet<>();
         }
     }
 
@@ -96,13 +96,13 @@ public class PalindromePairs {
             // 1. each word has a suffix represented by the current TrieNode; 2. the rest of
             // the word forms a palindrome.
             if (isPalindrome(word, 0, i)) {
-                root.list.add(index);
+                root.set.add(index);
             }
 
             root = root.next[j];
         }
 
-        root.list.add(index);
+        root.set.add(index);
         root.index = index;
     }
 
@@ -116,7 +116,7 @@ public class PalindromePairs {
             if (root == null) return;
         }
 
-        for (int j : root.list) {
+        for (int j : root.set) {
             if (i == j) continue;
             res.add(Arrays.asList(i, j));
         }
