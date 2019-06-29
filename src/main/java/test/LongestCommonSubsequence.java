@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.Assert;
+
 // Longest Common Subsequence
 // 不连续子序列
 public class LongestCommonSubsequence {
@@ -14,7 +15,8 @@ public class LongestCommonSubsequence {
                 if (i == 0 || j == 0) {
                     dp[i][j] = 0;
                 } else if (a.charAt(i - 1) == b.charAt(j - 1)) {
-                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                    //dp[i][j] = Math.max(Math.max(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1] + 1);
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
