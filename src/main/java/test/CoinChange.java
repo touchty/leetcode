@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 // LC 322. Coin Change
 // 背包问题
+// n个不同面板的硬币（每种无限多），然后给出一个总价格amount，
+// 问在如何将硬币枚数控制在最少的情况在拼出amount
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
         Arrays.sort(coins);
