@@ -1,5 +1,8 @@
 package test;
 
+// LC 518. Coin Change 2
+// 总共有多少种拼法组成目标额
+// 考察拼法总数
 public class CoinChange2 {
     public int change(int amount, int[] coins) {
         int[][] dp = new int[coins.length + 1][amount + 1];
