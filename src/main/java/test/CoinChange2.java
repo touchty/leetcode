@@ -23,8 +23,8 @@ public class CoinChange2 {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
         for (int coin : coins) {
-            for (int i = coin; i <= amount; i++) {
-                dp[i] += dp[i-coin];
+            for (int i = coin; i <= amount; i++) { // i由小到大，对应累加关系
+                dp[i] += dp[i-coin]; // 累加关系
             }
         }
         return dp[amount];
@@ -34,7 +34,7 @@ public class CoinChange2 {
         int[] coins = {1, 2, 5};
         int target = 5;
         CoinChange2 solution = new CoinChange2();
-        int ways = solution.change(target, coins);
+        int ways = solution.change1D(target, coins);
         System.out.println(ways);
     }
 }
