@@ -3,7 +3,8 @@ package dp;
 import org.junit.Assert;
 
 /**
- * You are given coins of different denominations and a total amount of money. Write a function to compute the number of combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
+ * You are given coins of different denominations and a total amount of money. Write a function to compute the number of
+ * combinations that make up that amount. You may assume that you have infinite number of each kind of coin.
  * <p>
  * Note: You can assume that
  * <p>
@@ -45,6 +46,7 @@ public class CoinChange2 {
             dp[i][0] = 1;
             for (int j = 1; j <= amount; j++) {
                 dp[i][j] = dp[i - 1][j] + (j - coins[i - 1] >= 0 ? dp[i][j - coins[i - 1]] : 0);
+                //         ^ 不用coins[i-1]                         ^ 使用coins[i-1]
             }
         }
         return dp[coins.length][amount];

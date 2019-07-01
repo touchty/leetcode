@@ -87,5 +87,6 @@ public class Candy {
         int expected = 19;
         Assert.assertEquals(expected, res);
         Assert.assertEquals(expected, resOpt);
+        System.out.println();
     }
 }
