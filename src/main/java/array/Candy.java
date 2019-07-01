@@ -2,6 +2,8 @@ package array;
 
 import org.junit.Assert;
 
+import java.util.Arrays;
+
 /**
  * There are N children standing in a line. Each child is assigned a rating value.
  * You are giving candies to these children subjected to the following requirements:
@@ -56,24 +58,22 @@ public class Candy {
     }
 
     public static int candyOpt(int[] ratings) {
-        if (ratings == null || ratings.length == 0) return 0;
-        int total = 1, prev = 1, countDown = 0;
-        for (int i = 1; i < ratings.length; i++) {
-            if (ratings[i] >= ratings[i - 1]) {
-                if (countDown > 0) {
-                    total += countDown * (countDown + 1) / 2; // arithmetic progression
-                    if (countDown >= prev) total += countDown - prev + 1;
-                    countDown = 0;
-                    prev = 1;
-                }
-                prev = ratings[i] == ratings[i - 1] ? 1 : prev + 1;
-                total += prev;
-            } else countDown++;
+        if (ratings == null || ratings.length == 0)
+            return 0;
+        int[] nums = new int[ratings.length];
+        Arrays.fill(nums, 1);
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (ratings[i + 1] > ratings[i])
+                nums[i + 1] = nums[i] + 1;
         }
-        if (countDown > 0) { // if we were descending at the end
-            total += countDown * (countDown + 1) / 2;
-            if (countDown >= prev) total += countDown - prev + 1;
+        int total = 0;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (ratings[i] > ratings[i + 1]) {
+                nums[i] = Math.max(nums[i], nums[i + 1] + 1);
+            }
+            total += nums[i];
         }
+        total += nums[nums.length - 1];
         return total;
     }
 
