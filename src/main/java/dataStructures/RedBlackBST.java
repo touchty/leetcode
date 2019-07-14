@@ -729,12 +729,13 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      */
     public static void main(String[] args) {
         RedBlackBST<String, Integer> st = new RedBlackBST<String, Integer>();
-        for (int i = 0; !StdIn.isEmpty(); i++) {
-            String key = StdIn.readString();
-            st.put(key, i);
+        String[] strs = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"};
+        for (int i = 0; i< strs.length; i++) {
+            st.put(strs[i], i);
         }
-        for (String s : st.keys())
-            StdOut.println(s + " " + st.get(s));
-        StdOut.println();
+        st.put("A", 100);
+        System.out.println(st.get("CC"));
+        System.out.println(st.max());
+        System.out.println(st.min());
     }
 }
