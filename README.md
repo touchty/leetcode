@@ -10,3 +10,6 @@
 
 128. Longest Consecutive Sequence
 动态规划-MAP记录
+
+1120. Maximum Average Subtree <===> 1123. Lowest Common Ancestor of Deepest Leaves
+***类似的两个子树问题

@@ -27,9 +27,9 @@ public class LowestCommonAncestorofDeepestLeaves {
         Pair l = getLca(root.left, d + 1);
         Pair r = getLca(root.right, d + 1);
         if (l.d == r.d) {
-            return new Pair(root, l.d);
+            return new Pair(root, l.d); // root-从root出发的最大深度
         } else {
-            return l.d > r.d ? l : r;
+            return l.d > r.d ? l : r;// root-从root出发的最大深度
         }
     }
 }
