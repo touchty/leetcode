@@ -4,6 +4,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+// 3. Longest Substring Without Repeating Characters
+//Medium
+//
+//5825
+//
+//333
+//
+//Favorite
+//
+//Share
+//Given a string, find the length of the longest substring without repeating characters.
 // Set 记录出现的字符
 public class LongestSubstringWithoutRepeatingCharacters {
     public static int lengthOfLongestSubstring(String s) {
