@@ -5,6 +5,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
+// Just a simple topological sort, which can be finished in 15 lines. Beats 99%.
 public class CourseSchedule {
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         // 拓扑排序，找到入度为0的点作为起点
