@@ -17,6 +17,18 @@ public class Power {
         return isNegative ? 1 / pow : pow;
     }
 
+    //解释 https://leetcode.wang/leetCode-50-Pow.html
+    public double MyPow(double x, int n) {
+        double ans = 1;
+        long absN = Math.abs((long) n);
+        while (absN > 0) {
+            if ((absN & 1) == 1) ans *= x;
+            absN >>= 1;
+            x *= x;
+        }
+        return n < 0 ? 1 / ans : ans;
+    }
+
     public static void main(String[] args) {
         double res = Power.power(2, 3);
         System.out.println(res);
