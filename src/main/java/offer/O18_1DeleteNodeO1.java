@@ -1,6 +1,6 @@
 package offer;
 
-import array.ListNode;
+import linkedList.ListNode;
 
 public class O18_1DeleteNodeO1 {
     public static ListNode deleteNode(ListNode head, ListNode tobeDelete) {

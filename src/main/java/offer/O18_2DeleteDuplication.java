@@ -1,6 +1,6 @@
 package offer;
 
-import array.ListNode;
+import linkedList.ListNode;
 
 public class O18_2DeleteDuplication {
     public ListNode deleteDuplication(ListNode pHead) {

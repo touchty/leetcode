@@ -1,6 +1,6 @@
 package offer;
 
-import array.ListNode;
+import linkedList.ListNode;
 
 import java.util.ArrayList;
 import java.util.Deque;

@@ -1,6 +1,6 @@
 package offer;
 
-import array.ListNode;
+import linkedList.ListNode;
 
 // 23. 链表中环的入口结点
 //NowCoder

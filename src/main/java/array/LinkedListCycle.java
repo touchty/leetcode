@@ -1,5 +1,7 @@
 package array;
 
+import linkedList.ListNode;
+
 public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
         ListNode slow = head;

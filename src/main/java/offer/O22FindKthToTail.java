@@ -1,6 +1,6 @@
 package offer;
 
-import array.ListNode;
+import linkedList.ListNode;
 
 // 22. 链表中倒数第 K 个结点
 // NowCoder
