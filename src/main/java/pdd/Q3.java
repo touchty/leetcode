@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Q3 {
-    public List<List<Integer>> combinationSum(int target, int N) {
+    public List<List<Integer>> combinationSum(int target, int N, int upbound) {
         List<List<Integer>> res = new ArrayList<>();
-        helper(1, target, res, new LinkedList<Integer>(), N);
+        helper(1, target, res, new LinkedList<Integer>(), N, upbound);
         return res;
     }
 
     private void helper(int i, int target, List<List<Integer>> res, LinkedList<Integer> currList,
-                        int N) {
+                        int N, int upbound) {
         if (target == 0 && currList.size() == N) {
             res.add(new LinkedList<>(currList));
             return;
@@ -20,19 +20,19 @@ public class Q3 {
         if (target <= 0 || currList.size() >= N)
             return;
 
-        for (int j = i; j <= target; j++) {
+        for (int j = i; j <= upbound; j++) {
             currList.add(j);
-            helper(j + 1, target - j, res, currList, N);
+            helper(j + 1, target - j, res, currList, N, upbound);
             currList.removeLast();
         }
     }
 
 
     public static void main(String[] args) {
-        int t = 7;
-        int N = 2;
+        int t = 30;
+        int N = 4;
         Q3 s = new Q3();
-        List<List<Integer>> res = s.combinationSum(t, N);
-        System.out.println(res);
+        List<List<Integer>> res = s.combinationSum(t, N, t);
+        System.out.println(res.size());
     }
 }
