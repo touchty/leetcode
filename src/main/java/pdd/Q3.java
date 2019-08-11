@@ -29,8 +29,8 @@ public class Q3 {
 
 
     public static void main(String[] args) {
-        int t = 30;
-        int N = 4;
+        int t = 100;
+        int N = 10;
         Q3 s = new Q3();
         List<List<Integer>> res = s.combinationSum(t, N, t);
         System.out.println(res.size());
