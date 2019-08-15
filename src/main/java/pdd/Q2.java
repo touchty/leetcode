@@ -5,10 +5,10 @@ public class Q2 {
     static int minDist(int L, int N, int[] nums) {
         int minCircularPathSum = Integer.MAX_VALUE;
 
-        for (int i = 0; i < L; i++) {
+        for (int i : nums) {
             int sum = 0;
-            for (int j = 0; j < N; j++) {
-                int abs = Math.abs(nums[j] - i);
+            for (int j : nums) {
+                int abs = Math.abs(j - i);
                 sum += Math.min(abs, L - abs);
             }
             minCircularPathSum = Math.min(minCircularPathSum, sum);
@@ -33,6 +33,5 @@ public class Q2 {
         int expected1 = 3;
         int move1 = Q2.minDist(10, 3, nums1);
         System.out.println(move1);
-
     }
 }
