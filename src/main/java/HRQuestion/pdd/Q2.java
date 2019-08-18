@@ -1,4 +1,4 @@
-package pdd;
+package HRQuestion.pdd;
 
 // 多多鸡 项链
 public class Q2 {

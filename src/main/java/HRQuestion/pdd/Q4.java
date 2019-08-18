@@ -1,4 +1,4 @@
-package pdd;
+package HRQuestion.pdd;
 
 import java.util.Arrays;
 
