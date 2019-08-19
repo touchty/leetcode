@@ -1,5 +1,6 @@
 package test;
 // 哈夫曼编码
+
 import edu.princeton.cs.algs4.MinPQ;
 
 public class HuffmanDemo {
@@ -48,7 +49,7 @@ public class HuffmanDemo {
         // tabulate frequency counts
         int[] freq = new int[R];
         for (int i = 0; i < input.length; i++)
-            freq[input[i]]++;
+            freq[input[i] % R]++;
 
         // build Huffman trie
         Node root = buildTrie(freq);
@@ -142,7 +143,7 @@ public class HuffmanDemo {
      * Reads a sequence of bits that represents a Huffman-compressed message from
      * standard input; expands them; and writes the results to standard output.
      */
-    int triePos = 0;
+    int triePos;
 
     public String expand(String trieIn, String compressed) {
         this.triePos = 0;
