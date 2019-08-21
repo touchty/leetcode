@@ -13,8 +13,12 @@ public class EditDistance {
         for (int i = 0; i < word1.length(); i++)
             for (int j = 0; j < word2.length(); j++) {
                 if (word1.charAt(i) == word2.charAt(j)) {
+                    // no need to edit source string
                     dp[i + 1][j + 1] = dp[i][j];
                 } else {
+                    // 把A末尾字符替换成B末尾的一个字符(substitution)
+                    // 删除A末尾一个字符(deletion)
+                    // 用B末尾插入A末尾一个字符(insertion)
                     dp[i + 1][j + 1] = 1 + Math.min(Math.min(dp[i][j], dp[i][j + 1]), dp[i + 1][j]);
                 }
             }
