@@ -2,33 +2,35 @@ package offer;
 
 import tree.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 public class O55_1TreeDepth {
     public int TreeDepth(TreeNode root) {
         return root == null ? 0 : 1 + Math.max(TreeDepth(root.left), TreeDepth(root.right));
     }
 
-    private int width = 0;
-
-    public int treeWidth(TreeNode root) {
+    // 662. Maximum Width of Binary Tree
+    // 二叉树的最大宽度
+    // 二叉树可以用数组来存储，n的左右节点的位置是 2*n, 2*n + 1
+    public int widthOfBinaryTree(TreeNode root) {
         if (root == null)
             return 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            this.width = Math.max(this.width, size);
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if (node.left != null)
-                    queue.offer(node.left);
-                if (node.right != null)
-                    queue.offer(node.right);
-            }
-        }
-        return this.width;
+        return dfs(root, 0, 1, new ArrayList<Integer>(), new ArrayList<Integer>());
+    }
+
+    public int dfs(TreeNode root, int level, int order, List<Integer> start, List<Integer> end) {
+        if (root == null) return 0;
+        if (start.size() == level) { // first reach a new level
+            start.add(order);
+            end.add(order);
+        } else end.set(level, order); // expend to right
+        int cur = end.get(level) - start.get(level) + 1; // 当前level的宽度
+
+        // dfs(root.left)先调用，可能会更新下一层的start和end数组
+        int left = dfs(root.left, level + 1, 2 * order, start, end); // ending in left part
+        int right = dfs(root.right, level + 1, 2 * order + 1, start, end); // ending in right part
+        return Math.max(cur, Math.max(left, right));
     }
 
 
@@ -42,7 +44,7 @@ public class O55_1TreeDepth {
 
         O55_1TreeDepth solution = new O55_1TreeDepth();
         int depth = solution.TreeDepth(root);
-        int width = solution.treeWidth(root);
+        int width = solution.widthOfBinaryTree(root);
         System.out.println(depth);
         System.out.println(width);
     }
