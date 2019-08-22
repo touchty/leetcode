@@ -14,7 +14,7 @@ public class O39MoreThanHalfNum_Solution {
     public int MoreThanHalfNum_Solution(int[] nums) {
         int majority = nums[0];
         for (int i = 1, cnt = 1; i < nums.length; i++) {
-            cnt = nums[i] == majority ? cnt + 1 : cnt - 1;
+            cnt = (nums[i] == majority) ? cnt + 1 : cnt - 1;
             // 如果cnt为0，且 cnt == 0，说明前 i 个元素没有 majority，或者有 majority，
             // 但是出现的次数少于 i / 2 ，因为如果多于 i / 2 的话 cnt 就一定不会为 0 。
             // 此时剩下的 n - i 个元素中，majority 的数目依然多于 (n - i) / 2，因此继续查找就能找出 majority。
