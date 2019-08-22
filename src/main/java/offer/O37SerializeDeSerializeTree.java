@@ -2,9 +2,13 @@ package offer;
 
 import tree.TreeNode;
 
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class O37SerializeDeSerializeTree {
     final String nullFlag = "#";
-    final String gap = " ";
+    final String gap = " "; // 空格
     private String deserializeStr;
 
     // 前序遍历
@@ -22,17 +26,57 @@ public class O37SerializeDeSerializeTree {
 
         // 根节点
         int index = deserializeStr.indexOf(gap);
-        String node = (index == -1 ? deserializeStr : deserializeStr.substring(0, index));
+        String nodeStr = (index == -1 ? deserializeStr : deserializeStr.substring(0, index));
         deserializeStr = (index == -1 ? null : deserializeStr.substring(index + 1));
         // 叶子节点（空）判断
-        if (node.equals(nullFlag))
+        if (nodeStr.equals(nullFlag))
             return null;
-        int val = Integer.valueOf(node);
+        int val = Integer.valueOf(nodeStr);
         TreeNode t = new TreeNode(val);
         t.left = DeSerialize();
         t.right = DeSerialize();
 
         return t;
+    }
+
+    public class Codec {
+        private static final String spliter = ",";
+        private static final String NN = "X";
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            StringBuilder sb = new StringBuilder();
+            buildString(root, sb);
+            return sb.toString();
+        }
+
+        private void buildString(TreeNode node, StringBuilder sb) {
+            if (node == null) {
+                sb.append(NN).append(spliter);
+            } else {
+                sb.append(node.val).append(spliter);
+                buildString(node.left, sb);
+                buildString(node.right, sb);
+            }
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            Deque<String> nodes = new LinkedList<>();
+            nodes.addAll(Arrays.asList(data.split(spliter)));
+            return buildTree(nodes);
+        }
+
+        private TreeNode buildTree(Deque<String> nodes) {
+            String val = nodes.remove();
+            if (val.equals(NN)) return null;
+            else {
+                TreeNode node = new TreeNode(Integer.valueOf(val));
+                node.left = buildTree(nodes);
+                node.right = buildTree(nodes);
+                return node;
+            }
+        }
     }
 
     public static void main(String[] args) {
