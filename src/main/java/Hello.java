@@ -1,27 +1,21 @@
-import edu.princeton.cs.algs4.Complex;
-import edu.princeton.cs.algs4.FFT;
-
-import java.util.Arrays;
-
 public class Hello {
     public static void main(String[] args) {
-        /*int pos = Arrays.binarySearch(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 7);
-        Complex[] data = new Complex[2];
-        Complex i1 = new Complex(1, 2);
-        Complex i2 = new Complex(3, 4);
-        data[0] = i1;
-        data[1] = i2;
-        Complex[] fft = FFT.fft(data);
-        System.out.println("No smoke!");
-        for (Complex c : data)
-            System.out.println(c);
+        int COUNT_BITS = Integer.SIZE - 3;
+        int CAPACITY = (1 << COUNT_BITS) - 1;
 
-        for (Complex c : fft)
-            System.out.println(c);*/
-        /*aMethod();*/
+// runState is stored in the high-order bits
+        int RUNNING = -1 << COUNT_BITS;
+        int SHUTDOWN = 0 << COUNT_BITS;
+        int STOP = 1 << COUNT_BITS;
+        int TIDYING = 2 << COUNT_BITS;
+        int TERMINATED = 3 << COUNT_BITS;
+        System.out.println(Integer.toBinaryString(CAPACITY));
+        System.out.println(Integer.toBinaryString(RUNNING));
+        System.out.println(Integer.toBinaryString(SHUTDOWN));
+        System.out.println(Integer.toBinaryString(STOP));
+        System.out.println(Integer.toBinaryString(TIDYING));
+        System.out.println(Integer.toBinaryString(TERMINATED));
 
-        long l = (long) (((long) Integer.MAX_VALUE) + 1);
-        System.out.println(l > Integer.MAX_VALUE);
     }
     /*public static void aMethod(){
         var name = "Java 10";
