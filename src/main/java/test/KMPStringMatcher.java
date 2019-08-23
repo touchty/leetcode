@@ -2,6 +2,7 @@ package test;
 
 /**
  * KMP模式匹配
+ * https://www.jianshu.com/p/e2bd1ee482c3
  *
  * @author Tianma
  */
