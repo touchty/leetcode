@@ -8,6 +8,10 @@ public class Main1 {
         boolean[][] v = new boolean[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    components++;
+                    v[i][j] = true;
+                }
                 if (!v[i][j] && nums[i][j] >= 3) {
                     components++;
                     dfs(nums, v, i, j);
@@ -59,7 +63,11 @@ public class Main1 {
 
         int[][] nums1 = {{0, 4, 0}, {4, 0, 6}, {0, 6, 0}};
         int c1 = component(nums1, 3);
-        System.out.println(c1);*/
+        System.out.println(c1);
+
+        int[][] nums2 = {{0}};
+        int c2 = component(nums1, 1);
+        System.out.println(c2);*/
         Scanner in = new Scanner(System.in);
         while (in.hasNextInt()) {
             int m = in.nextInt();
