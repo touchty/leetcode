@@ -67,18 +67,18 @@ public class Main1 {
     }
 
     public static void main(String[] args) {
-        /*int[][] nums = {{0, 4, 0}, {4, 0, 0}, {0, 0, 0}};
+        int[][] nums = {{0, 4, 0}, {4, 0, 0}, {0, 0, 0}};
         int c = component(nums, 3);
-        System.out.println(c);*/
+        System.out.println(c);
 
-        /*int[][] nums1 = {{0, 4, 0}, {4, 0, 6}, {0, 6, 0}};
+        int[][] nums1 = {{0, 4, 0}, {4, 0, 6}, {0, 6, 0}};
         int c1 = component(nums1, 3);
-        System.out.println(c1);*/
+        System.out.println(c1);
 
-       /* int[][] nums2 = {{0}};
+        int[][] nums2 = {{0}};
         int c2 = component(nums2, 1);
-        System.out.println(c2);*/
-        Scanner in = new Scanner(System.in);
+        System.out.println(c2);
+        /*Scanner in = new Scanner(System.in);
         while (in.hasNextInt()) {
             int m = in.nextInt();
             int[][] ns = new int[m][m];
@@ -89,7 +89,7 @@ public class Main1 {
             }
             int cs = component(ns, m);
             System.out.println(cs);
-        }
+        }*/
     }
 
 }
