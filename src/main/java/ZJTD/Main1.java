@@ -33,7 +33,7 @@ public class Main1 {
             if (nums[i][k] >= 3)
                 dfs(nums, v, i, k);
             else
-                v[k][j] = true;
+                v[i][k] = true;
         }
     }
 
