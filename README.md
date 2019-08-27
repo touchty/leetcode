@@ -34,3 +34,9 @@ TODO
 输出一个整数表示最少的操作次数。
 https://www.nowcoder.com/questionTerminal/adc291e7e79f452c8b59243a5ce68d3a?toCommentId=765685
 
+ALGO. 单调队列 MonotoneIncreasing
+[a0 ,a1, ..., an],如果 i <= j, ai <= aj, 返回(j-i)可能的最大值
+
+ALGO. 元素差值的最大最小值，绝对值的最大最小值
+一个数组[a1,a2,a3....an]，要求出令i <= j, aj-ai 最大值, 最小值, 绝对值的最大最小值
+不断更新前面可能的最大最小元素
