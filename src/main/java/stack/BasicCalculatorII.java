@@ -84,7 +84,7 @@ public class BasicCalculatorII {
                     stack.push(-num);
                 if (sign == '*')
                     stack.push(stack.pop() * num);
-                if (sign == '\\')
+                if (sign == '/')
                     stack.push(stack.pop() / num);
                 sign = s.charAt(i); // next sign
                 num = 0; // clear num
@@ -98,7 +98,7 @@ public class BasicCalculatorII {
     }
 
     public static void main(String[] args) {
-        String s = "3 + 2 * 2";
+        String s = "3 + 4 / 2 * 2";
         BasicCalculatorII calculatorII = new BasicCalculatorII();
         int res = calculatorII.calculateOpt(s);
         System.out.println(res);
