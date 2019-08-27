@@ -55,17 +55,16 @@ public class BasicCalculatorIII {
                 }
                 cal.push(n.charAt(i));
                 continue;
-            }
-            if (n.charAt(i) == '*' || n.charAt(i) == '/') {
+            } else if (n.charAt(i) == '*' || n.charAt(i) == '/') {
                 cal.push(n.charAt(i));
                 continue;
-            }
-            if (n.charAt(i) >= '0' && n.charAt(i) <= '9') {
+            } else if (n.charAt(i) >= '0' && n.charAt(i) <= '9') {
                 num.push((int) (n.charAt(i) - 48));
                 continue;
+            } else {
+                // System.out.println("ERROR");
+                return -1;
             }
-            // System.out.println("ERROR");
-            return -1;
         }
         while (!cal.empty()) {
             d = cal.pop();
@@ -90,7 +89,7 @@ public class BasicCalculatorIII {
     }
 
     public static void main(String[] args) {
-        String s = "-1+2+3*4";
+        String s = "1+2+3*4";
         s = "0" + s;
         BasicCalculatorIII solution = new BasicCalculatorIII();
         int res = solution.eval(s);
