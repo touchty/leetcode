@@ -9,7 +9,8 @@ public class BasicCalculatorIII {
         char d;
         Stack<Character> cal = new Stack<Character>();
         Stack<Integer> num = new Stack<Integer>();
-        for (int i = 0; i < n.length(); i++) {
+        int i = 0;
+        while (i < n.length()) {
             if (n.charAt(i) == ')') {
                 while (cal.peek() != '(') {
                     d = cal.pop();
@@ -29,13 +30,9 @@ public class BasicCalculatorIII {
                     }
                 }
                 cal.pop();
-                continue;
-            }
-            if (n.charAt(i) == '(') {
+            } else if (n.charAt(i) == '(') {
                 cal.push('(');
-                continue;
-            }
-            if (n.charAt(i) == '+' || n.charAt(i) == '-') {
+            } else if (n.charAt(i) == '+' || n.charAt(i) == '-') {
                 while (!cal.empty() && cal.peek() != '(') {
                     d = cal.pop();
                     x = num.pop();
@@ -54,17 +51,20 @@ public class BasicCalculatorIII {
                     }
                 }
                 cal.push(n.charAt(i));
-                continue;
             } else if (n.charAt(i) == '*' || n.charAt(i) == '/') {
                 cal.push(n.charAt(i));
-                continue;
             } else if (n.charAt(i) >= '0' && n.charAt(i) <= '9') {
-                num.push((int) (n.charAt(i) - 48));
+                int t = 0;
+                while (i < n.length() && n.charAt(i) >= '0' && n.charAt(i) <= '9') {
+                    t = t * 10 + (int) (n.charAt(i++) - 48);
+                }
+                num.push(t);
                 continue;
             } else {
                 // System.out.println("ERROR");
                 return -1;
             }
+            i++;
         }
         while (!cal.empty()) {
             d = cal.pop();
@@ -89,8 +89,7 @@ public class BasicCalculatorIII {
     }
 
     public static void main(String[] args) {
-        String s = "1+2+3*4";
-        s = "0" + s;
+        String s = "10+2+3*15";
         BasicCalculatorIII solution = new BasicCalculatorIII();
         int res = solution.eval(s);
         System.out.println(res);
