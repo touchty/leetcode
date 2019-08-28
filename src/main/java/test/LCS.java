@@ -1,7 +1,7 @@
 package test;
 
-// 最长公共子串，连续
 // LC 718. Maximum Length of Repeated Subarray
+// 最长公共子串，连续
 public class LCS {
     static String lcs(String str1, String str2) {
         if (str1 == null || str1.length() == 0 ||
@@ -32,10 +32,10 @@ public class LCS {
 
 
     public static void main(String[] args) {
-        String str1 = "abab";
-        String str2 = "cbab";
+        String str1 = "akbabcs";
+        String str2 = "bammbpivabc";
 
         String lcs = LCS.lcs(str1, str2);
-        System.out.println(lcs);
+        System.out.println(lcs.length());
     }
 }

@@ -2,8 +2,8 @@ package test;
 
 import org.junit.Assert;
 
-// Longest Common Subsequence
-// 不连续子序列
+// 1143. Longest Common Subsequence
+// 最长公共子序列，(不连续)
 public class LongestCommonSubsequence {
     public static int getLongestCommonSubsequence(String a, String b) {
         int m = a.length();
