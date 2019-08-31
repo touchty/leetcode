@@ -27,6 +27,8 @@ public class Q360_2_1 {
                     continue;
                 else {
                     int occur = appearNumber(str, sub);
+                    if (occur == 0)
+                        break;
                     max = Math.max(max, occur);
                     set.add(sub);
                 }
