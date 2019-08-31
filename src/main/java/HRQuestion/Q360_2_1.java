@@ -3,19 +3,8 @@ package HRQuestion;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Q360_2_1 {
-    public static int appearNumber(String srcText, String findText) {
-        int count = 0;
-        Pattern p = Pattern.compile(findText);
-        Matcher m = p.matcher(srcText);
-        while (m.find()) {
-            count++;
-        }
-        return count;
-    }
     public static int appearNumberI(String srcText, String findText) {
         int count = 0;
         int index = 0;
@@ -40,6 +29,8 @@ public class Q360_2_1 {
                         break;
                     max = Math.max(max, occur);
                     set.add(sub);
+                    if (max == str.length())
+                        return max;
                 }
             }
         }
