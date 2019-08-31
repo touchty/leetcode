@@ -16,6 +16,15 @@ public class Q360_2_1 {
         }
         return count;
     }
+    public static int appearNumberI(String srcText, String findText) {
+        int count = 0;
+        int index = 0;
+        while ((index = srcText.indexOf(findText, index)) != -1) {
+            index = index + findText.length();
+            count++;
+        }
+        return count;
+    }
 
     public static int minSubString(String str) {
         Set<String> set = new HashSet<>();
@@ -24,10 +33,10 @@ public class Q360_2_1 {
             for (int j = i + 1; j <= str.length(); j++) {
                 String sub = str.substring(i, j);
                 if (set.contains(sub))
-                    continue;
+                    break;
                 else {
-                    int occur = appearNumber(str, sub);
-                    if (occur == 0)
+                    int occur = appearNumberI(str, sub);
+                    if (occur <= max)
                         break;
                     max = Math.max(max, occur);
                     set.add(sub);
