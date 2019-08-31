@@ -15,6 +15,18 @@ public class Q360_2_1 {
         return count;
     }
 
+    public static int maxChar(String str) {
+        int[] count = new int[26];
+        int max = 0;
+        for (int i = 0; i < str.length(); i++) {
+            count[str.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < count.length; i++) {
+            max = Math.max(max, count[i]);
+        }
+        return max;
+    }
+
     public static int minSubString(String str) {
         Set<String> set = new HashSet<>();
         int max = 0;
@@ -41,7 +53,7 @@ public class Q360_2_1 {
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
             String str = in.nextLine();
-            int res = minSubString(str);
+            int res = maxChar(str);
             System.out.println(res);
         }
        /* String str = "aba";
