@@ -1,11 +1,14 @@
 package HRQuestion;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Q360_2_2 {
-    public static int maxEndPoints(int[] nums) {
+    public static List<Integer> maxEndPoints(int[] nums) {
+        List<Integer> list = new ArrayList<>();
         int res = nums.length;
-        return res;
+        return list;
     }
 
     public static void main(String[] args) {
