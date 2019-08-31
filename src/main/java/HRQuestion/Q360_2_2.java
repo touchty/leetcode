@@ -17,7 +17,7 @@ public class Q360_2_2 {
             for (int i = 0; i < k; i++) {
                 nums[i] = in.nextInt();
             }
-            System.out.println(maxEndPoints(nums));
+            System.out.println(N);
         }
 
     }
