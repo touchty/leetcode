@@ -26,13 +26,14 @@ public class MaxInterchangeOfIntervals {
         for (int i = 0; i < pos.size() - 1; i++) {
             while (index < intervals.size() &&
                     intervals.get(index)[0] == pos.get(i)) {
-                // 右断点进堆
+                // 右端点进堆
                 Q.add(intervals.get(index)[1]);
                 index++;
             }
             // 堆里面的数量就是当前线段的数量
             count.add(Q.size());
-            // 堆里面的元素出列， 代表线段终止
+            // 堆里面的元素出列,当前点pos.get(i)到达时间间隔终点-Q.peek()，代表线段终止，走出Q.peek()覆盖区域
+            // 所以出栈
             while (!Q.isEmpty() && Q.peek() == pos.get(i).intValue()) {
                 Q.poll();
             }
@@ -42,7 +43,8 @@ public class MaxInterchangeOfIntervals {
     }
 
     public static void main(String[] args) {
-        int[][] intervals = {{1,3}, {2,4}, {5,9}, {5, 10}, {6, 7}};
+        //int[][] intervals = {{1, 3}, {5, 9}, {6, 8}, {7, 9}};
+        int[][] intervals = {{5, 9}, {6, 7}};
         int max = maxInterval(Arrays.asList(intervals));
         System.out.println(max);
     }
