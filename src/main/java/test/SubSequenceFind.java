@@ -49,7 +49,7 @@ public class SubSequenceFind {
                     left = right + 1;
                     right++;
                 }
-                if (right - left == m - 1)
+                if (right < target.length && right - left == m - 1)
                     return left;
             }
         }
