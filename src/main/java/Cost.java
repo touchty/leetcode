@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // 01 背包问题
 public class Cost {
@@ -7,7 +9,7 @@ public class Cost {
         for (int i = 0; i < A.length; i++) {
             double[] p = new double[2];
             p[0] = i;
-            p[1]= B[i] / (A[i] + 0.0);
+            p[1] = B[i] / (A[i] + 0.0);
             list.add(p);
         }
 
@@ -28,7 +30,7 @@ public class Cost {
     public static void main(String[] args) {
         int t = 1000;
         int[] A = {200, 600, 100, 180, 300, 450};
-        int[] B ={6, 10, 3,4,5,8};
+        int[] B = {6, 10, 3, 4, 5, 8};
         Cost.solutition(t, A, B);
     }
 }
