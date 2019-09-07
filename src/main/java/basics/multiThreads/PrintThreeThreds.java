@@ -1,4 +1,4 @@
-package test.multiThreads;
+package basics.multiThreads;
 
 public class PrintThreeThreds {
     private static volatile Integer i = 1;

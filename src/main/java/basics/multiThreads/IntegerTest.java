@@ -1,4 +1,4 @@
-package test.multiThreads;
+package basics.multiThreads;
 
 public class IntegerTest {
     Integer I = 1;
