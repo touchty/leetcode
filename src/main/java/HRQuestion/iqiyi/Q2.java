@@ -1,52 +1,23 @@
 package HRQuestion.iqiyi;
 
 public class Q2 {
-    long rr(int r, int b) {
-        if (r <= 1)
-            return 0;
-        else
-            return (long) r * (r - 1);
-    }
-
-    long bb(int r, int b) {
-        if (b <= 1)
-            return 0;
-        else
-            return (long) b * (b - 1);
-    }
-
-    long rb(int r, int b) {
-        if (r <= 0 || b <= 0)
-            return 0;
-        else
-            return (long) r * b;
-    }
-
     double aWin(int r, int b) {
-        // c-r
-        long count1 = 0;
-        if (r == 0)
-            count1 = 0;
-        else {
-            if (r + b - 2 > 0)
-                count1 += r * b * (r + b - 2);
-        }
+        double[][] dp = new double[r + 1][b + 1];
+        dp[0][0] = 0;
+        dp[1][0] = 1;
+        dp[2][0] = 1;
+        dp[0][1] = 0;
+        dp[0][2] = 0;
+        dp[1][1] = 0.5;
+        dp[1][2] = 1 / (3.0);
+        dp[2][1] = 2 / (3.0);
+        dp[2][2] = 2 / (3.0);
 
-        // c-b
-        long count2 = 0;
-        if (b == 0)
-            count2 = 0;
-        else if (b == 1) {
-            count2 += 0;
-        } else {
-            if (r + b - 2 > 0)
-                count2 += b * (b - 1) * (r + b - 2);
+        for (int i = 3; i <= r; i++) {
+            for (int j = 3; j <= b; j++) {
+                dp[i][j] =
+            }
         }
-
-        long total = (r + b) * (r + b - 1) * (r + b - 2);
-        double lose = (double) (count1 + count2 + 0.0) / total;
-        double win = 1 - lose;
-        return win;
     }
 
     public static void main(String[] args) {
