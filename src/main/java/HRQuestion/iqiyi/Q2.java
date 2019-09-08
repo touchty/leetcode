@@ -2,22 +2,20 @@ package HRQuestion.iqiyi;
 
 public class Q2 {
     double aWin(int r, int b) {
-        double[][] dp = new double[r + 1][b + 1];
-        dp[0][0] = 0;
-        dp[1][0] = 1;
-        dp[2][0] = 1;
-        dp[0][1] = 0;
-        dp[0][2] = 0;
-        dp[1][1] = 0.5;
-        dp[1][2] = 1 / (3.0);
-        dp[2][1] = 2 / (3.0);
-        dp[2][2] = 2 / (3.0);
+        // dp[i][j][k]
+        double[][][] dp = new double[r + 1][b + 1][3];
+        dp[1][0][0] = 1;
+        dp[2][0][0] = 1;
 
-        for (int i = 3; i <= r; i++) {
-            for (int j = 3; j <= b; j++) {
-                dp[i][j] =
-            }
-        }
+        dp[1][0][1] = 1;
+        dp[2][0][1] = 1;
+
+        dp[1][0][2] = 1;
+        dp[2][0][2] = 1;
+
+        dp[0][1][0] = 0;
+        dp[0][2][0] = 0;
+        return 0;
     }
 
     public static void main(String[] args) {

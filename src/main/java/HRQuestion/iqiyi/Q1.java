@@ -3,7 +3,8 @@ package HRQuestion.iqiyi;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q111 {
+// LC 903
+public class Q1 {
     public static int FOO(String str) {
         int N = str.length();
 
