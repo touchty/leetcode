@@ -40,15 +40,15 @@ public class O8GetNext {
             System.out.println("null");
 
         TreeLinkNode next2 = GetNext(right); // null
-        if (next2 != null)
+        if (next2 != null) {
             System.out.println(next2.val);
-        else
+        } else
             System.out.println("null");
 
         TreeLinkNode next3 = GetNext(root);
-        if (next3 != null)
+        if (next3 != null) {
             System.out.println(next3.val);
-        else
+        } else
             System.out.println("null");
     }
 }
