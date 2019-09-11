@@ -72,4 +72,10 @@ public class ReversePairs {
         Arrays.sort(nums, s, e + 1);
         return cnt;
     }
+
+    public static void main(String[] args) {
+        ReversePairs s = new ReversePairs();
+        int[] nums = {1, 3, 2, 3, 1};
+        System.out.println(s.reversePairs_MergeSort(nums));
+    }
 }
