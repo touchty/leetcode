@@ -24,15 +24,15 @@ public class Q_qimiao3 {
     }
 
     public static void main(String[] args) {
-        String A = "AaBb";
+        /*String A = "AaBb";
         String B = "d";
-        System.out.println(rm(A, B));
+        System.out.println(rm(A, B));*/
 
-        /*Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            String A = scanner.nextLine();
-            String B = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String A = scanner.next();
+            String B = scanner.next();
             System.out.println(rm(A, B));
-        }*/
+        }
     }
 }
