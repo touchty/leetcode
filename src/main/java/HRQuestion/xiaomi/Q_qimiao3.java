@@ -6,6 +6,8 @@ import java.util.Set;
 
 public class Q_qimiao3 {
     static String rm(String A, String B) {
+        if (A == null)
+            return null;
         if (B == null || B.length() == 0)
             return A;
         Set<Character> set = new HashSet<>();
