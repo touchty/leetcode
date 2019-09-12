@@ -1,5 +1,7 @@
 package test;
 
+import java.util.LinkedList;
+
 /*
 方法2：深度优先遍历
 算法流程（思路是通过 DFS 判断图中是否有环）：
@@ -45,5 +47,31 @@ public class LC207CourseSchedule {
         }
         flags[i] = -1;
         return true;
+    }
+
+    public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
+        int[] indegrees = new int[numCourses];
+        for (int[] cp : prerequisites) indegrees[cp[0]]++;
+        LinkedList<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            // 入度为0
+            if (indegrees[i] == 0) queue.addLast(i);
+        }
+        while (!queue.isEmpty()) {
+            Integer pre = queue.removeFirst();
+            numCourses--;
+            for (int[] req : prerequisites) {
+                if (req[1] != pre) continue;
+                if (--indegrees[req[0]] == 0) queue.add(req[0]);
+            }
+        }
+        return numCourses == 0;
+    }
+
+    public static void main(String[] args) {
+        int[][] prerequists = {{0, 1}, {1, 2}, {2, 0}};
+        LC207CourseSchedule s = new LC207CourseSchedule();
+        boolean res = s.canFinish(3, prerequists);
+        System.out.println(res);
     }
 }
