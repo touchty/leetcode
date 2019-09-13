@@ -1,5 +1,7 @@
 package dp;
 
+// 312. Burst Balloons
+//
 public class BurstBalloons {
     public int maxCoins(int[] iNums) {
         int[] nums = new int[iNums.length + 2];
@@ -12,6 +14,16 @@ public class BurstBalloons {
         return burst(memo, nums, 0, n - 1);
     }
 
+    /**
+     * i 是当前轮次戳破的气球， i > left ; i < right, burst i, and starting with left, ending with right
+     * nums[left] * nums[i] * nums[right]
+     *
+     * @param memo
+     * @param nums
+     * @param left
+     * @param right
+     * @return
+     */
     public int burst(int[][] memo, int[] nums, int left, int right) {
         if (left + 1 == right) return 0;
         if (memo[left][right] > 0) return memo[left][right];
