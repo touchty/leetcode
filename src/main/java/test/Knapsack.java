@@ -4,7 +4,8 @@ package test;
 // 注意这里每个元素只能用一次
 public class Knapsack {
     // Returns the maximum value that can be put in a knapsack of capacity W
-    static int knapSackRecursive(int W, int wt[], int val[], int n) {
+    static int knapSackRecursive(int W, int wt[], int val[]) {
+        int n = val.length;
         int dp[][] = new int[n + 1][W + 1];
         for (int i = 0; i <= W; i++) {
             for (int j = 0; j < wt.length; j++) {
@@ -23,7 +24,7 @@ public class Knapsack {
         int wt[] = new int[]{5, 3, 2, 10, 4, 8};
         int W = 20;
         int n = val.length;
-        int maxVal = Knapsack.knapSackRecursive(W, wt, val, n);
+        int maxVal = Knapsack.knapSackRecursive(W, wt, val);
         System.out.println(maxVal);
     }
 }
