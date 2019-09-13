@@ -14,17 +14,13 @@ public class LC40CombinationSumII {
 
     private void dfs(int[] candidates, int target, int pos, List<List<Integer>> combinations,
                      LinkedList<Integer> list, boolean[] visited) {
-        if (pos >= candidates.length) {
-            if (target == 0) {
-                combinations.add(new LinkedList<>(list));
-            }
-            return;
-        }
         if (target == 0) {
             combinations.add(new LinkedList<>(list));
             return;
         }
 
+        if (target < 0)
+            return;
 
         for (int i = pos; i < candidates.length; i++) {
             if (i >= 1 && candidates[i] == candidates[i - 1] && !visited[i - 1])
