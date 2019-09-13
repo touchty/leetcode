@@ -1,6 +1,9 @@
 package test;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
 方法2：深度优先遍历
@@ -51,8 +54,15 @@ public class LC207CourseSchedule {
 
     public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
         int[] indegrees = new int[numCourses];
-        for (int[] cp : prerequisites) indegrees[cp[0]]++;
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int[] cp : prerequisites) {
+            indegrees[cp[0]]++;
+            List<Integer> list = map.getOrDefault(cp[1], new LinkedList<>());
+            list.add(cp[0]);
+            map.put(cp[1], list);
+        }
         LinkedList<Integer> queue = new LinkedList<>();
+
         for (int i = 0; i < numCourses; i++) {
             // 入度为0
             if (indegrees[i] == 0) queue.addLast(i);
@@ -60,18 +70,62 @@ public class LC207CourseSchedule {
         while (!queue.isEmpty()) {
             Integer pre = queue.removeFirst();
             numCourses--;
-            for (int[] req : prerequisites) {
+            /*for (int[] req : prerequisites) {
                 if (req[1] != pre) continue;
                 if (--indegrees[req[0]] == 0) queue.add(req[0]);
+            }*/
+            if (!map.containsKey(pre))
+                continue;
+            for (int next : map.get(pre)) {
+                if (--indegrees[next] == 0)
+                    queue.add(next);
             }
         }
         return numCourses == 0;
     }
 
+    boolean hasCycle = false;
+    public boolean canFinishDFS(int numCourses, int[][] prerequisites) {
+        boolean hasCycle = false;
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int[] cp : prerequisites) {
+            List<Integer> list = map.getOrDefault(cp[1], new LinkedList<>());
+            list.add(cp[0]);
+            map.put(cp[1], list);
+        }
+        boolean[] marked = new boolean[numCourses];
+        boolean[] onStack = new boolean[numCourses];
+
+        for (int v = 0; v < numCourses; v++) {
+            if (!marked[v]) DFS(v, map, marked, onStack);
+        }
+        return !hasCycle;
+    }
+
+    private void DFS(int v, Map<Integer, List<Integer>> map, boolean[] marked,
+                     boolean[] onStack) {
+        marked[v] = true;
+        onStack[v] = true;
+        if (hasCycle)
+            return;
+
+        if (map.containsKey(v)) {
+            for (int next : map.get(v)) {
+                if (!marked[next])
+                    DFS(next, map, marked, onStack);
+                else if (onStack[next]) {
+                    hasCycle = true;
+                    return;
+                }
+            }
+        }
+        onStack[v] = false;
+    }
+
     public static void main(String[] args) {
-        int[][] prerequists = {{0, 1}, {1, 2}, {2, 0}};
+        int[][] prerequists = {{1, 0}, {0, 1}};
         LC207CourseSchedule s = new LC207CourseSchedule();
-        boolean res = s.canFinish(3, prerequists);
+        boolean res = s.canFinishDFS(2, prerequists);
         System.out.println(res);
     }
 }
