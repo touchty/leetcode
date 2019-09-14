@@ -10,8 +10,10 @@ public class LC140WordBreakII {
             return map.get(s);
         int len = s.length();
         List<String> ret = new ArrayList<String>();
+        // 不分割字符串
         if (wordDict.contains(s))
             ret.add(s);
+        // 分割字符串， i是分割点
         for (int i = 1; i < len; i++) {
             String curr = s.substring(i);
             if (wordDict.contains(curr)) {
@@ -20,7 +22,7 @@ public class LC140WordBreakII {
                     /*for (Iterator<String> it = strs.iterator(); it.hasNext(); ) {
                         ret.add(it.next() + " " + curr);
                     }*/
-                    for (String pre: strs) {
+                    for (String pre : strs) {
                         ret.add(pre + " " + curr);
                     }
                 }
