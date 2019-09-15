@@ -38,9 +38,9 @@ public class Q1 {
         for (int i = 0; i < count.length; i++) {
             System.out.println(count[i]);
         }*/
-        String s = "RRRL";
-        System.out.println(s.indexOf("RL", 4));
-        /*Scanner scanner = new Scanner(System.in);
+        /*String s = "RRRL";
+        System.out.println(s.indexOf("RL", 4));*/
+        Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
             int[] count = count(scanner.next());
             StringBuilder builder = new StringBuilder();
@@ -48,7 +48,7 @@ public class Q1 {
                 builder.append(i).append(" ");
             }
             System.out.println(builder.toString());
-        }*/
+        }
 
     }
 }
