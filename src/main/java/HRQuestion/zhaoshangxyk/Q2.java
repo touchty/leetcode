@@ -3,10 +3,10 @@ package HRQuestion.zhaoshangxyk;
 import java.util.*;
 
 public class Q2 {
-    static int[] countsDirectedEdge(int[][] trees) {
+    static long[] countsDirectedEdge(int[][] trees) {
         int n = trees.length + 1;
         int[] outs = new int[n + 1];
-        int[] dp = new int[n + 1];
+        long[] dp = new long[n + 1];
         for (int[] edge : trees) {
             outs[edge[0]]++;
         }
@@ -37,10 +37,10 @@ public class Q2 {
         return dp;
     }
 
-    static int[] countsUndirectedEdge(int[][] trees) {
+    static long[] countsUndirectedEdge(int[][] trees) {
         int n = trees.length + 1;
         int[] orders = new int[n + 1];
-        int[] dp = new int[n + 1];
+        long[] dp = new long[n + 1];
         boolean[] isDone = new boolean[n + 1];
         for (int[] edge : trees) {
             orders[edge[0]]++;
@@ -101,7 +101,7 @@ public class Q2 {
                 trees[i][1] = scanner.nextInt();
                 trees[i][2] = scanner.nextInt();
             }
-            int[] dp = countsUndirectedEdge(trees);
+            long[] dp = countsUndirectedEdge(trees);
             StringBuilder builder = new StringBuilder();
             for (int i = 1; i <= n; i++) {
                 builder.append(dp[i]).append(" ");
