@@ -49,7 +49,7 @@ public class Poj2411MondriaansDream {
         return true;
     }
 
-    void solve(int n, int m) {
+    long solve(int n, int m) {
         this.n = n;
         this.m = m;
         dp = new long[n + 1][1 << m];
@@ -70,7 +70,7 @@ public class Poj2411MondriaansDream {
                 }
             }
         }
-        System.out.println(dp[n][tot]);
+        return dp[n][tot];
     }
 
     public static void main(String[] args) {
