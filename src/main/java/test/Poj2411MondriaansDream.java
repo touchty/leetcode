@@ -7,6 +7,15 @@ public class Poj2411MondriaansDream {
     long[][] dp;
     int n, m;
 
+    /**
+     * 对于第一行的兼容性，我们要做一下特别的分析，在第一行中，要么放0， 要么放1。
+     * 加入当前测试的是 DP(1, j)的第 x的比特位，即第1行，x列
+     * 1. 如果x是1，那么 x + 1 也一定是1，然后测试到 x + 2
+     * 2. 如果x是0， 那么直接测试下一个 x + 1
+     *
+     * @param status
+     * @return
+     */
     boolean init(int status) {
         for (int j = 0; j < m; ) //前j-1列符合要求，对第j列进行判断
         {
