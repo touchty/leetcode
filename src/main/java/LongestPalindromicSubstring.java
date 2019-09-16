@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class LongestPalindromicSubstring {
     public String longestPalindrome(String s) {
         int max = 0;
@@ -50,12 +52,14 @@ public class LongestPalindromicSubstring {
     }
 
     public static void main(String[] args) {
-        String sample = "babad";
-        LongestPalindromicSubstring l = new LongestPalindromicSubstring();
-        String substr = l.longestPalindrome(sample);
-        System.out.println(substr);
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()) {
+            String sample = in.next();
+            LongestPalindromicSubstring l = new LongestPalindromicSubstring();
+            String substr = l.longestPalindrome(sample);
+            System.out.println(substr);
 
-        String str = l.longestP(sample);
-        System.out.println(str);
+        }
+
     }
 }
