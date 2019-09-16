@@ -1,33 +1,27 @@
 package test;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
+// LC 1027. Longest Arithmetic Sequence
+// 最长的等差数列
 public class LC1027 {
-    public static int fooo(int[] A) {
-
-        int result = 2, n = A.length;
-        HashMap<Integer, Integer>[] myDp = new HashMap[n];
+    public static int longestArithSeqLength(int[] A) {
+        int res = 0, n = A.length;
+        HashMap<Integer, Integer>[] dp = new HashMap[n];
         for (int j = 0; j < A.length; j++) {
-            myDp[j] = new HashMap<>();
+            dp[j] = new HashMap<>();
             for (int i = 0; i < j; i++) {
-                int diff = A[j] - A[i];
-                myDp[j].put(diff, myDp[i].getOrDefault(diff, 1) + 1);
-                result = Math.max(result, myDp[j].get(diff));
+                int d = A[j] - A[i];
+                dp[j].put(d, dp[i].getOrDefault(d, 1) + 1);
+                res = Math.max(res, dp[j].get(d));
             }
         }
-        return result;
+        return res;
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextInt()) {
-            int N = scanner.nextInt();
-            int[] A = new int[N];
-            for (int i = 0; i < N; i++) {
-                A[i] = scanner.nextInt();
-            }
-            System.out.println(fooo(A));
-        }
+        int[] A = {9, 4, 7, 2, 10};
+        int longest = longestArithSeqLength(A);
+        System.out.println(longest);
     }
 }

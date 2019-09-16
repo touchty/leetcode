@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class LC416 {
     static int max = Integer.MIN_VALUE;
-    static boolean[][] mydp;
 
     public static boolean canPartition(int[] nums) {
         max = Integer.MIN_VALUE;
@@ -42,7 +41,6 @@ public class LC416 {
                     dp[i][j] = (dp[i][j] || dp[i - 1][j - nums[i - 1]]);
                 }
                 if (dp[i][j]) {
-//                    System.out.println("Hello");
                     max = Math.max(max, j);
                 }
             }
