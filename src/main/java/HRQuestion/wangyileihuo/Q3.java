@@ -37,13 +37,15 @@ public class Q3 {
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         for (int x = 1; x < (1 << n); x++) {
-            sum_cost[x] = 0;
+            sum_cost[x] = 0; // 状态x所对应的所有任务的总时间
             for (int i = 0; i < n; i++) {
                 if ((x & (1 << i)) != 0) {
-                    sum_cost[x] += cost[i];
+                    sum_cost[x] += cost[i]; // 找到对应的任务i
                 }
             }
             for (int i = 0; i < n; i++) {
+                // 删除其中一个任务，找到上一个状态
+                // 当前状态的延迟等于上一状态的延迟，加上当前任务可能的时延
                 if ((x & (1 << i)) != 0) {
                     int delay = sum_cost[x] - deadline[i] < 0 ? 0 : sum_cost[x] - deadline[i];
                     dp[x] = Math.min(dp[x], dp[x - (1 << i)] + delay);
