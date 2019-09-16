@@ -137,11 +137,11 @@ public class MaximumWidthofBinaryTree {
 
     public static void main(String[] args) {
         /*
-           1
-         /   \
-        3     2
-       / \     \
-      5   3     9
+           1(1)
+         /     \
+        3(2)    2(3)
+       /  \       \
+      5(4) 3(5)    9(7)
          */
 
         TreeNode root = new TreeNode(1);
