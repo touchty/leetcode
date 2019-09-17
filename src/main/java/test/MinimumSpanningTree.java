@@ -1,7 +1,41 @@
 package test;
 
 import java.util.*;
+// https://www.ctolib.com/topics-80931.html
+/*
+Amazon-OA2面经：城市连接问题，即MST
+ beautifulgorilla 发布于2年前 0 人点赞   0 条问题
+题目内容
+在写这一篇的时候，这题非常出名，因为16年秋首批爆出的video第三题都是这道。做出来的就能拿到video，
+价值108k+18k美刀至少，比摸金校尉三人合体都多，做不出来也能免费去西雅图来一圈儿，吃喝减半住宿全免，
+但群面通过率远低于video，所以为了生存这道题必须跑出来。
+题目内容是这样的，给十几个城市供电，连接不同城市的花费不同，让花费最小同时连到所有的边。给出一系列connection类，
+里面是edge两端的城市名和它们之间的一个cost，找出要你挑一些边，把所有城市连接起来并且总花费最小。
+不能有环，最后所以城市要连成一个连通块。
 
+不能的话输出空表，最后还要按城市名字排序输出，按照node1来排序,如果一样的话再排node2。
+
+输入:
+
+{"Acity","Bcity",1}
+
+("Acity","Ccity",2}
+
+("Bcity","Ccity",3}
+
+输出：
+
+("Acity","Bcity",1}
+
+("Acity","Ccity",2}
+
+补充一句，test case一共有6个。
+
+解决思路
+思路会有很多，我的想法是Kruskal+Union Find，将输入的一群connection类（其实就是边）按照cost从小到大排序(Kruskal算法)，然后遍历。挑出一个connection之后，看一下edge两头的城市属于哪一个团伙(Union Find)。如果落单了就加入，不同团伙就合并，都是落单了就抱团。
+
+最后有两个要求，1.如果MST不存在，那么输出一个空表（应该不是null）。这个可以用union find思想，最后查有几个union，如果大家都是自己人，那么就正常输出，如果大家是1，有零星2了，那就空表了。2.输出要按照城市的名字排序，这个不难，就正常排序就行。
+ */
 public class MinimumSpanningTree {
     static class Connection {
         String node1;
