@@ -3,30 +3,18 @@ package HRQuestion.baidu2;
 import java.util.*;
 
 public class MinimumSpanningTree {
-    static class Connection {
-        String node1;
-        String node2;
-        int cost;
-
-        public Connection(String a, String b, int c) {
-            node1 = a;
-            node2 = b;
-            cost = c;
-        }
-    }
-
-    static class DisjointSet {
+    static class DisSet {
         Set<String> set;
         Map<String, String> map;
         int count;
 
-        public DisjointSet() {
+        public DisSet() {
             count = 0;
             set = new HashSet<>();
             map = new HashMap<>();
         }
 
-        public void MakeSet(String s) {
+        public void MakeMySet(String s) {
             if (!set.contains(s)) {
                 count++;
                 set.add(s);
@@ -50,34 +38,47 @@ public class MinimumSpanningTree {
         }
     }
 
-    static class ConnectionComparator1 implements Comparator<Connection> {
-        @Override
-        public int compare(Connection a, Connection b) {
-            return a.cost - b.cost;
+    static class Edge {
+        String p1;
+        String p2;
+        int dist;
+
+        public Edge(String a, String b, int c) {
+            p1 = a;
+            p2 = b;
+            dist = c;
         }
     }
 
-    static class ConnectionComparator2 implements Comparator<Connection> {
+    static class EdgeC1 implements Comparator<Edge> {
         @Override
-        public int compare(Connection a, Connection b) {
-            if (a.node1.equals(b.node1)) return a.node2.compareTo(b.node2);
-            else return a.node1.compareTo(b.node1);
+        public int compare(Edge a, Edge b) {
+            return a.dist - b.dist;
         }
     }
 
-    public static List<Connection> getMST(List<Connection> connections) {
-        Comparator<Connection> comparator1 = new ConnectionComparator1();
-        Comparator<Connection> comparator2 = new ConnectionComparator2();
-        Collections.sort(connections, comparator1);
-        DisjointSet set = new DisjointSet();
-        List<Connection> res = new ArrayList<>();
-        for (Connection itr : connections) {
-            set.MakeSet(itr.node1);
-            set.MakeSet(itr.node2);
+    static class EdgeC2 implements Comparator<Edge> {
+        @Override
+        public int compare(Edge a, Edge b) {
+            if (a.p1.equals(b.p1)) return a.p2.compareTo(b.p2);
+            else return a.p1.compareTo(b.p1);
         }
-        for (Connection itr : connections) {
-            String s = set.Find(itr.node1);
-            String t = set.Find(itr.node2);
+    }
+
+
+    public static List<Edge> mst(List<Edge> connections) {
+        Comparator<Edge> c1 = new EdgeC1();
+        Comparator<Edge> c2 = new EdgeC2();
+        Collections.sort(connections, c1);
+        DisSet set = new DisSet();
+        List<Edge> res = new ArrayList<>();
+        for (Edge itr : connections) {
+            set.MakeMySet(itr.p1);
+            set.MakeMySet(itr.p2);
+        }
+        for (Edge itr : connections) {
+            String s = set.Find(itr.p1);
+            String t = set.Find(itr.p2);
             if (!s.equals(t)) {
                 set.Union(s, t);
                 res.add(itr);
@@ -85,28 +86,14 @@ public class MinimumSpanningTree {
             }
         }
         if (set.count == 1) {
-            Collections.sort(res, comparator2);
+            Collections.sort(res, c2);
             return res;
-        } else return new ArrayList<Connection>();
+        } else return new ArrayList<Edge>();
     }
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        ArrayList<Connection> connections = new ArrayList<>();
-//      connections.add(new Connection("Acity","Bcity",1));
-//      connections.add(new Connection("Acity","Ccity",2));
-//      connections.add(new Connection("Bcity","Ccity",3));
-        /*connections.add(new Connection("A", "B", 6));
-        connections.add(new Connection("B", "C", 4));
-        connections.add(new Connection("C", "D", 5));
-        connections.add(new Connection("D", "E", 8));
-        connections.add(new Connection("E", "F", 1));
-        connections.add(new Connection("B", "F", 10));
-        connections.add(new Connection("E", "C", 9));
-        connections.add(new Connection("F", "C", 7));
-        connections.add(new Connection("B", "E", 3));
-        connections.add(new Connection("A", "F", 1));*/
-
+        ArrayList<Edge> connections = new ArrayList<>();
         /*int m = 3;
         int n = 3;*/
         /*int[][] edges;*/
@@ -129,15 +116,12 @@ public class MinimumSpanningTree {
                 }
             }
             for (int[] e : edges) {
-                connections.add(new Connection(String.valueOf(e[0]), String.valueOf(e[1]), e[2]));
+                connections.add(new Edge(String.valueOf(e[0]), String.valueOf(e[1]), e[2]));
             }
-            List<Connection> res = getMST(connections);
-        /*for (Connection c : res) {
-            System.out.println(c.node1 + " -> " + c.node2 + " cost : " + c.cost);
-        }*/
+            List<Edge> res = mst(connections);
             int sum = 0;
-            for (Connection c : res) {
-                sum += c.cost;
+            for (Edge c : res) {
+                sum += c.dist;
             }
             System.out.println(sum);
         }
