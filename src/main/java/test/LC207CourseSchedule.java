@@ -42,8 +42,8 @@ public class LC207CourseSchedule {
     }
 
     private boolean dfs(int[][] adjacency, int[] flags, int i) {
-        if (flags[i] == 1) return false;
-        if (flags[i] == -1) return true;
+        if (flags[i] == 1) return false; // on stack
+        if (flags[i] == -1) return true; // visited by previous dfs
         flags[i] = 1;
         for (int j = 0; j < adjacency.length; j++) {
             if (adjacency[i][j] == 1 && !dfs(adjacency, flags, j)) return false;
