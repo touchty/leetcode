@@ -1,3 +1,33 @@
+def tyy2(s,t):
+
+    sl = len(s)
+    tl = len(t)
+    if sl != tl:
+        return False
+
+    tar_d = {}
+    for i in range(0,sl):
+        v = t[i]
+        k = s[i]
+
+        if not tar_d.__contains__(s[i]):
+            if v in tar_d.values():
+                return False
+            tar_d[k] = v
+        else:
+            if v != tar_d.get(k):
+                return False
+    return True
+
+if __name__=="__main__":
+    tmp = input()
+    s = tmp.split(';')[0]
+    t = tmp.split(';')[1]
+    print(tyy2(s,t))
+
+
+
+
 #include <stdio.h>
  
 void calPalin(int iNum);
