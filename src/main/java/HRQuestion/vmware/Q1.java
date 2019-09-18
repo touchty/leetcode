@@ -12,16 +12,9 @@ public class Q1 {
     public static long kP(int n, int iNum) {
         if (n == 1)
             return iNum - 1;
-        int Halfdist, myHalf, myDegree, myd, res;
+        int Halfdist, myHalf, myDegree, res;
         int i;
-
-        myd = 9;
-        for (myDegree = 1; myDegree < n; myDegree++) {
-            if (myDegree % 2 == 0) {
-                myd *= 10;
-            }
-        }
-
+        myDegree = n;
         Halfdist = (myDegree + 1) / 2;
 
         myHalf = 1;
