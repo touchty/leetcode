@@ -1,3 +1,74 @@
+#include <stdio.h>
+ 
+void calPalin(int iNum);
+ 
+int main()
+{
+	int iNum;
+ 
+	while (scanf("%d",&iNum)!=EOF)
+	{
+		if (iNum<=0)   
+		{
+			printf("Error Input!\n\n");
+		}
+		else
+		{
+			calPalin(iNum);
+		}
+	}
+ 
+	return 0;
+}
+ 
+void calPalin(int iNum)
+{
+	int iHalfLen,iHalf,iDegree,iDigit,iResult; //iHalfLen是回文数对称左边有几位，如12521左边是3位数  
+	//iHalf是回文数对称的左边一半，如12521中的125；iDegree表示几位数；
+	//iDigit表示某一几位数有多少回文数，如3位数有90个； iResult是结果
+	int i;
+ 
+	iDigit=9;   //赋初值为9
+ 
+	for (iDegree=1;;iDegree++)
+	{
+		if (iNum-iDigit<=0)  //该处=0时一定要退出！！
+		{
+			break;
+		}
+ 
+		iNum-=iDigit;
+		if (iDegree%2==0)  //一位数和二位数中的回文数是一样多，三位数和四位数中也一样。。。
+		{
+			iDigit*=10;
+		}				
+	}
+ 
+	iHalfLen=(iDegree+1)/2;   //算某一回文数左边的位数，如12521左边有3位
+ 
+	iHalf=1;        //我觉得精华之所在
+	for (i=2;i<=iHalfLen;i++)
+	{
+		iHalf*=10;         
+	}
+	iHalf+=iNum-1;
+ 
+	iResult=iHalf;
+	if (iDegree&1)  //如果是奇位数，那么右边比左边一半少一位
+	{
+		iHalf/=10;
+	}
+ 
+	while (iHalf)   //求最终结果
+	{
+		iResult=iResult*10+iHalf%10;
+		iHalf/=10;
+	}
+ 
+	printf("The result is :   %d\n\n",iResult);
+}
+
+
 # leetcode
 
 3. Longest Substring Without Repeating Characters
