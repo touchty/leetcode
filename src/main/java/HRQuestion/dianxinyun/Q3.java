@@ -2,7 +2,6 @@ package HRQuestion.dianxinyun;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Q3 {
     public static int maxSubArraySum(int a[]) {
@@ -32,7 +31,7 @@ public class Q3 {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         List<Integer> list = new ArrayList<>();
 
         String s = scanner.next();
@@ -44,9 +43,22 @@ public class Q3 {
         for (int i = 0; i < a.length; i++) {
             a[i] = list.get(i);
         }
-        System.out.println(maxSubArraySum(a));
+        System.out.println(maxSubArraySum(a));*/
 
+        List<Integer> list = new ArrayList<>();
 
+        String s = "[1, 2, -2, 3, 4]    ";
+        s = s.trim();
+        s = s.substring(1, s.length() - 1);
+        String[] strings = s.split(",");
+        for (String s1 : strings)
+            list.add(Integer.valueOf(s1.trim()));
+        int[] a = new int[list.size()];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = list.get(i);
+            System.out.println(a[i]);
+        }
+        System.out.println(Integer.valueOf("2"));
         /*String s = "[1,2,-2,3]";
         String[] strings = s.split(",|]|\\[");
         for (String s1: strings)
