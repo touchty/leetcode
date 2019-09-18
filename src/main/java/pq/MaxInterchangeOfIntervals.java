@@ -2,6 +2,7 @@ package pq;
 
 import java.util.*;
 
+// 最大区间相交个数
 public class MaxInterchangeOfIntervals {
     int maxInterchange(int[][] intervals) {
         return 0;
