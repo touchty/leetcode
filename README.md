@@ -1,3 +1,24 @@
+
+
+
+def findminsum(N):
+    lennn = len(N)
+    for i in range(1, lennn):
+        a = N[i] + N[i - 1]
+        b = N[i]
+        TMPSUM = max(a, b)
+        N[i] = TMPSUM
+    return max(N)
+
+if __name__=="__main__":
+    alist = []
+    input_num = input()
+    input_num1 = input_num[1:len(input_num)-1]
+    input_num2 = input_num1.split(',')
+    for i in input_num2:
+        alist.append(int(i))
+    print(findminsum(alist))
+
 def tyy2(s,t):
 
     sl = len(s)
