@@ -19,8 +19,8 @@ public class LC10RegularExpressionMatching {
                 else if (j > 0 && p.charAt(j) == '*') {
                     dp[i + 1][j + 1] |= dp[i + 1][j - 1]; // empty
                     if (p.charAt(j - 1) == s.charAt(i) || p.charAt(j - 1) == '.') {
-                        dp[i + 1][j + 1] |= dp[i][j - 1];
-                        dp[i + 1][j + 1] |= dp[i][j + 1];
+                        dp[i + 1][j + 1] |= dp[i][j - 1]; // single match
+                        dp[i + 1][j + 1] |= dp[i][j + 1]; // multiple match
                     }
                 }
             }
