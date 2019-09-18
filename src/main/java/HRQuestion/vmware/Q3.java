@@ -3,43 +3,37 @@ package HRQuestion.vmware;
 import java.util.Scanner;
 
 public class Q3 {
-    static int count(int a, int b, int k) {
-        int c = 0;
-        for (int i = a; i <= b; i++) {
-            if (i % k == 0) {
-                if (k - 1 < 2)
-                    c++;
+    static int vm3(int anum, int bnum, int knum) {
+        int counttt = 0;
+        for (int t = anum; t <= bnum; t++) {
+            if (t % knum == 0) {
+                if (knum - 1 < 2)
+                    counttt++;
                 else {
-                    boolean v = true;
-                    for (int j = 2; j <= k - 1; j++) {
-                        if (i % j == 0) {
-                            v = false;
+                    boolean tmp = true;
+                    for (int z = 2; z <= knum - 1; z++) {
+                        if (t % z == 0) {
+                            tmp = false;
                             break;
                         }
                     }
-                    if (v)
-                        c++;
+                    if (tmp)
+                        counttt++;
                 }
 
             }
         }
-        return c;
+        return counttt;
     }
 
     public static void main(String[] args) {
-        /*int a = 12;
-        int b = 23;
-        int k = 3;
-        int res = count(a, b, k);
-        System.out.println(res);*/
-
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextInt()) {
-            int a = scanner.nextInt();
-            int b = scanner.nextInt();
-            int k = scanner.nextInt();
-            int res = count(a, b, k);
-            System.out.println(res);
+        Scanner sss = new Scanner(System.in);
+        while (sss.hasNextInt()) {
+            int anum = sss.nextInt();
+            int bnum = sss.nextInt();
+            int knum = sss.nextInt();
+            int results = vm3(anum, bnum, knum);
+            System.out.println(results);
         }
     }
 }
