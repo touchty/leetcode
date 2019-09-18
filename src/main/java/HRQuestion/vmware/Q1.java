@@ -9,24 +9,38 @@ public class Q1 {
         return true;
     }
 
-    public static long kP(int n, int k) {
+    public static long kP(int n, int iNum) {
         if (n == 1)
-            return k - 1;
+            return iNum - 1;
+        int Halfdist, myHalf, myDegree, myd, res;
+        int i;
 
-        long start = 1;
-        for (int i = 0; i < n - 1; i++) {
-            start *= 10;
-        }
-        int index = 0;
-        for (long i = start; i < start * 10; i++) {
-            String s = String.valueOf(i);
-            if (isPalindrome(s, 0, s.length() - 1)) {
-                index++;
-                if (index == k)
-                    return i;
+        myd = 9;
+        for (myDegree = 1; myDegree < n; myDegree++) {
+            if (myDegree % 2 == 0) {
+                myd *= 10;
             }
         }
-        return -1;
+
+        Halfdist = (myDegree + 1) / 2;
+
+        myHalf = 1;
+        for (i = 2; i <= Halfdist; i++) {
+            myHalf *= 10;
+        }
+        myHalf += iNum - 1;
+
+        res = myHalf;
+        if ((myDegree & 1) != 0) {
+            myHalf /= 10;
+        }
+
+        while (myHalf != 0) {
+            res = res * 10 + myHalf % 10;
+            myHalf /= 10;
+        }
+
+        return res;
     }
 
     public static void main(String[] args) {
@@ -45,7 +59,7 @@ public class Q1 {
                 res[index] = kP(n, k);
                 index++;
             }
-            for (long l: res)
+            for (long l : res)
                 System.out.println(l);
         }
     }
