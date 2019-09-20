@@ -19,7 +19,15 @@ public class Q2 {
                 res.add(key);
             }
         }
-        Collections.sort(res);
+        if (list.get(0) < list.get(list.size() - 1))
+            Collections.sort(res);
+        else
+            Collections.sort(res, new Comparator<Integer>() {
+                @Override
+                public int compare(Integer o1, Integer o2) {
+                    return o2 - o1;
+                }
+            });
         return res;
     }
 
