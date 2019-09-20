@@ -37,7 +37,7 @@ public class Q3 {
                     if (k >= nums[i - 1]) {
                         dp[i][j][k] |= dp[i - 1][j - 1][k - nums[i - 1]];
                     }
-                    if ((j == (n + 1) / 2 || j == n / 2) && dp[i][k][k]) {
+                    if ((j == (n + 1) / 2 || j == n / 2) && dp[i][j][k]) {
                         max = Math.max(max, k);
                     }
                 }
@@ -63,14 +63,17 @@ public class Q3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
+        int[][] res = new int[N][2];
         for (int i = 0; i < N; i++) {
             int n = scanner.nextInt();
             int[] nums = new int[n];
             for (int j = 0; j < n; j++) {
                 nums[j] = scanner.nextInt();
             }
-            int[] res = foo(nums);
-            System.out.println(res[0] + " " + res[1]);
+            res[i] = foo(nums);
+        }
+        for (int[] t : res) {
+            System.out.println(t[0] + " " + t[1]);
         }
     }
 }
