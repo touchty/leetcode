@@ -1,4 +1,39 @@
+def TX1(l,count,alist):
 
+    alist_new = sorted(alist)
+    alist_cor = []
+    for i in range(len(alist_new)):
+        alist_cor.append(int(alist_new[i]))
+
+    alist_cor_s = sorted(alist_cor)
+
+    res = []
+    for i in range(len(alist_cor_s)):
+        if alist_cor_s[i] != 0:
+            res.append(alist_cor_s[i])
+            break
+
+    for i in range(l-1):
+        res.append(int(alist_cor_s[i+1])-int(alist_cor_s[i]))
+
+    res1 = []
+    for i in res:
+        if i != 0:
+            res1.append(i)
+
+    for i in range(count):
+        print(res1[i],end='\n')
+
+# 7 5
+# 5 8 10 3 6 10 8
+
+if __name__=="__main__":
+    tmp1 = input()
+    tmp2 = input()
+    l = int(tmp1.split(' ')[0])
+    count = int(tmp1.split(' ')[1])
+    alist = tmp2.split(' ')
+    TX1(l,count,alist)
 
 
 def findminsum(N):
