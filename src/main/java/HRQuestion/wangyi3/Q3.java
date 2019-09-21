@@ -2,6 +2,10 @@ package HRQuestion.wangyi3;
 
 import java.util.Scanner;
 
+/*
+完美序列
+连续子序列，满足当前元素大于等于前缀和
+ */
 public class Q3 {
     static void ADD(int[] res, int sum) {
         int result = 0;
