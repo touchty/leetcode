@@ -28,6 +28,31 @@ public class Name {
         }
     }*/
     static String name(String s) {
+        int pos = s.indexOf("<");
+        if (pos <= 1) {
+            return "";
+        }
+        String mySplit = "%22";
+        String nameStr = s.substring(0, pos);
+        if (nameStr.indexOf(mySplit) == 1) {
+            if (nameStr.charAt(nameStr.length() - 1) == '"') {
+                if (nameStr.lastIndexOf(mySplit) != nameStr.length() - 4)
+                    return nameStr.substring(1, nameStr.length() - 1);
+                return nameStr.substring(4, nameStr.length() - 4);
+            } else {
+                if (nameStr.lastIndexOf(mySplit) != nameStr.length() - 3)
+                    return nameStr.substring(1);
+                return nameStr.substring(4, nameStr.length() - 3);
+            }
+        } else {
+            if (nameStr.charAt(nameStr.length() - 1) == '"')
+                return nameStr.substring(1, nameStr.length() - 1);
+            else
+                return nameStr.substring(1);
+        }
+    }
+
+    static String nameTY(String s) {
         // "<sip......>"
         int index = s.indexOf("<");
         if (index <= 1) {
@@ -54,8 +79,6 @@ public class Name {
     }
 
     public static void main(String[] args) {
-        //String s = "\"%22Cisico%22\"<sip:123>";
-        //System.out.println(name(s));
         Scanner scanner = new Scanner(System.in);
         String s = scanner.next();
         System.out.println(name(s));
