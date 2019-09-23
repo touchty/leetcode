@@ -3,7 +3,7 @@ package HRQuestion.cisico;
 import java.util.Scanner;
 
 public class Name {
-    static String name(String s) {
+    /*static String name(String s) {
         // "<sip......>"
         int index = s.indexOf("<");
         if (index <= 1) {
@@ -15,6 +15,31 @@ public class Name {
             return "";
         if (prefix.indexOf("%22") != 1) {
             return prefix.substring(1, prefix.length() - 1);
+        } else {
+            if (prefix.charAt(prefix.length() - 1) == '"') {
+                if (prefix.lastIndexOf("%22") != prefix.length() - 4)
+                    return prefix.substring(1, prefix.length() - 1);
+                return prefix.substring(4, prefix.length() - 4);
+            } else {
+                if (prefix.lastIndexOf("%22") != prefix.length() - 3)
+                    return prefix.substring(1);
+                return prefix.substring(4, prefix.length() - 3);
+            }
+        }
+    }*/
+    static String name(String s) {
+        // "<sip......>"
+        int index = s.indexOf("<");
+        if (index <= 1) {
+            return "";
+        }
+
+        String prefix = s.substring(0, index);
+        if (prefix.indexOf("%22") != 1) {
+            if (prefix.charAt(prefix.length() - 1) == '"')
+                return prefix.substring(1, prefix.length() - 1);
+            else
+                return prefix.substring(1);
         } else {
             if (prefix.charAt(prefix.length() - 1) == '"') {
                 if (prefix.lastIndexOf("%22") != prefix.length() - 4)
