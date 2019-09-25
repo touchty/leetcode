@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main {
+   static int myEnd(int[] list, int p, int q) {
+        int key = list[q];
+        int max = 1;
+        int min = 0;
+        for (int i = p; i < q; i++) {
+            if (list[i] > key) max++;
+            else if (list[i] < key) min++;
+        }
+        return min - max;
+    }
+
+    static int[] getRes(int[] list, int count) {
+        int max = 0;
+        int nn = 0;
+        for (int i = 1; i < count; i++) {
+            nn += myEnd(list, 0, i);
+            max = Math.max(max, nn);
+        }
+        return new int[]{max, nn};
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        for (int i = 0; i < N; i++) {
+            int n = in.nextInt();
+            int[] arr = new int[n];
+            for (int j = 0; j < n; j++) {
+                arr[j] = in.nextInt();
+            }
+            int[] ps = getRes(arr, n);
+            System.out.println(ps[0] + " " + ps[1]);
+        }
+    }
+}
