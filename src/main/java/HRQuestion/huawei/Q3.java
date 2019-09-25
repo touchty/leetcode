@@ -55,24 +55,55 @@ public class Q3 {
         return new int[]{max, prev};
     }
 
+    static int getEnd(int[] arr, int ss, int ee) {
+        int key = arr[ee];
+        int max = 1;
+        int min = 0;
+        for (int i = ss; i < ee; i++) {
+            if (arr[i] > key) max++;
+            else if (arr[i] < key) min++;
+        }
+        return min - max;
+    }
+
+    static int[] getMMMM(int[] arr, int count) {
+        int total = 0;
+        int myMax = 0;
+        for (int i = 1; i < count; i++) {
+            total += getEnd(arr, 0, i);
+            myMax = Math.max(myMax, total);
+        }
+        return new int[]{myMax, total};
+    }
+
     public static void main(String[] args) {
-        int[] nums = {1, 3, 2};
+        /*int[] nums = {1, 3, 2};
         int[] res = resultOpt(nums);
-        System.out.println(res[0] + " " + res[1]);
+        System.out.println(res[0] + " " + res[1]);*/
 
         /*Scanner scanner = new Scanner(System.in);
-        int N = Integer.valueOf(scanner.nextLine());
+        int N = scanner.nextInt();
         for (int i = 0; i < N; i++) {
-            int n = Integer.valueOf(scanner.nextLine());
-            String nVals = scanner.nextLine();
-            String[] valstr = nVals.split(" ");
+            int n = scanner.nextInt();
             int[] nums = new int[n];
             for (int j = 0; j < n; j++) {
-                nums[j] = Integer.valueOf(valstr[j]);
+                nums[j] = scanner.nextInt();
             }
             int[] result = result(nums);
             System.out.println(result[0] + " " + result[1]);
         }*/
+
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        for (int i = 0; i < N; i++) {
+            int n = scanner.nextInt();
+            int[] nums = new int[n];
+            for (int j = 0; j < n; j++) {
+                nums[j] = scanner.nextInt();
+            }
+            int[] result = getMMMM(nums, n);
+            System.out.println(result[0] + " " + result[1]);
+        }
     }
 }
 
