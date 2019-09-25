@@ -1,6 +1,8 @@
 package HRQuestion.huawei;
 
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Q3 {
     static final int N = 100001;
@@ -30,14 +32,35 @@ public class Q3 {
         return new int[]{max, prev};
     }
 
-
+    static int[] resultOpt(int[] nums) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(nums[0], 1);
+        int prev = 0;
+        int max = Integer.MIN_VALUE;
+        int temp = prev;
+        for (int i = 1; i < nums.length; i++) {
+            int val = nums[i];
+            int less = 0;
+            Map<Integer, Integer> lmap = map.headMap(val);
+            for (int k : lmap.keySet()) {
+                less += lmap.get(k);
+            }
+            int more = i - less - map.getOrDefault(val, 0);
+            temp = prev + less - more;
+            max = Math.max(temp, max);
+            prev = temp;
+            int x = map.getOrDefault(val, 0);
+            map.put(val, x + 1);
+        }
+        return new int[]{max, prev};
+    }
 
     public static void main(String[] args) {
-        /*int[] nums = {2, 1, 3};
-        int[] res = result(nums);
-        System.out.println(res[0] + " " + res[1]);*/
+        int[] nums = {1, 3, 2};
+        int[] res = resultOpt(nums);
+        System.out.println(res[0] + " " + res[1]);
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         int N = Integer.valueOf(scanner.nextLine());
         for (int i = 0; i < N; i++) {
             int n = Integer.valueOf(scanner.nextLine());
@@ -49,7 +72,7 @@ public class Q3 {
             }
             int[] result = result(nums);
             System.out.println(result[0] + " " + result[1]);
-        }
+        }*/
     }
 }
 
