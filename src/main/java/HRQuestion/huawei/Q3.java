@@ -57,7 +57,7 @@ public class Q3 {
 
     static int getEnd(int[] arr, int ss, int ee) {
         int key = arr[ee];
-        int max = 1;
+        int max = 0;
         int min = 0;
         for (int i = ss; i < ee; i++) {
             if (arr[i] > key) max++;
