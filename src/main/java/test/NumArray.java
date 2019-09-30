@@ -1,5 +1,6 @@
 package test;
 
+// 树状数组
 public class NumArray {
     /**
      * Binary Indexed Trees (BIT or Fenwick tree):
@@ -42,6 +43,26 @@ public class NumArray {
      * way but using extra space is to store the original array.)
      */
 
+    /*
+    树状数组
+当想要查询一个SUM(n)(求a[n]的和），可以依据如下算法即可：
+step1:　令sum = 0，转第二步；
+step2:　假如n <= 0，算法结束，返回sum值，否则sum = sum + Cn，转第三步；
+step3: 令n = n – lowbit(n)，转第二步。
+可以看出，这个算法就是将这一个个区间的和全部加起来，为什么是效率是log(n)的呢？以下给出证明：
+n = n – lowbit(n)这一步实际上等价于将n的二进制的最后一个1减去。而n的二进制里最多有log(n)个1，所以查询效率是log(n)的。
+那么修改呢，修改一个节点，必须修改其所有祖先，最坏情况下为修改第一个元素，最多有log(n)的祖先。
+所以修改算法如下（给某个结点i加上x）：
+step1: 当i > n时，算法结束，否则转第二步；
+step2: Ci = Ci + x， i = i + lowbit(i)转第一步。
+i = i +lowbit(i)这个过程实际上也只是一个把末尾1补为0的过程。
+对于数组求和来说树状数组简直太快了!
+注：
+求lowbit(x)的建议公式：
+lowbit(x):=x and -x;
+或lowbit(x):=x and (x xor (x - 1));
+lowbit(x)即为2^k的值。
+     */
     int[] nums;
     int[] BIT;
     int n;
@@ -84,7 +105,13 @@ public class NumArray {
     }
 
     public static void main(String[] args) {
-
+        int[] nums = {1, 3, 5};
+        NumArray solution = new NumArray(nums);
+        int sum_0_2 = solution.sumRange(0, 2);
+        System.out.println(sum_0_2);
+        solution.update(0, nums[0] + 100);
+        sum_0_2 = solution.sumRange(0, 2);
+        System.out.println(sum_0_2);
     }
 }
 
