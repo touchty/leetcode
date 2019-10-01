@@ -1,5 +1,6 @@
 package test;
 
+// 线段树
 // Java Program to show segment tree operations like construction,
 // query and update
 class SegmentTree {
