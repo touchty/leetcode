@@ -1,6 +1,7 @@
 package test;
 
 // 线段树
+// https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
 // Java Program to show segment tree operations like construction,
 // query and update
 class SegmentTree {
