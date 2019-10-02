@@ -1,4 +1,4 @@
-package test;
+package segmentTree;
 
 // 线段树
 // https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
