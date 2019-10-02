@@ -23,6 +23,24 @@ class SegmentTree {
         constructSTUtil(arr, 0, n - 1, 0);
     }
 
+    // A recursive function that constructs Segment Tree for array[ss..se].
+    // si is index of current node in segment tree st
+    int constructSTUtil(int arr[], int ss, int se, int si) {
+        // If there is one element in array, store it in current node of
+        // segment tree and return
+        if (ss == se) {
+            st[si] = arr[ss];
+            return arr[ss];
+        }
+
+        // If there are more than one elements, then recur for left and
+        // right subtrees and store the sum of values in this node
+        int mid = getMid(ss, se);
+        st[si] = constructSTUtil(arr, ss, mid, si * 2 + 1) +
+                constructSTUtil(arr, mid + 1, se, si * 2 + 2);
+        return st[si];
+    }
+
     // A utility function to get the middle index from corner indexes.
     int getMid(int s, int e) {
         return s + (e - s) / 2;
@@ -105,23 +123,6 @@ class SegmentTree {
         return getSumUtil(0, n - 1, qs, qe, 0);
     }
 
-    // A recursive function that constructs Segment Tree for array[ss..se].
-    // si is index of current node in segment tree st
-    int constructSTUtil(int arr[], int ss, int se, int si) {
-        // If there is one element in array, store it in current node of
-        // segment tree and return
-        if (ss == se) {
-            st[si] = arr[ss];
-            return arr[ss];
-        }
-
-        // If there are more than one elements, then recur for left and
-        // right subtrees and store the sum of values in this node
-        int mid = getMid(ss, se);
-        st[si] = constructSTUtil(arr, ss, mid, si * 2 + 1) +
-                constructSTUtil(arr, mid + 1, se, si * 2 + 2);
-        return st[si];
-    }
 
     // Driver program to test above functions
     public static void main(String args[]) {
