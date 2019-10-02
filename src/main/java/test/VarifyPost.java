@@ -2,7 +2,7 @@ package test;
 
 public class VarifyPost {
     public static boolean VerifySquenceOfBST(int[] sequence) {
-        if(sequence.length == 0) return false;
+        if (sequence == null || sequence.length == 0) return false;
         return isV(sequence, 0, sequence.length - 1);
     }
 
