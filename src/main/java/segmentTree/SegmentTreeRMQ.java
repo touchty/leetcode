@@ -97,8 +97,8 @@ class SegmentTreeRMQ {
         // Build segment tree from given array
         tree.constructST(arr, n);
 
-        int qs = 1;  // Starting index of query range
-        int qe = 5;  // Ending index of query range
+        int qs = 0;  // Starting index of query range
+        int qe = n - 1;  // Ending index of query range
 
         // Print minimum value in arr[qs..qe]
         System.out.println("Minimum of values in range [" + qs + ", "
