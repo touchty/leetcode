@@ -68,18 +68,18 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
     /**
      * The root node.
      */
-    private Node root;
+    public Node root;
 
     /**
      * This class represents an inner node of the AVL tree.
      */
-    private class Node {
-        private final Key key;   // the key
-        private Value val;       // the associated value
-        private int height;      // height of the subtree
-        private int size;        // number of nodes in subtree
-        private Node left;       // left subtree
-        private Node right;      // right subtree
+    public class Node {
+        public final Key key;   // the key
+        public Value val;       // the associated value
+        public int height;      // height of the subtree
+        public int size;        // number of nodes in subtree
+        public Node left;       // left subtree
+        public Node right;      // right subtree
 
         public Node(Key key, Value val, int height, int size) {
             this.key = key;
@@ -119,7 +119,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the number of nodes in the subtree
      */
-    private int size(Node x) {
+    public int size(Node x) {
         if (x == null) return 0;
         return x.size;
     }
@@ -141,7 +141,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the height of the subtree.
      */
-    private int height(Node x) {
+    public int height(Node x) {
         if (x == null) return -1;
         return x.height;
     }
@@ -171,7 +171,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @return value associated with the given key in the subtree or
      * {@code null} if no such key
      */
-    private Node get(Node x, Key key) {
+    public Node get(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return get(x.left, key);
@@ -222,7 +222,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param val the value
      * @return the subtree
      */
-    private Node put(Node x, Key key, Value val) {
+    public Node put(Node x, Key key, Value val) {
         if (x == null) return new Node(key, val, 0, 1);
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
@@ -244,7 +244,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the subtree with restored AVL property
      */
-    private Node balance(Node x) {
+    public Node balance(Node x) {
         if (balanceFactor(x) < -1) {
             if (balanceFactor(x.right) > 0) {
                 x.right = rotateRight(x.right);
@@ -269,7 +269,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the balance factor of the subtree
      */
-    private int balanceFactor(Node x) {
+    public int balanceFactor(Node x) {
         return height(x.left) - height(x.right);
     }
 
@@ -279,7 +279,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the right rotated subtree
      */
-    private Node rotateRight(Node x) {
+    public Node rotateRight(Node x) {
         Node y = x.left;
         x.left = y.right;
         y.right = x;
@@ -296,7 +296,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the left rotated subtree
      */
-    private Node rotateLeft(Node x) {
+    public Node rotateLeft(Node x) {
         Node y = x.right;
         x.right = y.left;
         y.left = x;
@@ -329,7 +329,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param key the key
      * @return the updated subtree
      */
-    private Node delete(Node x, Key key) {
+    public Node delete(Node x, Key key) {
         int cmp = key.compareTo(x.key);
         if (cmp < 0) {
             x.left = delete(x.left, key);
@@ -369,7 +369,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the updated subtree
      */
-    private Node deleteMin(Node x) {
+    public Node deleteMin(Node x) {
         if (x.left == null) return x.right;
         x.left = deleteMin(x.left);
         x.size = 1 + size(x.left) + size(x.right);
@@ -394,7 +394,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the updated subtree
      */
-    private Node deleteMax(Node x) {
+    public Node deleteMax(Node x) {
         if (x.right == null) return x.left;
         x.right = deleteMax(x.right);
         x.size = 1 + size(x.left) + size(x.right);
@@ -419,7 +419,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the node with the smallest key in the subtree
      */
-    private Node min(Node x) {
+    public Node min(Node x) {
         if (x.left == null) return x;
         return min(x.left);
     }
@@ -441,7 +441,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return the node with the largest key in the subtree
      */
-    private Node max(Node x) {
+    public Node max(Node x) {
         if (x.right == null) return x;
         return max(x.right);
     }
@@ -473,7 +473,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @return the node in the subtree with the largest key less than or equal
      * to the given key
      */
-    private Node floor(Node x, Key key) {
+    public Node floor(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -510,7 +510,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @return the node in the subtree with the smallest key greater than or
      * equal to the given key
      */
-    private Node ceiling(Node x, Key key) {
+    public Node ceiling(Node x, Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp == 0) return x;
@@ -541,7 +541,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param k the kth smallest key in the subtree
      * @return the node with key the kth smallest key in the subtree
      */
-    private Node select(Node x, int k) {
+    public Node select(Node x, int k) {
         if (x == null) return null;
         int t = size(x.left);
         if (t > k) return select(x.left, k);
@@ -570,7 +570,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x   the subtree
      * @return the number of keys in the subtree less than key
      */
-    private int rank(Key key, Node x) {
+    public int rank(Key key, Node x) {
         if (x == null) return 0;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return rank(key, x.left);
@@ -604,7 +604,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x     the subtree
      * @param queue the queue
      */
-    private void keysInOrder(Node x, Queue<Key> queue) {
+    public void keysInOrder(Node x, Queue<Key> queue) {
         if (x == null) return;
         keysInOrder(x.left, queue);
         queue.offer(x.key);
@@ -662,7 +662,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param lo    the lowest key
      * @param hi    the highest key
      */
-    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+    public void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
         if (x == null) return;
         int cmplo = lo.compareTo(x.key);
         int cmphi = hi.compareTo(x.key);
@@ -694,7 +694,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if the AVL tree invariants are fine
      */
-    private boolean check() {
+    public boolean check() {
         if (!isBST()) System.out.println("Symmetric order not consistent");
         if (!isAVL()) System.out.println("AVL property not consistent");
         if (!isSizeConsistent()) System.out.println("Subtree counts not consistent");
@@ -707,7 +707,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if AVL property is consistent.
      */
-    private boolean isAVL() {
+    public boolean isAVL() {
         return isAVL(root);
     }
 
@@ -717,7 +717,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param x the subtree
      * @return {@code true} if AVL property is consistent in the subtree
      */
-    private boolean isAVL(Node x) {
+    public boolean isAVL(Node x) {
         if (x == null) return true;
         int bf = balanceFactor(x);
         if (bf > 1 || bf < -1) return false;
@@ -729,7 +729,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if the symmetric order is consistent
      */
-    private boolean isBST() {
+    public boolean isBST() {
         return isBST(root, null, null);
     }
 
@@ -743,7 +743,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      * @param max the maximum key in subtree
      * @return {@code true} if if the symmetric order is consistent
      */
-    private boolean isBST(Node x, Key min, Key max) {
+    public boolean isBST(Node x, Key min, Key max) {
         if (x == null) return true;
         if (min != null && x.key.compareTo(min) <= 0) return false;
         if (max != null && x.key.compareTo(max) >= 0) return false;
@@ -755,7 +755,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if size is consistent
      */
-    private boolean isSizeConsistent() {
+    public boolean isSizeConsistent() {
         return isSizeConsistent(root);
     }
 
@@ -764,7 +764,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if the size of the subtree is consistent
      */
-    private boolean isSizeConsistent(Node x) {
+    public boolean isSizeConsistent(Node x) {
         if (x == null) return true;
         if (x.size != size(x.left) + size(x.right) + 1) return false;
         return isSizeConsistent(x.left) && isSizeConsistent(x.right);
@@ -775,7 +775,7 @@ public class AVLTreeST<Key extends Comparable<Key>, Value> {
      *
      * @return {@code true} if rank is consistent
      */
-    private boolean isRankConsistent() {
+    public boolean isRankConsistent() {
         for (int i = 0; i < size(); i++)
             if (i != rank(select(i))) return false;
         for (Key key : keys())
