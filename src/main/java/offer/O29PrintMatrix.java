@@ -3,7 +3,7 @@ package offer;
 import java.util.ArrayList;
 
 public class O29PrintMatrix {
-    public ArrayList<Integer> printMatrix(int[][] matrix) {
+    public static ArrayList<Integer> printMatrix(int[][] matrix) {
         ArrayList<Integer> ret = new ArrayList<>();
         int r1 = 0, r2 = matrix.length - 1, c1 = 0, c2 = matrix[0].length - 1;
         while (r1 <= r2 && c1 <= c2) {
@@ -27,5 +27,11 @@ public class O29PrintMatrix {
             c2--;
         }
         return ret;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {{1}, {2}, {3}, {4}, {5}};
+        ArrayList<Integer> list = O29PrintMatrix.printMatrix(matrix);
+        System.out.println(list);
     }
 }
