@@ -148,13 +148,14 @@ public class KMP {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String pat = args[0];
-        String txt = args[1];
+        String pat = "rab";
+        String txt = "abacadabrabracabracadabrabrabracad";
         char[] pattern = pat.toCharArray();
         char[] text = txt.toCharArray();
 
         KMP kmp1 = new KMP(pat);
         int offset1 = kmp1.search(txt);
+        System.out.println(offset1);
 
         KMP kmp2 = new KMP(pattern, 256);
         int offset2 = kmp2.search(text);
