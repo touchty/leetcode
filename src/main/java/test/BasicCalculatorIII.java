@@ -30,7 +30,7 @@ public class BasicCalculatorIII {
                         num.push(y / x);
                     }
                 }
-                cal.pop();
+                cal.pop(); // delete '('
             } else if (n.charAt(i) == '(') {
                 cal.push('(');
             } else if (n.charAt(i) == '+' || n.charAt(i) == '-') {
@@ -90,7 +90,7 @@ public class BasicCalculatorIII {
     }
 
     public static void main(String[] args) {
-        String s = "10+2+3*15";
+        String s = "10+(2+3)*15";
         BasicCalculatorIII solution = new BasicCalculatorIII();
         int res = solution.eval(s);
         System.out.println(res);
