@@ -1,3 +1,28 @@
+public class Main {  
+public static void main(String[] args) {  
+    String str = "";    
+    Scanner input = new Scanner(System.in);  
+    str = input.next();  
+  
+    StringBuffer sb = new StringBuffer(str);  
+    sb.reverse();
+  
+    int count = 0;  
+    for (int i = 0; i < str.length(); i++) {  
+        if (str.charAt(i) == sb.charAt(i)) {  
+            count++;  
+        }  
+    }  
+    if (count == str.length()) {     
+        System.out.println("Yes");  
+    } else {  
+        System.out.println("No");  
+    }  
+}  
+
+=====================================================================================================
+
+
 def findminsum(N):
     lennn = len(N)
     for i in range(1, lennn):
