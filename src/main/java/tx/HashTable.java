@@ -74,6 +74,7 @@ public class HashTable {
         System.out.println(myHashTable.containsKey(1));
         System.out.println(myHashTable.containsKey(17));
         System.out.println(myHashTable.containsKey(2));
+        System.out.println(myHashTable.containsKey(18));
         System.out.println(myHashTable.containsKey(3));
         System.out.println(myHashTable.containsKey(4));
 
