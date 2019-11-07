@@ -1,4 +1,4 @@
-package tx;
+package HRQuestion.tx;
 
 import java.util.ArrayList;
 import java.util.HashMap;
